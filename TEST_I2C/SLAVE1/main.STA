@@ -1,0 +1,51 @@
+
+ROM used:   192/8192 (2%)
+            192/8192 (2%) including unused fragments
+
+            0.2 Average locations per line
+            9.1 Average locations per statement
+
+RAM used:   16/368 (4%) at main() level
+            21/368 (6%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   67    21 100  main.c
+  707     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+----- -----
+  774    21 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     22  11    1             @delay_ms1
+ Inline         1             @I2C_WRITE_129
+0     57  30    3    270  3.7  rcv_i2c
+0     64  33    1    141  2.6  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              21
+    Comments                144
+    Volume (V)              499
+    Difficulty (D)          5.8
+    Effort to implement (E) 2913
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   5
+    Maintainability (MI)    131
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00030    45  0  
+00031-007FF   143  1856  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

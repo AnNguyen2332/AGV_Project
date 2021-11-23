@@ -1,0 +1,5115 @@
+CCS PCM C Compiler, Version 5.101, 43599               20-Nov-21 16:34
+
+               Filename:   C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Slave 1_XSB2\main.lst
+
+               ROM used:   2623 words (32%)
+                           Largest free fragment is 2048
+               RAM used:   104 (28%) at main() level
+                           127 (35%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  08
+0001:  MOVWF  0A
+0002:  GOTO   000
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BSF    03.6
+0016:  MOVF   0D,W
+0017:  BCF    03.6
+0018:  MOVWF  27
+0019:  BSF    03.6
+001A:  MOVF   0F,W
+001B:  BCF    03.6
+001C:  MOVWF  28
+001D:  BSF    03.6
+001E:  MOVF   0C,W
+001F:  BCF    03.6
+0020:  MOVWF  29
+0021:  BSF    03.6
+0022:  MOVF   0E,W
+0023:  BCF    03.6
+0024:  MOVWF  2A
+0025:  BCF    03.7
+0026:  BCF    03.5
+0027:  MOVLW  8C
+0028:  MOVWF  04
+0029:  BTFSS  00.3
+002A:  GOTO   02D
+002B:  BTFSC  0C.3
+002C:  GOTO   04E
+002D:  MOVF   22,W
+002E:  MOVWF  04
+002F:  MOVF   23,W
+0030:  MOVWF  77
+0031:  MOVF   24,W
+0032:  MOVWF  78
+0033:  MOVF   25,W
+0034:  MOVWF  79
+0035:  MOVF   26,W
+0036:  MOVWF  7A
+0037:  MOVF   27,W
+0038:  BSF    03.6
+0039:  MOVWF  0D
+003A:  BCF    03.6
+003B:  MOVF   28,W
+003C:  BSF    03.6
+003D:  MOVWF  0F
+003E:  BCF    03.6
+003F:  MOVF   29,W
+0040:  BSF    03.6
+0041:  MOVWF  0C
+0042:  BCF    03.6
+0043:  MOVF   2A,W
+0044:  BSF    03.6
+0045:  MOVWF  0E
+0046:  BCF    03.6
+0047:  MOVF   20,W
+0048:  MOVWF  0A
+0049:  SWAPF  21,W
+004A:  MOVWF  03
+004B:  SWAPF  7F,F
+004C:  SWAPF  7F,W
+004D:  RETFIE
+004E:  BCF    0A.3
+004F:  BCF    0A.4
+0050:  GOTO   051
+.................... #include <16F877A.h>
+.................... //////////// Standard Header file for the PIC16F877A device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F877A
+*
+0060:  DATA 4B,34
+0061:  DATA EF,30
+0062:  DATA EE,33
+0063:  DATA A0,31
+0064:  DATA E1,31
+0065:  DATA 68,10
+0066:  DATA 3D,10
+0067:  DATA 25,33
+0068:  DATA 09,00
+0069:  DATA 89,04
+006A:  DATA 89,04
+006B:  DATA 89,04
+006C:  DATA 00,00
+006D:  MOVLW  8E
+006E:  MOVWF  77
+006F:  BSF    03.5
+0070:  MOVF   23,W
+0071:  MOVWF  78
+0072:  MOVF   22,W
+0073:  MOVWF  79
+0074:  CLRF   7A
+0075:  MOVF   78,F
+0076:  BTFSS  03.2
+0077:  GOTO   082
+0078:  MOVF   79,W
+0079:  MOVWF  78
+007A:  CLRF   79
+007B:  MOVLW  08
+007C:  SUBWF  77,F
+007D:  MOVF   78,F
+007E:  BTFSS  03.2
+007F:  GOTO   082
+0080:  CLRF   77
+0081:  GOTO   08A
+0082:  BCF    03.0
+0083:  BTFSC  78.7
+0084:  GOTO   089
+0085:  RLF    79,F
+0086:  RLF    78,F
+0087:  DECF   77,F
+0088:  GOTO   082
+0089:  BCF    78.7
+008A:  BCF    03.5
+008B:  RETURN
+008C:  BSF    03.5
+008D:  MOVF   25,W
+008E:  MOVWF  2C
+008F:  MOVF   29,W
+0090:  XORWF  2C,F
+0091:  BTFSS  2C.7
+0092:  GOTO   098
+0093:  BCF    03.2
+0094:  BCF    03.0
+0095:  BTFSC  25.7
+0096:  BSF    03.0
+0097:  GOTO   0CB
+0098:  MOVF   25,W
+0099:  MOVWF  2C
+009A:  MOVF   28,W
+009B:  MOVWF  2D
+009C:  MOVF   24,W
+009D:  SUBWF  2D,F
+009E:  BTFSC  03.2
+009F:  GOTO   0A6
+00A0:  BTFSS  2C.7
+00A1:  GOTO   0CB
+00A2:  MOVF   03,W
+00A3:  XORLW  01
+00A4:  MOVWF  03
+00A5:  GOTO   0CB
+00A6:  MOVF   29,W
+00A7:  MOVWF  2D
+00A8:  MOVF   25,W
+00A9:  SUBWF  2D,F
+00AA:  BTFSC  03.2
+00AB:  GOTO   0B2
+00AC:  BTFSS  2C.7
+00AD:  GOTO   0CB
+00AE:  MOVF   03,W
+00AF:  XORLW  01
+00B0:  MOVWF  03
+00B1:  GOTO   0CB
+00B2:  MOVF   2A,W
+00B3:  MOVWF  2D
+00B4:  MOVF   26,W
+00B5:  SUBWF  2D,F
+00B6:  BTFSC  03.2
+00B7:  GOTO   0BE
+00B8:  BTFSS  2C.7
+00B9:  GOTO   0CB
+00BA:  MOVF   03,W
+00BB:  XORLW  01
+00BC:  MOVWF  03
+00BD:  GOTO   0CB
+00BE:  MOVF   2B,W
+00BF:  MOVWF  2D
+00C0:  MOVF   27,W
+00C1:  SUBWF  2D,F
+00C2:  BTFSC  03.2
+00C3:  GOTO   0CA
+00C4:  BTFSS  2C.7
+00C5:  GOTO   0CB
+00C6:  MOVF   03,W
+00C7:  XORLW  01
+00C8:  MOVWF  03
+00C9:  GOTO   0CB
+00CA:  BCF    03.0
+00CB:  BCF    03.5
+00CC:  BSF    0A.3
+00CD:  BCF    0A.4
+00CE:  GOTO   114 (RETURN)
+00CF:  MOVLW  80
+00D0:  BTFSS  03.1
+00D1:  GOTO   0D5
+00D2:  BSF    03.5
+00D3:  XORWF  2D,F
+00D4:  BCF    03.5
+00D5:  BSF    03.5
+00D6:  CLRF   32
+00D7:  CLRF   33
+00D8:  MOVF   29,W
+00D9:  MOVWF  31
+00DA:  MOVF   2D,W
+00DB:  XORWF  31,F
+00DC:  MOVF   28,W
+00DD:  BTFSC  03.2
+00DE:  GOTO   1C3
+00DF:  MOVWF  30
+00E0:  MOVWF  77
+00E1:  MOVF   2C,W
+00E2:  BTFSC  03.2
+00E3:  GOTO   1CC
+00E4:  SUBWF  30,F
+00E5:  BTFSC  03.2
+00E6:  GOTO   168
+00E7:  BTFSS  03.0
+00E8:  GOTO   126
+00E9:  MOVF   2D,W
+00EA:  MOVWF  36
+00EB:  BSF    36.7
+00EC:  MOVF   2E,W
+00ED:  MOVWF  35
+00EE:  MOVF   2F,W
+00EF:  MOVWF  34
+00F0:  CLRF   33
+00F1:  BCF    03.0
+00F2:  RRF    36,F
+00F3:  RRF    35,F
+00F4:  RRF    34,F
+00F5:  RRF    33,F
+00F6:  DECFSZ 30,F
+00F7:  GOTO   0F0
+00F8:  BTFSS  31.7
+00F9:  GOTO   0FD
+00FA:  BSF    32.0
+00FB:  GOTO   1E0
+00FC:  BCF    32.0
+00FD:  BCF    30.0
+00FE:  BSF    32.4
+00FF:  MOVLW  AB
+0100:  MOVWF  04
+0101:  BCF    03.7
+0102:  GOTO   1F5
+0103:  BCF    32.4
+0104:  BTFSC  31.7
+0105:  GOTO   110
+0106:  BTFSS  30.0
+0107:  GOTO   11B
+0108:  RRF    36,F
+0109:  RRF    35,F
+010A:  RRF    34,F
+010B:  RRF    33,F
+010C:  INCF   77,F
+010D:  BTFSC  03.2
+010E:  GOTO   1DB
+010F:  GOTO   11B
+0110:  BTFSC  36.7
+0111:  GOTO   11E
+0112:  BCF    03.0
+0113:  RLF    33,F
+0114:  RLF    34,F
+0115:  RLF    35,F
+0116:  RLF    36,F
+0117:  DECF   77,F
+0118:  BTFSC  03.2
+0119:  GOTO   1DB
+011A:  GOTO   110
+011B:  BSF    32.6
+011C:  GOTO   188
+011D:  BCF    32.6
+011E:  MOVF   29,W
+011F:  MOVWF  31
+0120:  BTFSS  31.7
+0121:  GOTO   124
+0122:  BSF    36.7
+0123:  GOTO   1D4
+0124:  BCF    36.7
+0125:  GOTO   1D4
+0126:  MOVF   2C,W
+0127:  MOVWF  30
+0128:  MOVWF  77
+0129:  MOVF   28,W
+012A:  SUBWF  30,F
+012B:  MOVF   29,W
+012C:  MOVWF  36
+012D:  BSF    36.7
+012E:  MOVF   2A,W
+012F:  MOVWF  35
+0130:  MOVF   2B,W
+0131:  MOVWF  34
+0132:  CLRF   33
+0133:  BCF    03.0
+0134:  RRF    36,F
+0135:  RRF    35,F
+0136:  RRF    34,F
+0137:  RRF    33,F
+0138:  DECFSZ 30,F
+0139:  GOTO   132
+013A:  BTFSS  31.7
+013B:  GOTO   13F
+013C:  BSF    32.1
+013D:  GOTO   1E0
+013E:  BCF    32.1
+013F:  BCF    30.0
+0140:  BSF    32.5
+0141:  MOVLW  AF
+0142:  MOVWF  04
+0143:  BCF    03.7
+0144:  GOTO   1F5
+0145:  BCF    32.5
+0146:  BTFSC  31.7
+0147:  GOTO   152
+0148:  BTFSS  30.0
+0149:  GOTO   15D
+014A:  RRF    36,F
+014B:  RRF    35,F
+014C:  RRF    34,F
+014D:  RRF    33,F
+014E:  INCF   77,F
+014F:  BTFSC  03.2
+0150:  GOTO   1DB
+0151:  GOTO   15D
+0152:  BTFSC  36.7
+0153:  GOTO   160
+0154:  BCF    03.0
+0155:  RLF    33,F
+0156:  RLF    34,F
+0157:  RLF    35,F
+0158:  RLF    36,F
+0159:  DECF   77,F
+015A:  BTFSC  03.2
+015B:  GOTO   1DB
+015C:  GOTO   152
+015D:  BSF    32.7
+015E:  GOTO   188
+015F:  BCF    32.7
+0160:  MOVF   2D,W
+0161:  MOVWF  31
+0162:  BTFSS  31.7
+0163:  GOTO   166
+0164:  BSF    36.7
+0165:  GOTO   1D4
+0166:  BCF    36.7
+0167:  GOTO   1D4
+0168:  MOVF   2D,W
+0169:  MOVWF  36
+016A:  BSF    36.7
+016B:  MOVF   2E,W
+016C:  MOVWF  35
+016D:  MOVF   2F,W
+016E:  MOVWF  34
+016F:  BTFSS  31.7
+0170:  GOTO   175
+0171:  BCF    36.7
+0172:  BSF    32.2
+0173:  GOTO   1E0
+0174:  BCF    32.2
+0175:  CLRF   33
+0176:  BCF    30.0
+0177:  MOVLW  AB
+0178:  MOVWF  04
+0179:  BCF    03.7
+017A:  GOTO   1F5
+017B:  BTFSC  31.7
+017C:  GOTO   19E
+017D:  MOVF   29,W
+017E:  MOVWF  31
+017F:  BTFSS  30.0
+0180:  GOTO   188
+0181:  RRF    36,F
+0182:  RRF    35,F
+0183:  RRF    34,F
+0184:  RRF    33,F
+0185:  INCF   77,F
+0186:  BTFSC  03.2
+0187:  GOTO   1DB
+0188:  BTFSS  33.7
+0189:  GOTO   199
+018A:  INCF   34,F
+018B:  BTFSS  03.2
+018C:  GOTO   199
+018D:  INCF   35,F
+018E:  BTFSS  03.2
+018F:  GOTO   199
+0190:  INCF   36,F
+0191:  BTFSS  03.2
+0192:  GOTO   199
+0193:  RRF    36,F
+0194:  RRF    35,F
+0195:  RRF    34,F
+0196:  INCF   77,F
+0197:  BTFSC  03.2
+0198:  GOTO   1DB
+0199:  BTFSC  32.6
+019A:  GOTO   11D
+019B:  BTFSC  32.7
+019C:  GOTO   15F
+019D:  GOTO   1BD
+019E:  MOVLW  80
+019F:  XORWF  36,F
+01A0:  BTFSS  36.7
+01A1:  GOTO   1A6
+01A2:  GOTO   1E0
+01A3:  MOVF   2D,W
+01A4:  MOVWF  31
+01A5:  GOTO   1B3
+01A6:  MOVF   29,W
+01A7:  MOVWF  31
+01A8:  MOVF   36,F
+01A9:  BTFSS  03.2
+01AA:  GOTO   1B3
+01AB:  MOVF   35,F
+01AC:  BTFSS  03.2
+01AD:  GOTO   1B3
+01AE:  MOVF   34,F
+01AF:  BTFSS  03.2
+01B0:  GOTO   1B3
+01B1:  CLRF   77
+01B2:  GOTO   1D4
+01B3:  BTFSC  36.7
+01B4:  GOTO   1BD
+01B5:  BCF    03.0
+01B6:  RLF    33,F
+01B7:  RLF    34,F
+01B8:  RLF    35,F
+01B9:  RLF    36,F
+01BA:  DECFSZ 77,F
+01BB:  GOTO   1B3
+01BC:  GOTO   1DB
+01BD:  BTFSS  31.7
+01BE:  GOTO   1C1
+01BF:  BSF    36.7
+01C0:  GOTO   1D4
+01C1:  BCF    36.7
+01C2:  GOTO   1D4
+01C3:  MOVF   2C,W
+01C4:  MOVWF  77
+01C5:  MOVF   2D,W
+01C6:  MOVWF  36
+01C7:  MOVF   2E,W
+01C8:  MOVWF  35
+01C9:  MOVF   2F,W
+01CA:  MOVWF  34
+01CB:  GOTO   1D4
+01CC:  MOVF   28,W
+01CD:  MOVWF  77
+01CE:  MOVF   29,W
+01CF:  MOVWF  36
+01D0:  MOVF   2A,W
+01D1:  MOVWF  35
+01D2:  MOVF   2B,W
+01D3:  MOVWF  34
+01D4:  MOVF   36,W
+01D5:  MOVWF  78
+01D6:  MOVF   35,W
+01D7:  MOVWF  79
+01D8:  MOVF   34,W
+01D9:  MOVWF  7A
+01DA:  GOTO   213
+01DB:  CLRF   77
+01DC:  CLRF   78
+01DD:  CLRF   79
+01DE:  CLRF   7A
+01DF:  GOTO   213
+01E0:  CLRF   33
+01E1:  COMF   34,F
+01E2:  COMF   35,F
+01E3:  COMF   36,F
+01E4:  COMF   33,F
+01E5:  INCF   33,F
+01E6:  BTFSS  03.2
+01E7:  GOTO   1EE
+01E8:  INCF   34,F
+01E9:  BTFSS  03.2
+01EA:  GOTO   1EE
+01EB:  INCF   35,F
+01EC:  BTFSC  03.2
+01ED:  INCF   36,F
+01EE:  BTFSC  32.0
+01EF:  GOTO   0FC
+01F0:  BTFSC  32.1
+01F1:  GOTO   13E
+01F2:  BTFSC  32.2
+01F3:  GOTO   174
+01F4:  GOTO   1A3
+01F5:  MOVF   00,W
+01F6:  ADDWF  34,F
+01F7:  BTFSS  03.0
+01F8:  GOTO   1FF
+01F9:  INCF   35,F
+01FA:  BTFSS  03.2
+01FB:  GOTO   1FF
+01FC:  INCF   36,F
+01FD:  BTFSC  03.2
+01FE:  BSF    30.0
+01FF:  DECF   04,F
+0200:  MOVF   00,W
+0201:  ADDWF  35,F
+0202:  BTFSS  03.0
+0203:  GOTO   207
+0204:  INCF   36,F
+0205:  BTFSC  03.2
+0206:  BSF    30.0
+0207:  DECF   04,F
+0208:  MOVF   00,W
+0209:  BTFSS  00.7
+020A:  XORLW  80
+020B:  ADDWF  36,F
+020C:  BTFSC  03.0
+020D:  BSF    30.0
+020E:  BTFSC  32.4
+020F:  GOTO   103
+0210:  BTFSC  32.5
+0211:  GOTO   145
+0212:  GOTO   17B
+0213:  BCF    03.5
+0214:  RETURN
+0215:  BSF    03.5
+0216:  MOVF   31,W
+0217:  BTFSC  03.2
+0218:  GOTO   286
+0219:  MOVWF  39
+021A:  MOVF   35,W
+021B:  BTFSC  03.2
+021C:  GOTO   286
+021D:  ADDWF  39,F
+021E:  BTFSC  03.0
+021F:  GOTO   227
+0220:  MOVLW  7F
+0221:  SUBWF  39,F
+0222:  BTFSS  03.0
+0223:  GOTO   286
+0224:  BTFSC  03.2
+0225:  GOTO   286
+0226:  GOTO   22B
+0227:  MOVLW  81
+0228:  ADDWF  39,F
+0229:  BTFSC  03.0
+022A:  GOTO   286
+022B:  MOVF   39,W
+022C:  MOVWF  77
+022D:  CLRF   78
+022E:  CLRF   79
+022F:  CLRF   7A
+0230:  MOVF   32,W
+0231:  MOVWF  3D
+0232:  BSF    3D.7
+0233:  MOVF   33,W
+0234:  MOVWF  3C
+0235:  MOVF   34,W
+0236:  MOVWF  3B
+0237:  MOVLW  18
+0238:  MOVWF  39
+0239:  CLRF   3A
+023A:  BTFSS  3B.0
+023B:  GOTO   254
+023C:  MOVF   38,W
+023D:  ADDWF  7A,F
+023E:  BTFSS  03.0
+023F:  GOTO   246
+0240:  INCF   79,F
+0241:  BTFSS  03.2
+0242:  GOTO   246
+0243:  INCF   78,F
+0244:  BTFSC  03.2
+0245:  BSF    3A.7
+0246:  MOVF   37,W
+0247:  ADDWF  79,F
+0248:  BTFSS  03.0
+0249:  GOTO   24D
+024A:  INCF   78,F
+024B:  BTFSC  03.2
+024C:  BSF    3A.7
+024D:  MOVF   36,W
+024E:  MOVWF  33
+024F:  BSF    33.7
+0250:  MOVF   33,W
+0251:  ADDWF  78,F
+0252:  BTFSC  03.0
+0253:  BSF    3A.7
+0254:  RLF    3A,F
+0255:  RRF    78,F
+0256:  RRF    79,F
+0257:  RRF    7A,F
+0258:  RRF    3D,F
+0259:  RRF    3C,F
+025A:  RRF    3B,F
+025B:  BCF    03.0
+025C:  DECFSZ 39,F
+025D:  GOTO   239
+025E:  MOVLW  01
+025F:  ADDWF  77,F
+0260:  BTFSC  03.0
+0261:  GOTO   286
+0262:  BTFSC  78.7
+0263:  GOTO   26B
+0264:  RLF    3D,F
+0265:  RLF    7A,F
+0266:  RLF    79,F
+0267:  RLF    78,F
+0268:  DECF   77,F
+0269:  BTFSC  03.2
+026A:  GOTO   286
+026B:  BTFSS  3D.7
+026C:  GOTO   27C
+026D:  INCF   7A,F
+026E:  BTFSS  03.2
+026F:  GOTO   27C
+0270:  INCF   79,F
+0271:  BTFSS  03.2
+0272:  GOTO   27C
+0273:  INCF   78,F
+0274:  BTFSS  03.2
+0275:  GOTO   27C
+0276:  RRF    78,F
+0277:  RRF    79,F
+0278:  RRF    7A,F
+0279:  INCF   77,F
+027A:  BTFSC  03.2
+027B:  GOTO   286
+027C:  MOVF   32,W
+027D:  MOVWF  3A
+027E:  MOVF   36,W
+027F:  XORWF  3A,F
+0280:  BTFSS  3A.7
+0281:  GOTO   284
+0282:  BSF    78.7
+0283:  GOTO   28A
+0284:  BCF    78.7
+0285:  GOTO   28A
+0286:  CLRF   77
+0287:  CLRF   78
+0288:  CLRF   79
+0289:  CLRF   7A
+028A:  BCF    03.5
+028B:  RETURN
+028C:  BSF    03.5
+028D:  MOVF   24,W
+028E:  BTFSC  03.2
+028F:  GOTO   352
+0290:  MOVWF  30
+0291:  MOVF   28,W
+0292:  BTFSC  03.2
+0293:  GOTO   352
+0294:  SUBWF  30,F
+0295:  BTFSS  03.0
+0296:  GOTO   29C
+0297:  MOVLW  7F
+0298:  ADDWF  30,F
+0299:  BTFSC  03.0
+029A:  GOTO   352
+029B:  GOTO   2A2
+029C:  MOVLW  81
+029D:  SUBWF  30,F
+029E:  BTFSS  03.0
+029F:  GOTO   352
+02A0:  BTFSC  03.2
+02A1:  GOTO   352
+02A2:  MOVF   30,W
+02A3:  MOVWF  77
+02A4:  CLRF   78
+02A5:  CLRF   79
+02A6:  CLRF   7A
+02A7:  CLRF   2F
+02A8:  MOVF   25,W
+02A9:  MOVWF  2E
+02AA:  BSF    2E.7
+02AB:  MOVF   26,W
+02AC:  MOVWF  2D
+02AD:  MOVF   27,W
+02AE:  MOVWF  2C
+02AF:  MOVLW  19
+02B0:  MOVWF  30
+02B1:  MOVF   2B,W
+02B2:  SUBWF  2C,F
+02B3:  BTFSC  03.0
+02B4:  GOTO   2C5
+02B5:  MOVLW  01
+02B6:  SUBWF  2D,F
+02B7:  BTFSC  03.0
+02B8:  GOTO   2C5
+02B9:  SUBWF  2E,F
+02BA:  BTFSC  03.0
+02BB:  GOTO   2C5
+02BC:  SUBWF  2F,F
+02BD:  BTFSC  03.0
+02BE:  GOTO   2C5
+02BF:  INCF   2F,F
+02C0:  INCF   2E,F
+02C1:  INCF   2D,F
+02C2:  MOVF   2B,W
+02C3:  ADDWF  2C,F
+02C4:  GOTO   2F7
+02C5:  MOVF   2A,W
+02C6:  SUBWF  2D,F
+02C7:  BTFSC  03.0
+02C8:  GOTO   2E0
+02C9:  MOVLW  01
+02CA:  SUBWF  2E,F
+02CB:  BTFSC  03.0
+02CC:  GOTO   2E0
+02CD:  SUBWF  2F,F
+02CE:  BTFSC  03.0
+02CF:  GOTO   2E0
+02D0:  INCF   2F,F
+02D1:  INCF   2E,F
+02D2:  MOVF   2A,W
+02D3:  ADDWF  2D,F
+02D4:  MOVF   2B,W
+02D5:  ADDWF  2C,F
+02D6:  BTFSS  03.0
+02D7:  GOTO   2F7
+02D8:  INCF   2D,F
+02D9:  BTFSS  03.2
+02DA:  GOTO   2F7
+02DB:  INCF   2E,F
+02DC:  BTFSS  03.2
+02DD:  GOTO   2F7
+02DE:  INCF   2F,F
+02DF:  GOTO   2F7
+02E0:  MOVF   29,W
+02E1:  IORLW  80
+02E2:  SUBWF  2E,F
+02E3:  BTFSC  03.0
+02E4:  GOTO   2F6
+02E5:  MOVLW  01
+02E6:  SUBWF  2F,F
+02E7:  BTFSC  03.0
+02E8:  GOTO   2F6
+02E9:  INCF   2F,F
+02EA:  MOVF   29,W
+02EB:  IORLW  80
+02EC:  ADDWF  2E,F
+02ED:  MOVF   2A,W
+02EE:  ADDWF  2D,F
+02EF:  BTFSS  03.0
+02F0:  GOTO   2D4
+02F1:  INCF   2E,F
+02F2:  BTFSS  03.2
+02F3:  GOTO   2D4
+02F4:  INCF   2F,F
+02F5:  GOTO   2D4
+02F6:  BSF    7A.0
+02F7:  DECFSZ 30,F
+02F8:  GOTO   2FA
+02F9:  GOTO   305
+02FA:  BCF    03.0
+02FB:  RLF    2C,F
+02FC:  RLF    2D,F
+02FD:  RLF    2E,F
+02FE:  RLF    2F,F
+02FF:  BCF    03.0
+0300:  RLF    7A,F
+0301:  RLF    79,F
+0302:  RLF    78,F
+0303:  RLF    31,F
+0304:  GOTO   2B1
+0305:  BTFSS  31.0
+0306:  GOTO   30D
+0307:  BCF    03.0
+0308:  RRF    78,F
+0309:  RRF    79,F
+030A:  RRF    7A,F
+030B:  RRF    31,F
+030C:  GOTO   310
+030D:  DECF   77,F
+030E:  BTFSC  03.2
+030F:  GOTO   352
+0310:  BTFSC  31.7
+0311:  GOTO   339
+0312:  BCF    03.0
+0313:  RLF    2C,F
+0314:  RLF    2D,F
+0315:  RLF    2E,F
+0316:  RLF    2F,F
+0317:  MOVF   2B,W
+0318:  SUBWF  2C,F
+0319:  BTFSC  03.0
+031A:  GOTO   325
+031B:  MOVLW  01
+031C:  SUBWF  2D,F
+031D:  BTFSC  03.0
+031E:  GOTO   325
+031F:  SUBWF  2E,F
+0320:  BTFSC  03.0
+0321:  GOTO   325
+0322:  SUBWF  2F,F
+0323:  BTFSS  03.0
+0324:  GOTO   348
+0325:  MOVF   2A,W
+0326:  SUBWF  2D,F
+0327:  BTFSC  03.0
+0328:  GOTO   330
+0329:  MOVLW  01
+032A:  SUBWF  2E,F
+032B:  BTFSC  03.0
+032C:  GOTO   330
+032D:  SUBWF  2F,F
+032E:  BTFSS  03.0
+032F:  GOTO   348
+0330:  MOVF   29,W
+0331:  IORLW  80
+0332:  SUBWF  2E,F
+0333:  BTFSC  03.0
+0334:  GOTO   339
+0335:  MOVLW  01
+0336:  SUBWF  2F,F
+0337:  BTFSS  03.0
+0338:  GOTO   348
+0339:  INCF   7A,F
+033A:  BTFSS  03.2
+033B:  GOTO   348
+033C:  INCF   79,F
+033D:  BTFSS  03.2
+033E:  GOTO   348
+033F:  INCF   78,F
+0340:  BTFSS  03.2
+0341:  GOTO   348
+0342:  INCF   77,F
+0343:  BTFSC  03.2
+0344:  GOTO   352
+0345:  RRF    78,F
+0346:  RRF    79,F
+0347:  RRF    7A,F
+0348:  MOVF   25,W
+0349:  MOVWF  30
+034A:  MOVF   29,W
+034B:  XORWF  30,F
+034C:  BTFSS  30.7
+034D:  GOTO   350
+034E:  BSF    78.7
+034F:  GOTO   356
+0350:  BCF    78.7
+0351:  GOTO   356
+0352:  CLRF   77
+0353:  CLRF   78
+0354:  CLRF   79
+0355:  CLRF   7A
+0356:  BCF    03.5
+0357:  BSF    0A.3
+0358:  BCF    0A.4
+0359:  GOTO   342 (RETURN)
+035A:  BSF    03.5
+035B:  MOVF   2B,W
+035C:  CLRF   78
+035D:  SUBWF  2A,W
+035E:  BTFSC  03.0
+035F:  GOTO   363
+0360:  MOVF   2A,W
+0361:  MOVWF  77
+0362:  GOTO   36F
+0363:  CLRF   77
+0364:  MOVLW  08
+0365:  MOVWF  2C
+0366:  RLF    2A,F
+0367:  RLF    77,F
+0368:  MOVF   2B,W
+0369:  SUBWF  77,W
+036A:  BTFSC  03.0
+036B:  MOVWF  77
+036C:  RLF    78,F
+036D:  DECFSZ 2C,F
+036E:  GOTO   366
+036F:  BCF    03.5
+0370:  RETURN
+0371:  MOVLW  20
+0372:  BSF    03.5
+0373:  BTFSS  25.4
+0374:  MOVLW  30
+0375:  MOVWF  26
+0376:  MOVF   24,W
+0377:  MOVWF  77
+0378:  BTFSS  24.7
+0379:  GOTO   382
+037A:  COMF   77,F
+037B:  INCF   77,F
+037C:  MOVF   77,W
+037D:  MOVWF  24
+037E:  MOVLW  2D
+037F:  MOVWF  26
+0380:  BSF    25.7
+0381:  BSF    25.0
+0382:  MOVF   24,W
+0383:  MOVWF  2A
+0384:  MOVLW  64
+0385:  MOVWF  2B
+0386:  BCF    03.5
+0387:  CALL   35A
+0388:  MOVF   77,W
+0389:  BSF    03.5
+038A:  MOVWF  24
+038B:  MOVLW  30
+038C:  ADDWF  78,W
+038D:  MOVWF  27
+038E:  MOVF   24,W
+038F:  MOVWF  2A
+0390:  MOVLW  0A
+0391:  MOVWF  2B
+0392:  BCF    03.5
+0393:  CALL   35A
+0394:  MOVLW  30
+0395:  ADDWF  77,W
+0396:  BSF    03.5
+0397:  MOVWF  29
+0398:  MOVLW  30
+0399:  ADDWF  78,W
+039A:  MOVWF  28
+039B:  MOVF   26,W
+039C:  MOVWF  77
+039D:  MOVLW  30
+039E:  SUBWF  27,W
+039F:  BTFSC  03.2
+03A0:  GOTO   3A5
+03A1:  BSF    25.1
+03A2:  BTFSC  25.7
+03A3:  BSF    25.2
+03A4:  GOTO   3B9
+03A5:  MOVF   26,W
+03A6:  MOVWF  27
+03A7:  MOVLW  20
+03A8:  MOVWF  26
+03A9:  MOVLW  30
+03AA:  SUBWF  28,W
+03AB:  BTFSC  03.2
+03AC:  GOTO   3B1
+03AD:  BSF    25.0
+03AE:  BTFSC  25.7
+03AF:  BSF    25.1
+03B0:  GOTO   3B9
+03B1:  BTFSS  03.2
+03B2:  BSF    25.0
+03B3:  BTFSS  03.2
+03B4:  GOTO   3B9
+03B5:  MOVF   27,W
+03B6:  MOVWF  28
+03B7:  MOVLW  20
+03B8:  MOVWF  27
+03B9:  BTFSC  25.2
+03BA:  GOTO   3C0
+03BB:  BTFSC  25.1
+03BC:  GOTO   3C6
+03BD:  BTFSC  25.0
+03BE:  GOTO   3CC
+03BF:  GOTO   3D2
+03C0:  MOVF   26,W
+03C1:  BCF    03.5
+03C2:  BTFSS  0C.4
+03C3:  GOTO   3C2
+03C4:  MOVWF  19
+03C5:  BSF    03.5
+03C6:  MOVF   27,W
+03C7:  BCF    03.5
+03C8:  BTFSS  0C.4
+03C9:  GOTO   3C8
+03CA:  MOVWF  19
+03CB:  BSF    03.5
+03CC:  MOVF   28,W
+03CD:  BCF    03.5
+03CE:  BTFSS  0C.4
+03CF:  GOTO   3CE
+03D0:  MOVWF  19
+03D1:  BSF    03.5
+03D2:  MOVF   29,W
+03D3:  BCF    03.5
+03D4:  BTFSS  0C.4
+03D5:  GOTO   3D4
+03D6:  MOVWF  19
+03D7:  BSF    0A.3
+03D8:  BCF    0A.4
+03D9:  GOTO   3AB (RETURN)
+03DA:  BTFSC  03.1
+03DB:  GOTO   3DF
+03DC:  MOVLW  B9
+03DD:  MOVWF  04
+03DE:  BCF    03.7
+03DF:  CLRF   77
+03E0:  CLRF   78
+03E1:  CLRF   79
+03E2:  CLRF   7A
+03E3:  BSF    03.5
+03E4:  CLRF   39
+03E5:  CLRF   3A
+03E6:  CLRF   3B
+03E7:  CLRF   3C
+03E8:  MOVF   38,W
+03E9:  IORWF  37,W
+03EA:  IORWF  36,W
+03EB:  IORWF  35,W
+03EC:  BTFSC  03.2
+03ED:  GOTO   41E
+03EE:  MOVLW  20
+03EF:  MOVWF  3D
+03F0:  BCF    03.0
+03F1:  RLF    31,F
+03F2:  RLF    32,F
+03F3:  RLF    33,F
+03F4:  RLF    34,F
+03F5:  RLF    39,F
+03F6:  RLF    3A,F
+03F7:  RLF    3B,F
+03F8:  RLF    3C,F
+03F9:  MOVF   38,W
+03FA:  SUBWF  3C,W
+03FB:  BTFSS  03.2
+03FC:  GOTO   407
+03FD:  MOVF   37,W
+03FE:  SUBWF  3B,W
+03FF:  BTFSS  03.2
+0400:  GOTO   407
+0401:  MOVF   36,W
+0402:  SUBWF  3A,W
+0403:  BTFSS  03.2
+0404:  GOTO   407
+0405:  MOVF   35,W
+0406:  SUBWF  39,W
+0407:  BTFSS  03.0
+0408:  GOTO   418
+0409:  MOVF   35,W
+040A:  SUBWF  39,F
+040B:  MOVF   36,W
+040C:  BTFSS  03.0
+040D:  INCFSZ 36,W
+040E:  SUBWF  3A,F
+040F:  MOVF   37,W
+0410:  BTFSS  03.0
+0411:  INCFSZ 37,W
+0412:  SUBWF  3B,F
+0413:  MOVF   38,W
+0414:  BTFSS  03.0
+0415:  INCFSZ 38,W
+0416:  SUBWF  3C,F
+0417:  BSF    03.0
+0418:  RLF    77,F
+0419:  RLF    78,F
+041A:  RLF    79,F
+041B:  RLF    7A,F
+041C:  DECFSZ 3D,F
+041D:  GOTO   3F0
+041E:  MOVF   39,W
+041F:  MOVWF  00
+0420:  INCF   04,F
+0421:  MOVF   3A,W
+0422:  MOVWF  00
+0423:  INCF   04,F
+0424:  MOVF   3B,W
+0425:  MOVWF  00
+0426:  INCF   04,F
+0427:  MOVF   3C,W
+0428:  MOVWF  00
+0429:  BCF    03.5
+042A:  RETURN
+042B:  MOVF   04,W
+042C:  BSF    03.5
+042D:  MOVWF  29
+042E:  MOVF   28,W
+042F:  MOVWF  2B
+0430:  BTFSC  03.2
+0431:  GOTO   44D
+0432:  MOVF   27,W
+0433:  MOVWF  34
+0434:  MOVF   26,W
+0435:  MOVWF  33
+0436:  MOVF   25,W
+0437:  MOVWF  32
+0438:  MOVF   24,W
+0439:  MOVWF  31
+043A:  CLRF   38
+043B:  CLRF   37
+043C:  MOVLW  20
+043D:  MOVWF  36
+043E:  MOVLW  82
+043F:  MOVWF  35
+0440:  BCF    03.5
+0441:  CALL   215
+0442:  MOVF   7A,W
+0443:  BSF    03.5
+0444:  MOVWF  27
+0445:  MOVF   79,W
+0446:  MOVWF  26
+0447:  MOVF   78,W
+0448:  MOVWF  25
+0449:  MOVF   77,W
+044A:  MOVWF  24
+044B:  DECFSZ 2B,F
+044C:  GOTO   432
+044D:  MOVF   27,W
+044E:  MOVWF  34
+044F:  MOVF   26,W
+0450:  MOVWF  33
+0451:  MOVF   25,W
+0452:  MOVWF  32
+0453:  MOVF   24,W
+0454:  MOVWF  31
+0455:  MOVF   31,W
+0456:  SUBLW  B6
+0457:  MOVWF  31
+0458:  CLRF   7A
+0459:  MOVF   32,W
+045A:  MOVWF  35
+045B:  BSF    32.7
+045C:  BCF    03.0
+045D:  RRF    32,F
+045E:  RRF    33,F
+045F:  RRF    34,F
+0460:  RRF    7A,F
+0461:  RRF    79,F
+0462:  RRF    78,F
+0463:  RRF    77,F
+0464:  DECFSZ 31,F
+0465:  GOTO   45C
+0466:  BTFSS  35.7
+0467:  GOTO   473
+0468:  COMF   77,F
+0469:  COMF   78,F
+046A:  COMF   79,F
+046B:  COMF   7A,F
+046C:  INCF   77,F
+046D:  BTFSC  03.2
+046E:  INCF   78,F
+046F:  BTFSC  03.2
+0470:  INCF   79,F
+0471:  BTFSC  03.2
+0472:  INCF   7A,F
+0473:  MOVF   7A,W
+0474:  MOVWF  27
+0475:  MOVF   79,W
+0476:  MOVWF  26
+0477:  MOVF   78,W
+0478:  MOVWF  25
+0479:  MOVF   77,W
+047A:  MOVWF  24
+047B:  BTFSS  27.7
+047C:  GOTO   48A
+047D:  DECF   29,F
+047E:  BSF    29.5
+047F:  COMF   24,F
+0480:  COMF   25,F
+0481:  COMF   26,F
+0482:  COMF   27,F
+0483:  INCF   24,F
+0484:  BTFSC  03.2
+0485:  INCF   25,F
+0486:  BTFSC  03.2
+0487:  INCF   26,F
+0488:  BTFSC  03.2
+0489:  INCF   27,F
+048A:  MOVLW  3B
+048B:  MOVWF  30
+048C:  MOVLW  9A
+048D:  MOVWF  2F
+048E:  MOVLW  CA
+048F:  MOVWF  2E
+0490:  CLRF   2D
+0491:  MOVLW  0A
+0492:  MOVWF  2B
+0493:  MOVF   28,W
+0494:  BTFSC  03.2
+0495:  INCF   29,F
+0496:  BSF    03.1
+0497:  MOVLW  A4
+0498:  MOVWF  04
+0499:  BCF    03.7
+049A:  MOVF   27,W
+049B:  MOVWF  34
+049C:  MOVF   26,W
+049D:  MOVWF  33
+049E:  MOVF   25,W
+049F:  MOVWF  32
+04A0:  MOVF   24,W
+04A1:  MOVWF  31
+04A2:  MOVF   30,W
+04A3:  MOVWF  38
+04A4:  MOVF   2F,W
+04A5:  MOVWF  37
+04A6:  MOVF   2E,W
+04A7:  MOVWF  36
+04A8:  MOVF   2D,W
+04A9:  MOVWF  35
+04AA:  BCF    03.5
+04AB:  CALL   3DA
+04AC:  MOVF   78,W
+04AD:  MOVF   77,F
+04AE:  BTFSS  03.2
+04AF:  GOTO   4C7
+04B0:  BSF    03.5
+04B1:  INCF   28,W
+04B2:  SUBWF  2B,W
+04B3:  BTFSS  03.2
+04B4:  GOTO   4B7
+04B5:  BCF    03.5
+04B6:  GOTO   4C7
+04B7:  MOVF   29,W
+04B8:  BTFSC  03.2
+04B9:  GOTO   4CA
+04BA:  ANDLW  0F
+04BB:  SUBWF  2B,W
+04BC:  BTFSC  03.2
+04BD:  GOTO   4C0
+04BE:  BTFSC  03.0
+04BF:  GOTO   506
+04C0:  BTFSC  29.7
+04C1:  GOTO   506
+04C2:  BTFSC  29.6
+04C3:  GOTO   4CA
+04C4:  MOVLW  20
+04C5:  GOTO   4FF
+04C6:  BCF    03.5
+04C7:  MOVLW  20
+04C8:  BSF    03.5
+04C9:  ANDWF  29,F
+04CA:  BTFSS  29.5
+04CB:  GOTO   4DB
+04CC:  BCF    29.5
+04CD:  MOVF   28,W
+04CE:  BTFSS  03.2
+04CF:  DECF   29,F
+04D0:  MOVF   77,W
+04D1:  MOVWF  29
+04D2:  MOVLW  2D
+04D3:  BCF    03.5
+04D4:  BTFSS  0C.4
+04D5:  GOTO   4D4
+04D6:  MOVWF  19
+04D7:  BSF    03.5
+04D8:  MOVF   29,W
+04D9:  MOVWF  77
+04DA:  CLRF   29
+04DB:  MOVF   28,W
+04DC:  SUBWF  2B,W
+04DD:  BTFSS  03.2
+04DE:  GOTO   4EC
+04DF:  MOVF   77,W
+04E0:  MOVWF  29
+04E1:  MOVLW  2E
+04E2:  BCF    03.5
+04E3:  BTFSS  0C.4
+04E4:  GOTO   4E3
+04E5:  MOVWF  19
+04E6:  BSF    03.5
+04E7:  MOVF   29,W
+04E8:  MOVWF  77
+04E9:  MOVLW  20
+04EA:  ANDWF  29,F
+04EB:  MOVLW  00
+04EC:  MOVLW  30
+04ED:  BTFSS  29.5
+04EE:  GOTO   4FF
+04EF:  BCF    29.5
+04F0:  MOVF   28,W
+04F1:  BTFSS  03.2
+04F2:  DECF   29,F
+04F3:  MOVF   77,W
+04F4:  MOVWF  29
+04F5:  MOVLW  2D
+04F6:  BCF    03.5
+04F7:  BTFSS  0C.4
+04F8:  GOTO   4F7
+04F9:  MOVWF  19
+04FA:  BSF    03.5
+04FB:  MOVF   29,W
+04FC:  MOVWF  77
+04FD:  CLRF   29
+04FE:  MOVLW  30
+04FF:  ADDWF  77,F
+0500:  MOVF   77,W
+0501:  BCF    03.5
+0502:  BTFSS  0C.4
+0503:  GOTO   502
+0504:  MOVWF  19
+0505:  BSF    03.5
+0506:  BCF    03.1
+0507:  MOVF   30,W
+0508:  MOVWF  34
+0509:  MOVF   2F,W
+050A:  MOVWF  33
+050B:  MOVF   2E,W
+050C:  MOVWF  32
+050D:  MOVF   2D,W
+050E:  MOVWF  31
+050F:  CLRF   38
+0510:  CLRF   37
+0511:  CLRF   36
+0512:  MOVLW  0A
+0513:  MOVWF  35
+0514:  BCF    03.5
+0515:  CALL   3DA
+0516:  MOVF   7A,W
+0517:  BSF    03.5
+0518:  MOVWF  30
+0519:  MOVF   79,W
+051A:  MOVWF  2F
+051B:  MOVF   78,W
+051C:  MOVWF  2E
+051D:  MOVF   77,W
+051E:  MOVWF  2D
+051F:  DECFSZ 2B,F
+0520:  GOTO   496
+0521:  BCF    03.5
+0522:  RETURN
+0523:  MOVF   0B,W
+0524:  BSF    03.5
+0525:  MOVWF  21
+0526:  BCF    03.5
+0527:  BCF    0B.7
+0528:  BSF    03.5
+0529:  BSF    03.6
+052A:  BSF    0C.7
+052B:  BSF    0C.0
+052C:  NOP
+052D:  NOP
+052E:  BCF    03.6
+052F:  BTFSS  21.7
+0530:  GOTO   534
+0531:  BCF    03.5
+0532:  BSF    0B.7
+0533:  BSF    03.5
+0534:  BTFSC  03.0
+0535:  GOTO   56E
+0536:  BCF    03.5
+0537:  BSF    03.6
+0538:  MOVF   0C,W
+0539:  ANDLW  7F
+053A:  BSF    03.5
+053B:  BCF    03.6
+053C:  MOVWF  21
+053D:  BCF    03.5
+053E:  BSF    03.6
+053F:  MOVF   0D,W
+0540:  BSF    03.5
+0541:  BCF    03.6
+0542:  MOVWF  22
+0543:  BCF    03.5
+0544:  BSF    03.6
+0545:  MOVF   0F,W
+0546:  BSF    03.5
+0547:  BCF    03.6
+0548:  MOVWF  23
+0549:  MOVF   21,W
+054A:  BCF    03.5
+054B:  BTFSS  0C.4
+054C:  GOTO   54B
+054D:  MOVWF  19
+054E:  BSF    03.5
+054F:  MOVF   22,W
+0550:  BCF    03.5
+0551:  BSF    03.6
+0552:  MOVWF  0D
+0553:  BSF    03.5
+0554:  BCF    03.6
+0555:  MOVF   23,W
+0556:  BCF    03.5
+0557:  BSF    03.6
+0558:  MOVWF  0F
+0559:  BCF    03.6
+055A:  MOVF   0B,W
+055B:  BSF    03.5
+055C:  MOVWF  24
+055D:  BCF    03.5
+055E:  BCF    0B.7
+055F:  BSF    03.5
+0560:  BSF    03.6
+0561:  BSF    0C.7
+0562:  BSF    0C.0
+0563:  NOP
+0564:  NOP
+0565:  BCF    03.6
+0566:  BTFSS  24.7
+0567:  GOTO   56B
+0568:  BCF    03.5
+0569:  BSF    0B.7
+056A:  BSF    03.5
+056B:  DECFSZ 20,F
+056C:  GOTO   56E
+056D:  GOTO   59D
+056E:  BCF    03.5
+056F:  BSF    03.6
+0570:  RLF    0C,W
+0571:  RLF    0E,W
+0572:  ANDLW  7F
+0573:  BSF    03.5
+0574:  BCF    03.6
+0575:  MOVWF  21
+0576:  BCF    03.5
+0577:  BSF    03.6
+0578:  MOVF   0D,W
+0579:  BSF    03.5
+057A:  BCF    03.6
+057B:  MOVWF  22
+057C:  BCF    03.5
+057D:  BSF    03.6
+057E:  MOVF   0F,W
+057F:  BSF    03.5
+0580:  BCF    03.6
+0581:  MOVWF  23
+0582:  MOVF   21,W
+0583:  BCF    03.5
+0584:  BTFSS  0C.4
+0585:  GOTO   584
+0586:  MOVWF  19
+0587:  BSF    03.5
+0588:  MOVF   22,W
+0589:  BCF    03.5
+058A:  BSF    03.6
+058B:  MOVWF  0D
+058C:  BSF    03.5
+058D:  BCF    03.6
+058E:  MOVF   23,W
+058F:  BCF    03.5
+0590:  BSF    03.6
+0591:  MOVWF  0F
+0592:  INCF   0D,F
+0593:  BTFSC  03.2
+0594:  INCF   0F,F
+0595:  BCF    03.0
+0596:  BSF    03.5
+0597:  BCF    03.6
+0598:  DECFSZ 20,F
+0599:  GOTO   59B
+059A:  GOTO   59D
+059B:  BCF    03.5
+059C:  GOTO   523
+059D:  BCF    03.5
+059E:  BSF    0A.3
+059F:  BCF    0A.4
+05A0:  GOTO   3DC (RETURN)
+05A1:  MOVF   0B,W
+05A2:  BSF    03.5
+05A3:  MOVWF  20
+05A4:  BCF    03.5
+05A5:  BCF    0B.7
+05A6:  BSF    03.5
+05A7:  BSF    03.6
+05A8:  BSF    0C.7
+05A9:  BSF    0C.0
+05AA:  NOP
+05AB:  NOP
+05AC:  BCF    03.6
+05AD:  BTFSS  20.7
+05AE:  GOTO   5B2
+05AF:  BCF    03.5
+05B0:  BSF    0B.7
+05B1:  BSF    03.5
+05B2:  BCF    03.5
+05B3:  BSF    03.6
+05B4:  MOVF   0C,W
+05B5:  ANDLW  7F
+05B6:  BTFSC  03.2
+05B7:  GOTO   615
+05B8:  BSF    03.5
+05B9:  BCF    03.6
+05BA:  MOVWF  20
+05BB:  BCF    03.5
+05BC:  BSF    03.6
+05BD:  MOVF   0D,W
+05BE:  BSF    03.5
+05BF:  BCF    03.6
+05C0:  MOVWF  21
+05C1:  BCF    03.5
+05C2:  BSF    03.6
+05C3:  MOVF   0F,W
+05C4:  BSF    03.5
+05C5:  BCF    03.6
+05C6:  MOVWF  22
+05C7:  MOVF   20,W
+05C8:  BCF    03.5
+05C9:  BTFSS  0C.4
+05CA:  GOTO   5C9
+05CB:  MOVWF  19
+05CC:  BSF    03.5
+05CD:  MOVF   21,W
+05CE:  BCF    03.5
+05CF:  BSF    03.6
+05D0:  MOVWF  0D
+05D1:  BSF    03.5
+05D2:  BCF    03.6
+05D3:  MOVF   22,W
+05D4:  BCF    03.5
+05D5:  BSF    03.6
+05D6:  MOVWF  0F
+05D7:  BCF    03.6
+05D8:  MOVF   0B,W
+05D9:  BSF    03.5
+05DA:  MOVWF  23
+05DB:  BCF    03.5
+05DC:  BCF    0B.7
+05DD:  BSF    03.5
+05DE:  BSF    03.6
+05DF:  BSF    0C.7
+05E0:  BSF    0C.0
+05E1:  NOP
+05E2:  NOP
+05E3:  BCF    03.6
+05E4:  BTFSS  23.7
+05E5:  GOTO   5E9
+05E6:  BCF    03.5
+05E7:  BSF    0B.7
+05E8:  BSF    03.5
+05E9:  BCF    03.5
+05EA:  BSF    03.6
+05EB:  RLF    0C,W
+05EC:  RLF    0E,W
+05ED:  ANDLW  7F
+05EE:  BTFSC  03.2
+05EF:  GOTO   615
+05F0:  BSF    03.5
+05F1:  BCF    03.6
+05F2:  MOVWF  20
+05F3:  BCF    03.5
+05F4:  BSF    03.6
+05F5:  MOVF   0D,W
+05F6:  BSF    03.5
+05F7:  BCF    03.6
+05F8:  MOVWF  21
+05F9:  BCF    03.5
+05FA:  BSF    03.6
+05FB:  MOVF   0F,W
+05FC:  BSF    03.5
+05FD:  BCF    03.6
+05FE:  MOVWF  22
+05FF:  MOVF   20,W
+0600:  BCF    03.5
+0601:  BTFSS  0C.4
+0602:  GOTO   601
+0603:  MOVWF  19
+0604:  BSF    03.5
+0605:  MOVF   21,W
+0606:  BCF    03.5
+0607:  BSF    03.6
+0608:  MOVWF  0D
+0609:  BSF    03.5
+060A:  BCF    03.6
+060B:  MOVF   22,W
+060C:  BCF    03.5
+060D:  BSF    03.6
+060E:  MOVWF  0F
+060F:  INCF   0D,F
+0610:  BTFSC  03.2
+0611:  INCF   0F,F
+0612:  BCF    03.6
+0613:  GOTO   5A1
+0614:  BSF    03.6
+0615:  BCF    03.6
+0616:  BSF    0A.3
+0617:  BCF    0A.4
+0618:  GOTO   400 (RETURN)
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #include <stdlib.h>
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2007 Custom Computer Services           ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... 
+.................... 
+.................... #ifndef _STDLIB
+.................... #define _STDLIB
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Definitions and types
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... #ifndef RAND_MAX
+.................... #define RAND_MAX  32767    // The value of which is the maximum value
+....................                            // ... returned by the rand function
+.................... #endif
+.................... 
+.................... 
+.................... #IF (sizeof(int16*)>1)
+.................... #DEFINE LONG_POINTERS 1
+.................... #ELSE 
+.................... #DEFINE LONG_POINTERS 0
+.................... #ENDIF
+.................... 
+.................... typedef struct {
+....................    signed int quot;
+....................    signed int rem;
+.................... } div_t;
+.................... 
+.................... typedef struct {
+....................    signed long quot;
+....................    signed long rem;
+.................... } ldiv_t;
+.................... 
+.................... #include <stddef.h>
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services           ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STDDEF
+.................... 
+.................... #define _STDDEF
+.................... 
+.................... #if sizeof(unsigned int8 *)==1
+.................... #define ptrdiff_t unsigned int8
+.................... #else
+.................... #define ptrdiff_t unsigned int16
+.................... #endif
+.................... 
+.................... #if defined(__PCB__) || defined(__PCM__)
+.................... #define size_t unsigned int8
+.................... #else
+.................... #define size_t unsigned int16
+.................... #endif
+.................... #define wchar_t unsigned char
+.................... #define NULL 0
+.................... 
+.................... #define offsetof(s,f) (offsetofbit(s,f)/8)
+.................... 
+.................... #endif
+.................... 
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // String conversion functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... /* Standard template: signed int  atoi(char * s)
+....................  * converts the initial portion of the string s to a signed int
+....................  * returns the converted value if any, 0 otherwise
+....................  */
+.................... signed int atoi(char *s);
+.................... 
+.................... /* Syntax: signed int32  atoi32(char * s)
+....................    converts the initial portion of the string s to a signed int32
+....................    returns the converted value if any, 0 otherwise*/
+.................... #if (sizeof(long)==4)
+....................  #define atoi32(s) atol(s)
+.................... #else 
+....................  signed int32 atoi32(char *s);
+.................... #endif
+.................... 
+.................... #if defined(__PCD__)
+.................... // The following functions only work on the 24 bit compiler
+.................... // for the 30F, 33F, 24F and 24H parts
+.................... /* Syntax: signed int48  atoi48(char * s)
+....................    converts the initial portion of the string s to a signed int48
+....................    returns the converted value if any, 0 otherwise*/
+....................    
+.................... signed int48 atoi48(char *s);
+.................... 
+.................... /* Syntax: signed int64  atoi64(char * s)
+....................    converts the initial portion of the string s to a signed int64
+....................    returns the converted value if any, 0 otherwise*/
+.................... signed int64 atoi64(char *s);
+.................... #endif
+.................... 
+.................... /* Syntax: char *  itoa(signed int32 num, int8 base, char * s)
+....................    converts the signed int32 to a string and
+....................    returns the converted value if any, 0 otherwise*/
+.................... char * itoa(signed int32 num, unsigned int base, char * s);
+.................... 
+.................... /* Standard template: signed int16  atol(char * s)
+....................  * converts the initial portion of the string s to a signed int16
+....................  * returns the converted value if any, 0 otherwise
+....................  */
+.................... signed long atol(char *s);
+.................... 
+.................... /* Standard template: int16 strtoul(char * s,char *endptr,signed int base)
+....................  * converts the initial portion of the string s, represented as an
+....................  * integral value of radix base  to a signed long.
+....................  * Returns the converted value if any, 0 otherwise
+....................  * the final string is returned in the endptr, if endptr is not null
+....................  */
+.................... signed long strtol(char *s,char *endptr, signed int base);
+.................... 
+.................... /* Standard template: int16 strtoul(char * s,char *endptr,signed int base)
+....................  * converts the initial portion of the string s, represented as an
+....................  * integral value of radix base to a unsigned long.
+....................  * returns the converted value if any, 0 otherwise
+....................  * the final string is returned in the endptr, if endptr is not null
+....................  */
+.................... unsigned long strtoul(char *s,char *endptr, signed int base);
+.................... 
+.................... /* Standart template: float strtof(char * s,char *endptr)
+....................                       float48 strtof48(char *s,char *endptr);
+....................                       float64 strtod(char *s,char *endptr);
+....................  * converts the initial portion of the string s to a float32, float48 or float64,
+....................  * returns the converted value if any, 0 otherwise
+....................  * the final string is returned in the endptr, if endptr is not null                   
+.................... */
+.................... float strtof(char *s,char **endptr);
+.................... #if defined(__PCD__)
+.................... float48 strtof48(char *s,char **endptr);
+.................... float64 strtod(char *s,char **endptr);
+.................... #else
+.................... //provided for compatibility
+.................... #define strtof48(s, e) strtof(s, e)
+.................... #define strtod(s, e) strtof(s, e)
+.................... #endif
+.................... 
+.................... /* Standard template: float32 atof(char * s)
+....................  * converts the initial portion of the string s to a float.
+....................  * returns the converted value if any, 0 otherwise
+....................  */
+.................... #define atof(s)   strtof(s, (char*)0)
+.................... 
+.................... #if defined(__PCD__)
+.................... // The following functions only work on the 24 bit compiler
+.................... // for the 30F, 33F, 24F and 24H parts
+.................... 
+.................... /* Standard template: float48 atof48(char * s)
+....................  * converts the initial portion of the string s to a float.
+....................  * returns the converted value if any, 0 otherwise
+....................  */
+.................... #define atof48(s) strtof48(s, 0)
+.................... 
+.................... /* Standard template: float64 atof64(char * s)
+....................  * converts the initial portion of the string s to a float.
+....................  * returns the converted value if any, 0 otherwise
+....................  */
+.................... #define atof64(s) strtod(s, 0)
+.................... #endif
+.................... 
+.................... /* Standard template: float32 atoe(char * s)
+....................  * converts the initial portion of the string s to a float.
+....................  * returns the converted value if any, 0 otherwise
+....................  * also handles E format numbers
+....................  */
+.................... #if !defined(__PCD__)
+.................... float atoe(char * s);
+.................... #endif
+.................... 
+.................... #if defined(__PCD__)
+.................... float32 atoe(char * s);
+.................... #endif
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Pseudo-random sequence generation functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... /* The rand function computes a sequence of pseudo-random integers in
+....................  * the range 0 to RAND_MAX
+....................  *
+....................  * Parameters:
+....................  *       (none)
+....................  *
+....................  * Returns:
+....................  *       The pseudo-random integer
+....................  */
+.................... unsigned int16 rand(void);
+.................... 
+.................... /* The srand function uses the argument as a seed for a new sequence of
+....................  * pseudo-random numbers to be returned by subsequent calls to rand.
+....................  *
+....................  * Parameters:
+....................  *       [in] seed: The seed value to start from. You might need to pass
+....................  *
+....................  * Returns:
+....................  *       (none)
+....................  *
+....................  * Remarks
+....................  *          The srand function sets the starting point for generating
+....................  *       a series of pseudorandom integers. To reinitialize the
+....................  *       generator, use 1 as the seed argument. Any other value for
+....................  *       seed sets the generator to a random starting point. rand
+....................  *       retrieves the pseudorandom numbers that are generated.
+....................  *       Calling rand before any call to srand generates the same
+....................  *       sequence as calling srand with seed passed as 1.
+....................  *          Usually, you need to pass a time here from outer source
+....................  *       so that the numbers will be different every time you run.
+....................  */
+.................... void srand(unsigned int32 seed);
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Memory management functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... // Comming soon
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Communication with the environment
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... /* The function returns 0 always
+....................  */
+.................... signed int8 system(char *string);
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Searching and sorting utilities
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... /* Performs a binary search of a sorted array..
+....................  *
+....................  * Parameters:
+....................  *       [in] key: Object to search for
+....................  *       [in] base: Pointer to base of search data
+....................  *       [in] num: Number of elements
+....................  *       [in] width: Width of elements
+....................  *       [in] compare: Function that compares two elements
+....................  *
+....................  * Returns:
+....................  *       bsearch returns a pointer to an occurrence of key in the array pointed
+....................  *       to by base. If key is not found, the function returns NULL. If the
+....................  *       array is not in order or contains duplicate records with identical keys,
+....................  *       the result is unpredictable.
+....................  */
+.................... //void *bsearch(const void *key, const void *base, size_t num, size_t width,
+.................... //              int (*compare)(const void *, const void *));
+.................... 
+.................... /* Performs the shell-metzner sort (not the quick sort algorithm). The contents
+....................  * of the array are sorted into ascending order according to a comparison
+....................  * function pointed to by compar.
+....................  *
+....................  * Parameters:
+....................  *       [in] base: Pointer to base of search data
+....................  *       [in] num: Number of elements
+....................  *       [in] width: Width of elements
+....................  *       [in] compare: Function that compares two elements
+....................  *
+....................  * Returns:
+....................  *       (none)
+....................  */
+.................... //void *qsort(const void *base, size_t num, size_t width,
+.................... //              int (*compare)(const void *, const void *));
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Integer arithmetic functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... #define labs abs
+.................... 
+.................... div_t div(signed int numer, signed int denom);
+.................... ldiv_t ldiv(signed long numer, signed long denom);
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Multibyte character functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... // Not supported
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Multibyte string functions
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... // Not supported
+.................... 
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Internal implementation
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... #include <stddef.h>
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services           ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STDDEF
+.................... 
+.................... #define _STDDEF
+.................... 
+.................... #if sizeof(unsigned int8 *)==1
+.................... #define ptrdiff_t unsigned int8
+.................... #else
+.................... #define ptrdiff_t unsigned int16
+.................... #endif
+.................... 
+.................... #if defined(__PCB__) || defined(__PCM__)
+.................... #define size_t unsigned int8
+.................... #else
+.................... #define size_t unsigned int16
+.................... #endif
+.................... #define wchar_t unsigned char
+.................... #define NULL 0
+.................... 
+.................... #define offsetof(s,f) (offsetofbit(s,f)/8)
+.................... 
+.................... #endif
+.................... 
+.................... #include <string.h>
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2008 Custom Computer Services            ////
+.................... //// This source code may only be used by licensed users of the CCS C   ////
+.................... //// compiler.  This source code may only be distributed to other       ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction  ////
+.................... //// or distribution is permitted without written permission.           ////
+.................... //// Derivative programs created using this software in object code     ////
+.................... //// form are not restricted in any way.                                ////
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STRING
+.................... #define _STRING
+.................... #include <stddef.h>
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services           ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STDDEF
+.................... 
+.................... #define _STDDEF
+.................... 
+.................... #if sizeof(unsigned int8 *)==1
+.................... #define ptrdiff_t unsigned int8
+.................... #else
+.................... #define ptrdiff_t unsigned int16
+.................... #endif
+.................... 
+.................... #if defined(__PCB__) || defined(__PCM__)
+.................... #define size_t unsigned int8
+.................... #else
+.................... #define size_t unsigned int16
+.................... #endif
+.................... #define wchar_t unsigned char
+.................... #define NULL 0
+.................... 
+.................... #define offsetof(s,f) (offsetofbit(s,f)/8)
+.................... 
+.................... #endif
+.................... 
+.................... #include <ctype.h>
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services            ////
+.................... //// This source code may only be used by licensed users of the CCS C   ////
+.................... //// compiler.  This source code may only be distributed to other       ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction  ////
+.................... //// or distribution is permitted without written permission.           ////
+.................... //// Derivative programs created using this software in object code     ////
+.................... //// form are not restricted in any way.                                ////
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _CTYPE
+.................... #define _CTYPE
+.................... 
+.................... #define islower(x)  isamong(x,"abcdefghijklmnopqrstuvwxyz")
+.................... #define isupper(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+.................... #define isalnum(x)  isamong(x,"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+.................... #define isalpha(x)  isamong(x,"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz")
+.................... #define isdigit(x)  isamong(x,"0123456789")
+.................... #define isspace(x)  ((x)==' ')
+.................... #define isxdigit(x) isamong(x,"0123456789ABCDEFabcdef")
+.................... #define iscntrl(x)  ((x)<' ')
+.................... #define isprint(x)  ((x)>=' ')
+.................... #define isgraph(x)  ((x)>' ')
+.................... #define ispunct(x)  (((x)>' ')&&!isalnum(x))
+.................... 
+.................... #endif
+.................... 
+.................... 
+.................... 
+.................... 
+.................... 
+.................... //////////////////////////////////////////////
+.................... //// Uncomment the following define to    ////
+.................... //// allow some functions to use a        ////
+.................... //// quicker algorithm, but use more ROM  ////
+.................... ////                                      ////
+.................... //// #define FASTER_BUT_MORE_ROM          ////
+.................... //////////////////////////////////////////////
+.................... 
+.................... 
+.................... 
+.................... /*Copying functions*/
+.................... /* standard template:
+....................    void *memmove(void *s1, void *s2, size_t n).
+....................    Copies max of n characters safely (not following ending '\0')
+....................    from s2 in s1; if s2 has less than n characters, appends 0 */
+.................... 
+.................... unsigned char *memmove(void *s1,void *s2,size_t n)
+.................... {
+....................    unsigned char *sc1;
+....................    unsigned char *sc2;
+....................    sc1=s1;
+....................    sc2=s2;
+....................    if(sc2<sc1 && sc1 <sc2 +n)
+....................       for(sc1+=n,sc2+=n;0<n;--n)
+....................          *--sc1=*--sc2;
+....................    else
+....................       for(;0<n;--n)
+....................          *sc1++=*sc2++;
+....................   return s1;
+....................   }
+.................... 
+.................... /* Standard template: char *strcpy(char *s1, const char *s2)
+....................    copies the string s2 including the null character to s1.
+....................    This is a compiler built in to handle the different address
+....................    spaces */
+.................... 
+.................... #define strcopy strcpy
+.................... 
+.................... /* standard template:
+....................    char *strncpy(char *s1, const char *s2, size_t n).
+....................    Copies max of n characters (not following ending '\0')
+....................    from s2 in s1; if s2 has less than n characters, appends 0 */
+.................... 
+.................... char *strncpy(char *s1, char *s2, size_t n)
+.................... {
+....................   char *s;
+.................... 
+....................   for (s = s1; n > 0 && *s2 != '\0'; n--)
+....................      *s++ = *s2++;
+....................   for (; n > 0; n--)
+....................      *s++ = '\0';
+.................... 
+....................   return(s1);
+.................... }
+.................... /***********************************************************/
+.................... 
+.................... /*concatenation functions*/
+.................... /* standard template: char *strcat(char *s1, const char *s2)
+.................... appends s2 to s1*/
+.................... 
+.................... char *strcat(char *s1, char *s2)
+.................... {
+....................    unsigned char *s;
+.................... 
+....................    for (s = s1; *s != '\0'; ++s);
+....................    while(*s2 != '\0')
+....................    {
+....................       *s = *s2;
+....................       ++s;
+....................       ++s2;
+....................    }
+.................... 
+....................    *s = '\0';
+....................    return(s1);
+.................... }
+.................... /* standard template: char *strncat(char *s1, char *s2,size_t n)
+.................... appends not more than n characters from s2 to s1*/
+.................... 
+.................... char *strncat(char *s1, char *s2, size_t n)
+.................... {
+....................    char *s;
+.................... 
+....................    for (s = s1; *s != '\0'; ++s);
+....................    while(*s2 != '\0' && 0<n)
+....................    {
+....................       *s = *s2;
+....................       ++s;
+....................       ++s2;
+....................       --n;
+....................    }
+.................... 
+....................    *s = '\0';
+....................    return(s1);
+.................... }
+.................... 
+.................... /***********************************************************/
+.................... 
+.................... 
+.................... /*comparison functions*/
+.................... /* standard template: signed int memcmp(void *s1, void *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int memcmp(void * s1,void *s2,size_t n)
+.................... {
+.................... unsigned char *su1, *su2;
+.................... for(su1=s1, su2=s2; 0<n; ++su1, ++su2, --n)
+.................... {
+....................    if(*su1!=*su2)
+....................       return ((*su1<*su2)?-1:1);
+.................... }
+.................... return 0;
+.................... }
+.................... 
+.................... /* standard template: int strcmp(const char *s1, const char *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int strcmp(char *s1, char *s2)
+.................... {
+....................    for (; *s1 == *s2; s1++, s2++)
+....................       if (*s1 == '\0')
+....................          return(0);
+....................    return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... /* standard template: int strcoll(const char *s1, const char *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int strcoll(char *s1, char *s2)
+.................... {
+....................    for (; *s1 == *s2; s1++, s2++)
+....................       if (*s1 == '\0')
+....................          return(0);
+....................    return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... 
+.................... /* standard template:
+....................    int strncmp(const char *s1, const char *s2, size_t n).
+....................    Compares max of n characters (not following 0) from s1 to s2;
+....................    returns same as strcmp */
+.................... 
+.................... signed int strncmp(char *s1, char *s2, size_t n)
+.................... {
+....................    for (; n > 0; s1++, s2++, n--)
+....................       if (*s1 != *s2)
+....................          return((*s1 <*s2) ? -1: 1);
+....................       else if (*s1 == '\0')
+....................          return(0);
+....................    return(0);
+.................... }
+.................... /* standard template:
+....................    int strxfrm(const char *s1, const char *s2, size_t n).
+....................    transforms maximum of n characters from s2 and places them into s1, returns number of chars written ot s1.
+....................    if s1 is NULL and n is 0, then it returns the length of s2.*/
+.................... size_t strxfrm(char *s1, char *s2, size_t n)
+.................... {
+....................    char c;
+....................    size_t n1;
+....................    
+....................    if (!s1 && !n)
+....................       n = -1; //find length
+.................... 
+....................    n1 = 0;
+....................    
+....................    for (; n1 < n; n1++)
+....................    {
+....................       c = *s2++;
+....................       if (!c)
+....................          break;
+....................       if (s1)
+....................          *s1++ = c;
+....................    }
+.................... 
+....................   return(n1);
+.................... }
+.................... 
+.................... 
+.................... 
+.................... 
+.................... 
+.................... /***********************************************************/
+.................... /*Search functions*/
+.................... /* standard template: void *memchr(const char *s, int c).
+....................    Finds first occurrence of c in n characters of s */
+.................... 
+.................... char *memchr(void *s,unsigned int8 c,size_t n)
+.................... {
+....................    char uc;
+....................    char *su;
+....................    uc=c;
+....................    for(su=s;0<n;++su,--n)
+....................       if(*su==uc)
+....................       return su;
+....................    return NULL;
+.................... }
+.................... 
+.................... /* standard template: char *strchr(const char *s, int c).
+....................    Finds first occurrence of c in s */
+.................... 
+.................... char *strchr(char *s, char c)
+.................... {
+....................    for (; *s != c; s++)
+....................       if (*s == '\0')
+....................          return(0);
+....................    return(s);
+.................... }
+.................... /* standard template:
+....................    size_t strcspn(const char *s1, const char *s2).
+....................    Computes length of max initial segment of s1 that
+....................    consists entirely of characters NOT from s2*/
+.................... 
+.................... size_t strcspn(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; *sc2 != 0; sc2++)
+....................          if (*sc1 == *sc2)
+....................             return(sc1 - s1);
+....................    return(sc1 - s1);
+.................... }
+.................... /* standard template:
+....................    char *strpbrk(const char *s1, const char *s2).
+....................    Locates first occurence of any character from s2 in s1;
+....................    returns s1 if s2 is empty string */
+.................... 
+.................... char *strpbrk(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; *sc2 != 0; sc2++)
+....................          if (*sc1 == *sc2)
+....................             return(sc1);
+....................    return(0);
+.................... }
+.................... 
+.................... 
+.................... /* standard template: char *strrchr(const char *s, int c).
+....................    Finds last occurrence of c in s */
+.................... 
+.................... char *strrchr(char *s, char c)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = 0; ; s++)
+....................    {
+....................       if (*s == c)
+....................          p = s;
+....................       if (*s == '\0')
+....................          return(p);
+....................    }
+.................... }
+.................... /* computes length of max initial segment of s1 consisting
+....................    entirely of characters from s2 */
+.................... 
+.................... size_t strspn(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; ; sc2++)
+....................     if (*sc2 == '\0')
+....................        return(sc1 - s1);
+....................          else if (*sc1 == *sc2)
+....................             break;
+....................    return(sc1 - s1);
+.................... }
+.................... /* standard template:
+....................    char *strstr(const char *s1, const char *s2);
+....................    Locates first occurence of character sequence s2 in s1;
+....................    returns 0 if s2 is empty string
+.................... 
+....................    Uncomment #define FASTER_BUT_MORE_ROM at the top of the
+....................    file to use the faster algorithm */
+.................... char *strstr(char *s1, char *s2)
+.................... {
+....................    char *s, *t;
+.................... 
+....................    #ifdef FASTER_BUT_MORE_ROM
+....................    if (*s2 == '\0')
+....................          return(s1);
+....................    #endif
+.................... 
+....................    while (*s1)
+....................    {
+....................       for(s = s1, t = s2; *t && (*s == *t); ++s, ++t);
+.................... 
+....................       if (*t == '\0')
+....................          return s1;
+....................       ++s1;
+....................       #ifdef FASTER_BUT_MORE_ROM
+....................          while(*s1 != '\0' && *s1 != *s2)
+....................             ++s1;
+....................       #endif
+....................    }
+....................    return 0;
+.................... }
+.................... 
+.................... /* standard template: size_t strlen(const char *s).
+....................    Computes length of s1 (preceding terminating 0) */
+.................... 
+.................... size_t strlen(char *s)
+.................... {
+....................    char *sc;
+.................... 
+....................    for (sc = s; *sc != 0; sc++);
+....................    return(sc - s);
+.................... }
+.................... 
+.................... /* standard template: char *strtok(char *s1, const char *s2).
+.................... 
+....................    Finds next token in s1 delimited by a character from separator
+....................    string s2 (which can be different from call to call).  First call
+....................    starts at beginning of s1 searching for first character NOT
+....................    contained in s2; returns 0 if none is found.
+....................    If one is found, it is the start of first token (return value).
+....................    Function then searches from there for a character contained in s2.
+....................    If none is found, current token extends to end of s1, and subsequent
+....................    searches for a token will return 0.  If one is found, it is
+....................    overwritten by '\0', which terminates current token.  Function saves
+....................    pointer to following character from which next search will start.
+....................    Each subsequent call, with 0 as first argument, starts searching
+....................    from saved pointer */
+.................... 
+.................... char *strtok(char *s1, char *s2)
+.................... {
+....................    char *beg, *end;
+....................    static char *save;
+*
+0818:  BCF    03.5
+0819:  CLRF   2B
+081A:  CLRF   2C
+.................... 
+....................    beg = (s1)? s1: save;
+....................    beg += strspn(beg, s2);
+....................    if (*beg == '\0')
+....................       return(0);
+....................       
+....................    end = strpbrk(beg, s2);
+....................    if (end != '\0')
+....................    {
+....................       *end = '\0';
+....................       end++;
+....................       save = end;
+....................    }
+....................    else
+....................       save = beg + strlen(beg);
+....................    
+....................    return(beg);
+.................... }
+.................... 
+.................... /*****************************************************************/
+.................... /*Miscellaneous functions*/
+.................... /* standard template
+.................... maps error number in errnum to an error message string
+.................... Returns: Pointer to string
+.................... */
+.................... #ifdef _ERRNO
+.................... char * strerror(unsigned int8 errnum)
+.................... {
+.................... static unsigned char s[13];
+.................... switch( errnum)
+.................... {
+.................... case 0:
+....................    strcpy(s,"no errors");
+....................    return s;
+.................... case EDOM :
+....................    strcpy(s,"domain error");
+....................    return s;
+.................... case ERANGE:
+....................    strcpy(s,"range error");
+....................    return s;
+.................... }
+.................... }
+.................... #ENDIF
+.................... 
+.................... /* standard template: size_t stricmp(const char *s1, const char *s2).
+....................    Compares s1 to s2 ignoring case (upper vs. lower) */
+.................... 
+.................... signed int stricmp(char *s1, char *s2)
+.................... {
+....................  for(; *s1==*s2||(isalpha(*s1)&&isalpha(*s2)&&((char)*s1==(char)*s2+(char)32||(char)*s2==(char)*s1+(char)32));
+....................     s1++, s2++)
+....................     if (*s1 == '\0')
+....................        return(0);
+....................  return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... 
+.................... 
+.................... /* standard template: char *strlwr(char *s).
+....................    Replaces uppercase letters by lowercase;
+....................    returns pointer to new string s */
+.................... 
+.................... char *strlwr(char *s)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = s; *p != '\0'; p++)
+....................       if (*p >= 'A' && *p <='Z')
+....................          *p += 'a' - 'A';
+....................    return(s);
+.................... }
+.................... 
+.................... /* standard template: char *strupr(char *s).
+....................    Replaces lowercase letters by upercase;
+....................    returns pointer to new string s */
+.................... 
+.................... char *strupr(char *s)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = s; *p != '\0'; p++)
+....................       if (*p >= 'a' && *p <='z')
+....................          *p -= 'a' - 'A';
+....................    return(s);
+.................... }
+.................... 
+.................... 
+.................... /************************************************************/
+.................... 
+.................... 
+.................... #endif
+.................... 
+.................... 
+.................... div_t div(signed int numer, signed int denom)
+.................... {
+....................    div_t val;
+....................    val.quot = numer / denom;
+....................    val.rem = numer - (denom * val.quot);
+....................    return (val);
+.................... }
+.................... 
+.................... ldiv_t ldiv(signed long numer, signed long denom)
+.................... {
+....................    ldiv_t val;
+.................... 
+....................    val.quot = numer / denom;
+....................    val.rem = numer - (denom * val.quot);
+....................    return (val);
+.................... }
+.................... 
+.................... #if defined(__PCD__)
+.................... float32 atoe(char * s)
+.................... {
+....................    float32 pow10 = 1.0;
+....................    float32 result = 0.0;
+....................    unsigned int8 sign = 0;
+....................    unsigned int8 expsign = 0;
+....................    char c;
+....................    unsigned int8 ptr = 0;
+....................    unsigned int8 i;
+....................    float32 exp = 1.0;
+....................    unsigned int8 expcnt = 0;
+.................... 
+....................    c = s[ptr++];
+.................... 
+....................    if ((c>='0' && c<='9') || c=='+' || c=='-' || c=='.' || c=='E' || c=='e') {
+....................       if(c == '-') {
+....................          sign = 1;
+....................          c = s[ptr++];
+....................       }
+....................       if(c == '+')
+....................          c = s[ptr++];
+.................... 
+....................       while((c >= '0' && c <= '9')) {
+....................          result = 10*result + c - '0';
+....................          c = s[ptr++];
+....................       }
+.................... 
+....................       if (c == '.') {
+....................          c = s[ptr++];
+....................          while((c >= '0' && c <= '9')) {
+....................              pow10 = pow10*10;
+....................              result += (c - '0')/pow10;
+....................              c = s[ptr++];
+....................          }
+....................       }
+.................... 
+....................       // Handling the exponent
+....................       if (c=='e' || c=='E') {
+....................          c = s[ptr++];
+.................... 
+....................          if(c == '-') {
+....................             expsign = 1;
+....................             c = s[ptr++];
+....................          }
+....................          if(c == '+')
+....................             c = s[ptr++];
+.................... 
+....................          while((c >= '0' && c <= '9')) {
+....................             expcnt = 10*expcnt + c - '0';
+....................             c = s[ptr++];
+....................          }
+.................... 
+....................          for(i=0;i<expcnt;i++)
+....................             exp*=10;
+.................... 
+....................          if(expsign==1)
+....................             result/=exp;
+....................          else
+....................             result*=exp;
+....................       }
+....................    }
+.................... 
+....................    if (sign == 1)
+....................       result = -1*result;
+....................    return(result);
+.................... }
+.................... #endif
+.................... 
+.................... #if !defined(__PCD__)
+.................... float atoe(char * s)
+.................... {
+....................    float pow10 = 1.0;
+....................    float result = 0.0;
+....................    unsigned int8 sign = 0;
+....................    unsigned int8 expsign = 0;
+....................    char c;
+....................    unsigned int8 ptr = 0;
+....................    unsigned int8 i;
+....................    float exp = 1.0;
+....................    unsigned int8 expcnt = 0;
+.................... 
+....................    c = s[ptr++];
+.................... 
+....................    if ((c>='0' && c<='9') || c=='+' || c=='-' || c=='.' || c=='E' || c=='e') {
+....................       if(c == '-') {
+....................          sign = 1;
+....................          c = s[ptr++];
+....................       }
+....................       if(c == '+')
+....................          c = s[ptr++];
+.................... 
+....................       while((c >= '0' && c <= '9')) {
+....................          result = 10*result + c - '0';
+....................          c = s[ptr++];
+....................       }
+.................... 
+....................       if (c == '.') {
+....................          c = s[ptr++];
+....................          while((c >= '0' && c <= '9')) {
+....................              pow10 = pow10*10;
+....................              result += (c - '0')/pow10;
+....................              c = s[ptr++];
+....................          }
+....................       }
+.................... 
+....................       // Handling the exponent
+....................       if (c=='e' || c=='E') {
+....................          c = s[ptr++];
+.................... 
+....................          if(c == '-') {
+....................             expsign = 1;
+....................             c = s[ptr++];
+....................          }
+....................          if(c == '+')
+....................             c = s[ptr++];
+.................... 
+....................          while((c >= '0' && c <= '9')) {
+....................             expcnt = 10*expcnt + c - '0';
+....................             c = s[ptr++];
+....................          }
+.................... 
+....................          for(i=0;i<expcnt;i++)
+....................             exp*=10;
+.................... 
+....................          if(expsign==1)
+....................             result/=exp;
+....................          else
+....................             result*=exp;
+....................       }
+....................    }
+.................... 
+....................    if (sign == 1)
+....................       result = -1*result;
+....................    return(result);
+.................... }
+.................... #endif
+.................... 
+.................... signed int atoi(char *s)
+.................... {
+....................    signed int result;
+....................    unsigned int sign, base, index;
+....................    char c;
+.................... 
+....................    index = 0;
+....................    sign = 0;
+....................    base = 10;
+....................    result = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+....................    // Omit all preceeding alpha characters
+....................    c = s[index++];
+.................... 
+....................    // increase index if either positive or negative sign is detected
+....................    if (c == '-')
+....................    {
+....................       sign = 1;         // Set the sign to negative
+....................       c = s[index++];
+....................    }
+....................    else if (c == '+')
+....................    {
+....................       c = s[index++];
+....................    }
+.................... 
+....................    if (c >= '0' && c <= '9')
+....................    {
+.................... 
+....................       // Check for hexa number
+....................       if (c == '0' && (s[index] == 'x' || s[index] == 'X'))
+....................       {
+....................          base = 16;
+....................          index++;
+....................          c = s[index++];
+....................       }
+.................... 
+....................       // The number is a decimal number
+....................       if (base == 10)
+....................       {
+....................          while (c >= '0' && c <= '9')
+....................          {
+....................             result = 10*result + (c - '0');
+....................             c = s[index++];
+....................          }
+....................       }
+....................       else if (base == 16)    // The number is a hexa number
+....................       {
+....................          c = toupper(c);
+....................          while ( (c >= '0' && c <= '9') || (c >= 'A' && c<='F'))
+....................          {
+....................             if (c >= '0' && c <= '9')
+....................                result = (result << 4) + (c - '0');
+....................             else
+....................                result = (result << 4) + (c - 'A' + 10);
+.................... 
+....................             c = s[index++];
+....................             c = toupper(c);
+....................          }
+....................       }
+....................    }
+.................... 
+....................    if (sign == 1 && base == 10)
+....................        result = -result;
+.................... 
+....................    return(result);
+.................... }
+.................... 
+.................... signed long atol(char *s)
+.................... {
+....................    signed long result;
+....................    unsigned int sign, base, index;
+....................    char c;
+.................... 
+....................    index = 0;
+....................    sign = 0;
+....................    base = 10;
+....................    result = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+....................    c = s[index++];
+.................... 
+....................    // increase index if either positive or negative sign is detected
+....................    if (c == '-')
+....................    {
+....................       sign = 1;         // Set the sign to negative
+....................       c = s[index++];
+....................    }
+....................    else if (c == '+')
+....................    {
+....................       c = s[index++];
+....................    }
+.................... 
+....................    if (c >= '0' && c <= '9')
+....................    {
+....................       if (c == '0' && (s[index] == 'x' || s[index] == 'X'))
+....................       {
+....................          base = 16;
+....................          index++;
+....................          c = s[index++];
+....................       }
+.................... 
+....................       // The number is a decimal number
+....................       if (base == 10)
+....................       {
+....................          while (c >= '0' && c <= '9')
+....................          {
+....................             result = 10*result + (c - '0');
+....................             c = s[index++];
+....................          }
+....................       }
+....................       else if (base == 16)    // The number is a hexa number
+....................       {
+....................          c = toupper(c);
+....................          while ( (c >= '0' && c <= '9') || (c >= 'A' && c <='F'))
+....................          {
+....................             if (c >= '0' && c <= '9')
+....................                result = (result << 4) + (c - '0');
+....................             else
+....................                result = (result << 4) + (c - 'A' + 10);
+.................... 
+....................             c = s[index++];c = toupper(c);
+....................          }
+....................       }
+....................    }
+.................... 
+....................    if (base == 10 && sign == 1)
+....................       result = -result;
+.................... 
+....................    return(result);
+.................... }
+.................... 
+.................... /* A fast routine to multiply by 10
+....................  */
+.................... signed int32 mult_with10(int32 num)
+.................... {
+....................    return ( (num << 1) + (num << 3) );
+.................... }
+.................... 
+.................... #if sizeof(long)==2
+.................... signed int32 atoi32(char *s)
+.................... {
+....................    signed int32 result;
+....................    int8 sign, base, index;
+....................    char c;
+.................... 
+....................    index = 0;
+....................    sign = 0;
+....................    base = 10;
+....................    result = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+....................    c = s[index++];
+.................... 
+....................    // increase index if either positive or negative sign is detected
+....................    if (c == '-')
+....................    {
+....................       sign = 1;         // Set the sign to negative
+....................       c = s[index++];
+....................    }
+....................    else if (c == '+')
+....................    {
+....................       c = s[index++];
+....................    }
+.................... 
+....................    if (c >= '0' && c <= '9')
+....................    {
+....................       if (c == '0' && (s[index] == 'x' || s[index] == 'X'))
+....................       {
+....................          base = 16;
+....................          index++;
+....................          c = s[index++];
+....................       }
+.................... 
+....................       // The number is a decimal number
+....................       if (base == 10)
+....................       {
+....................          while (c >= '0' && c <= '9') {
+....................             result = (result << 1) + (result << 3);  // result *= 10;
+....................             result += (c - '0');
+....................             c = s[index++];
+....................          }
+....................       }
+....................       else if (base == 16)    // The number is a hexa number
+....................       {
+....................          c = toupper(c);
+....................          while ((c >= '0' && c <= '9') || (c >= 'A' && c <='F'))
+....................          {
+....................             if (c >= '0' && c <= '9')
+....................                result = (result << 4) + (c - '0');
+....................             else
+....................                result = (result << 4) + (c - 'A' + 10);
+.................... 
+....................             c = s[index++];c = toupper(c);
+....................          }
+....................       }
+....................    }
+.................... 
+....................    if (base == 10 && sign == 1)
+....................       result = -result;
+.................... 
+....................    return(result);
+.................... }
+.................... #endif
+.................... 
+.................... #if defined(__PCD__)
+.................... 
+.................... signed int48 atoi48(char *s)
+.................... {
+....................    signed int48 result;
+....................    int8 sign, base, index;
+....................    char c;
+.................... 
+....................    index = 0;
+....................    sign = 0;
+....................    base = 10;
+....................    result = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+....................    c = s[index++];
+.................... 
+....................    // increase index if either positive or negative sign is detected
+....................    if (c == '-')
+....................    {
+....................       sign = 1;         // Set the sign to negative
+....................       c = s[index++];
+....................    }
+....................    else if (c == '+')
+....................    {
+....................       c = s[index++];
+....................    }
+.................... 
+....................    if (c >= '0' && c <= '9')
+....................    {
+....................       if (c == '0' && (s[index] == 'x' || s[index] == 'X'))
+....................       {
+....................          base = 16;
+....................          index++;
+....................          c = s[index++];
+....................       }
+.................... 
+....................       // The number is a decimal number
+....................       if (base == 10)
+....................       {
+....................          while (c >= '0' && c <= '9') {
+....................             result = (result << 1) + (result << 3);  // result *= 10;
+....................             result += (c - '0');
+....................             c = s[index++];
+....................          }
+....................       }
+....................       else if (base == 16)    // The number is a hexa number
+....................       {
+....................          c = toupper(c);
+....................          while ((c >= '0' && c <= '9') || (c >= 'A' && c <='F'))
+....................          {
+....................             if (c >= '0' && c <= '9')
+....................                result = (result << 4) + (c - '0');
+....................             else
+....................                result = (result << 4) + (c - 'A' + 10);
+.................... 
+....................             c = s[index++];c = toupper(c);
+....................          }
+....................       }
+....................    }
+.................... 
+....................    if (base == 10 && sign == 1)
+....................       result = -result;
+.................... 
+....................    return(result);
+.................... }
+.................... 
+.................... signed int64 atoi64(char *s)
+.................... {
+....................    signed int64 result;
+....................    int8 sign, base, index;
+....................    char c;
+.................... 
+....................    index = 0;
+....................    sign = 0;
+....................    base = 10;
+....................    result = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+....................    c = s[index++];
+.................... 
+....................    // increase index if either positive or negative sign is detected
+....................    if (c == '-')
+....................    {
+....................       sign = 1;         // Set the sign to negative
+....................       c = s[index++];
+....................    }
+....................    else if (c == '+')
+....................    {
+....................       c = s[index++];
+....................    }
+.................... 
+....................    if (c >= '0' && c <= '9')
+....................    {
+....................       if (c == '0' && (s[index] == 'x' || s[index] == 'X'))
+....................       {
+....................          base = 16;
+....................          index++;
+....................          c = s[index++];
+....................       }
+.................... 
+....................       // The number is a decimal number
+....................       if (base == 10)
+....................       {
+....................          while (c >= '0' && c <= '9') {
+....................             result = (result << 1) + (result << 3);  // result *= 10;
+....................             result += (c - '0');
+....................             c = s[index++];
+....................          }
+....................       }
+....................       else if (base == 16)    // The number is a hexa number
+....................       {
+....................          c = toupper(c);
+....................          while ((c >= '0' && c <= '9') || (c >= 'A' && c <='F'))
+....................          {
+....................             if (c >= '0' && c <= '9')
+....................                result = (result << 4) + (c - '0');
+....................             else
+....................                result = (result << 4) + (c - 'A' + 10);
+.................... 
+....................             c = s[index++];c = toupper(c);
+....................          }
+....................       }
+....................    }
+.................... 
+....................    if (base == 10 && sign == 1)
+....................       result = -result;
+.................... 
+....................    return(result);
+.................... }
+.................... #endif
+.................... 
+.................... char * itoa(signed int32 num, unsigned int base, char * s)
+.................... {
+....................      unsigned int32 temp=1;
+....................      unsigned int8 i,sign=0,cnt=0;
+....................      char c;
+.................... 
+....................      if(num<0) {
+....................          sign=1;        // Check for negative number
+....................          num*=-1;
+....................      }
+.................... 
+....................      while(temp>0) {
+....................          temp=(num/base);
+....................          s[cnt]=(num%base)+'0';    // Conversion
+.................... 
+....................          if(s[cnt]>0x39)
+....................             s[cnt]+=0x7;
+.................... 
+....................          cnt++;
+....................          num=temp;
+....................      }
+.................... 
+....................      if(sign==1) {
+....................          s[cnt]=0x2D;      // Negative sign
+....................          cnt++;
+....................      }
+.................... 
+....................      for(i = 0;i<(int8)(cnt/2);i++) {
+.................... 
+....................          c=s[i];
+....................          s[i]=s[cnt-i-1];        // Reverse the number
+....................          s[cnt-i-1]=c;
+....................      }
+....................      s[cnt]='\0';     // End the string
+....................      return s;
+.................... }
+.................... 
+.................... #if defined(__PCD__)
+.................... 
+.................... char * itoa(signed int48 num, unsigned int base, char * s)
+.................... {
+....................      unsigned int48 temp=1;
+....................      unsigned int8 i,sign=0,cnt=0;
+....................      char c;
+.................... 
+....................      if(num<0) {
+....................          sign=1;        // Check for negative number
+....................          num*=-1;
+....................      }
+.................... 
+....................      while(temp>0) {
+....................          temp=(num/base);
+....................          s[cnt]=(num%base)+'0';    // Conversion
+.................... 
+....................          if(s[cnt]>0x39)
+....................             s[cnt]+=0x7;
+.................... 
+....................          cnt++;
+....................          num=temp;
+....................      }
+.................... 
+....................      if(sign==1) {
+....................          s[cnt]=0x2D;      // Negative sign
+....................          cnt++;
+....................      }
+.................... 
+....................      for(i = 0;i<(int8)(cnt/2);i++) {
+.................... 
+....................          c=s[i];
+....................          s[i]=s[cnt-i-1];        // Reverse the number
+....................          s[cnt-i-1]=c;
+....................      }
+....................      s[cnt]='\0';     // End the string
+....................      return s;
+.................... }
+.................... 
+.................... char * itoa(signed int64 num, unsigned int base, char * s)
+.................... {
+....................      unsigned int64 temp=1;
+....................      unsigned int8 i,sign=0,cnt=0;
+....................      char c;
+....................      
+....................      if(num<0) {
+....................          sign=1;        // Check for negative number
+....................          num*=-1;        
+....................      }
+.................... 
+....................      while(temp>0) {
+....................          temp=(num/base);
+....................          s[cnt]=(num%base)+'0';    // Conversion
+.................... 
+....................          if(s[cnt]>0x39)
+....................             s[cnt]+=0x7;
+....................             
+....................          cnt++;
+....................          num=temp;
+....................      }
+.................... 
+....................      if(sign==1) {
+....................          s[cnt]=0x2D;      // Negative sign
+....................          cnt++;
+....................      }
+.................... 
+....................      for(i = 0;i<(int8)(cnt/2);i++) {
+.................... 
+....................          c=s[i];
+....................          s[i]=s[cnt-i-1];        // Reverse the number
+....................          s[cnt-i-1]=c;
+....................      }
+....................      s[cnt]='\0';     // End the string
+....................      return s;
+.................... }
+.................... 
+.................... #endif
+.................... 
+.................... float strtof(char *s, char **endptr)
+.................... {
+....................    float pow10 = 1.0;
+....................    float result = 0.0;
+....................    int1 skip = 1, sign = 0, point = 0;
+....................    char c;
+....................    unsigned int8 ptr = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+.................... 
+....................    for(c=s[ptr++]; c!=0; c=s[ptr++])
+....................    {
+....................       if (skip && !isspace(c))
+....................       {
+....................          skip = 0;
+....................          if (c == '+')
+....................          {
+....................             sign = 0;
+....................             continue;
+....................          }            
+....................          else if (c == '-')
+....................          {
+....................             sign = 1;
+....................             continue;
+....................          }
+....................       }
+....................       if (!skip && (c == '.') && !point)
+....................          point = 1;
+....................       else if (!skip && isdigit(c))
+....................       {
+....................          c -= '0';
+....................          if (point)
+....................          {
+....................             pow10 = pow10 * 10.0;
+....................             result += (float)c / pow10;   
+....................          }
+....................          else
+....................          {
+....................             result = 10.0 * result + (float)c;
+....................          }
+....................       }
+....................       else if (!skip)
+....................          break;
+....................    }
+.................... 
+....................    if (sign)
+....................       result = -1*result;
+....................       
+....................    if(endptr)
+....................    {
+....................       if (ptr) {
+....................          ptr--;
+....................        #IF LONG_POINTERS 
+....................          *((int16 *)endptr)= s+ptr; 
+....................        #ELSE
+....................          *((char *)endptr)=s+ptr;
+....................        #ENDIF
+....................       }
+....................       else
+....................       {
+....................       #IF LONG_POINTERS
+....................       *((int16 *)endptr)= s; 
+....................       #ELSE
+....................       *((char *)endptr)=s;
+....................       #ENDIF
+....................       }
+....................    }
+.................... 
+....................    return(result);
+.................... }
+.................... 
+.................... #if defined(__PCD__)
+.................... float48 strtof48(char *s, char **endptr)
+.................... {
+....................    float48 pow10 = 1.0;
+....................    float48 result = 0.0;
+....................    int1 skip = 1, sign = 0, point = 0;
+....................    char c;
+....................    unsigned int8 ptr = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+.................... 
+....................    for(c=s[ptr++]; c!=0; c=s[ptr++])
+....................    {
+....................       if (skip && !isspace(c))
+....................       {
+....................          skip = 0;
+....................          if (c == '+')
+....................          {
+....................             sign = 0;
+....................             continue;
+....................          }            
+....................          else if (c == '-')
+....................          {
+....................             sign = 1;
+....................             continue;
+....................          }
+....................       }
+....................       if (!skip && (c == '.') && !point)
+....................          point = 1;
+....................       else if (!skip && isdigit(c))
+....................       {
+....................          c -= '0';
+....................          if (point)
+....................          {
+....................             pow10 = pow10 * 10.0;
+....................             result += (float48)c / pow10;   
+....................          }
+....................          else
+....................          {
+....................             result = 10.0 * result + (float48)c;
+....................          }
+....................       }
+....................       else if (!skip)
+....................          break;
+....................    }
+.................... 
+....................    if (sign)
+....................       result = -1*result;
+....................       
+....................    if(endptr)
+....................    {
+....................       if (ptr) {
+....................          ptr--;
+....................        #IF LONG_POINTERS 
+....................          *((int16 *)endptr)= s+ptr; 
+....................        #ELSE
+....................          *((char *)endptr)=s+ptr;
+....................        #ENDIF
+....................       }
+....................       else
+....................       {
+....................       #IF LONG_POINTERS
+....................       *((int16 *)endptr)= s; 
+....................       #ELSE
+....................       *((char *)endptr)=s;
+....................       #ENDIF
+....................       }
+....................    }
+.................... 
+....................    return(result);
+.................... }
+.................... 
+.................... float64 strtod(char *s, char **endptr)
+.................... {
+....................    float64 pow10 = 1.0;
+....................    float64 result = 0.0;
+....................    int1 skip = 1, sign = 0, point = 0;
+....................    char c;
+....................    unsigned int8 ptr = 0;
+.................... 
+....................    if (!s)
+....................       return 0;
+.................... 
+....................    for(c=s[ptr++]; c!=0; c=s[ptr++])
+....................    {
+....................       if (skip && !isspace(c))
+....................       {
+....................          skip = 0;
+....................          if (c == '+')
+....................          {
+....................             sign = 0;
+....................             continue;
+....................          }            
+....................          else if (c == '-')
+....................          {
+....................             sign = 1;
+....................             continue;
+....................          }
+....................       }
+....................       if (!skip && (c == '.') && !point)
+....................          point = 1;
+....................       else if (!skip && isdigit(c))
+....................       {
+....................          c -= '0';
+....................          if (point)
+....................          {
+....................             pow10 = pow10 * 10.0;
+....................             result += (float64)c / pow10;   
+....................          }
+....................          else
+....................          {
+....................             result = 10.0 * result + (float64)c;
+....................          }
+....................       }
+....................       else if (!skip)
+....................          break;
+....................    }
+.................... 
+....................    if (sign)
+....................       result = -1*result;
+....................       
+....................    if(endptr)
+....................    {
+....................       if (ptr) {
+....................          ptr--;
+....................        #IF LONG_POINTERS 
+....................          *((int16 *)endptr)= s+ptr; 
+....................        #ELSE
+....................          *((char *)endptr)=s+ptr;
+....................        #ENDIF
+....................       }
+....................       else
+....................       {
+....................       #IF LONG_POINTERS
+....................       *((int16 *)endptr)= s; 
+....................       #ELSE
+....................       *((char *)endptr)=s;
+....................       #ENDIF
+....................       }
+....................    }
+.................... 
+....................    return(result);
+.................... }
+.................... #endif
+.................... 
+.................... #ifndef __PCB__
+.................... unsigned long strtoul(char *s, char *endptr, signed int base)
+.................... {
+....................    char *sc,*s1,*sd;
+....................    unsigned long x=0;
+....................    char sign;
+....................    char digits[]="0123456789abcdefghijklmnopqstuvwxyz";
+....................    for(sc=s;isspace(*sc);++sc);
+....................    sign=*sc=='-'||*sc=='+'?*sc++:'+';
+....................    if(sign=='-' || base <0 || base ==1|| base >36) // invalid base
+....................    goto StrtoulGO;
+.................... 
+....................    else if (base)
+....................    {
+....................       if(base==16 && *sc =='0'&&(sc[1]=='x' || sc[1]=='X'))
+....................          sc+=2;
+....................       if(base==8 && *sc =='0')
+....................          sc+=1;
+....................       if(base==2 && *sc =='0'&&sc[1]=='b')
+....................          sc+=2;
+.................... 
+....................    }
+....................    else if(*sc!='0') // base is 0, find base
+....................       base=10;
+....................    else if (sc[1]=='x' || sc[1]=='X')
+....................       base =16,sc+=2;
+....................    else if(sc[1]=='b')
+....................       base=2,sc+=2;
+....................    else
+....................       base=8;
+....................    for (s1=sc;*sc=='0';++sc);// skip leading zeroes
+....................    sd=memchr(digits,tolower(*sc),base);
+....................    for(; sd!=0; )
+....................    {
+....................       x=x*base+(int16)(sd-digits);
+....................       ++sc;
+....................       sd=memchr(digits,tolower(*sc),base);
+....................    }
+....................    if(s1==sc)
+....................    {
+....................    StrtoulGO:
+....................       if (endptr)
+....................       {
+....................          #IF LONG_POINTERS
+....................          *((int16 *)endptr)= s; 
+....................          #ELSE
+....................          *((char *)endptr)=s;
+....................          #ENDIF
+....................          }
+....................    return 0;
+....................    }
+....................    if (endptr)
+....................    {
+....................          #IF LONG_POINTERS
+....................          *((int16 *)endptr)= sc; 
+....................          #ELSE
+....................          *((char *)endptr)=sc; 
+....................          #ENDIF
+....................    }
+....................    return x;
+.................... }
+.................... 
+.................... 
+.................... signed long strtol(char *s,char *endptr, signed int base)
+.................... {
+....................    char *sc,*s1,*sd;
+....................    signed long x=0;
+....................    char sign;
+....................    char digits[]="0123456789abcdefghijklmnopqstuvwxyz";
+....................    for(sc=s;isspace(*sc);++sc);
+....................    sign=*sc=='-'||*sc=='+'?*sc++:'+';
+....................    if (base <0 || base ==1|| base >36) // invalid base
+....................    goto StrtolGO;
+....................    else if (base)
+....................    {
+....................       if(base==16 && *sc =='0'&&(sc[1]=='x' || sc[1]=='X'))
+....................          sc+=2;
+....................       if(base==8 && *sc =='0')
+....................          sc+=1;
+....................       if(base==2 && *sc =='0'&&sc[1]=='b')
+....................          sc+=2;
+.................... 
+....................    }
+....................    else if(*sc!='0') // base is 0, find base
+....................       base=10;
+....................    else if (sc[1]=='x' || sc[1]=='X')
+....................       base =16,sc+=2;
+....................    else if(sc[1]=='b')
+....................       base=2,sc+=2;
+....................    else
+....................       base=8;
+....................    for (s1=sc;*sc=='0';++sc);// skip leading zeroes
+.................... 
+....................    sd=memchr(digits,tolower(*sc),base);
+....................    for(;sd!=0;)
+....................    {
+....................       x=x*base+(int16)(sd-digits);
+....................       ++sc;
+....................       sd=memchr(digits,tolower(*sc),base);
+....................    }
+....................    if(s1==sc)
+....................    {
+....................    StrtolGO:
+....................       if (endptr)
+....................       {
+....................          #IF LONG_POINTERS
+....................          *((int16 *)endptr)= s; 
+....................          #ELSE
+....................          *((char *)endptr)=s;
+....................          #ENDIF
+....................       }
+....................    return 0;
+....................    }
+....................    if(sign=='-')
+....................       x  =-x;
+....................    if (endptr)
+....................    {
+....................         #IF LONG_POINTERS
+....................          *((int16 *)endptr)= sc; 
+....................         #ELSE
+....................         *((char *)endptr)=sc;
+....................         #ENDIF
+....................    }
+....................    return x;
+.................... }
+.................... #endif
+.................... 
+.................... signed int8 system(char *string)
+.................... {
+....................    return 0;
+.................... }
+.................... 
+.................... size_t mblen(char *s,size_t n)
+.................... {
+....................    return strlen(s);
+.................... }
+.................... 
+.................... int8 mbtowc(wchar_t *pwc,char *s,size_t n)
+.................... {
+....................    *pwc=*s;
+....................    return 1;
+.................... }
+.................... 
+.................... int8 wctomb(char *s,wchar_t wchar)
+.................... {
+....................    *s=wchar;
+....................    return 1;
+.................... }
+.................... 
+.................... size_t mbstowcs(wchar_t *pwcs,char *s,size_t n)
+.................... {
+....................    strncpy((char *)pwcs,s,n);
+....................    return strlen((char *)pwcs);
+.................... }
+.................... 
+.................... size_t wcstombs(char *s,wchar_t *pwcs,size_t n)
+.................... {
+....................    strncpy(s,(char *)pwcs,n);
+....................    return strlen(s);
+.................... }
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // The random number implementation
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... unsigned int32 _Randseed;
+.................... 
+.................... unsigned int16 rand(void)
+.................... {
+....................    _Randseed = _Randseed * 1103515245 + 12345;
+....................    return ((unsigned int16)(_Randseed >> 16) % RAND_MAX);
+.................... }
+.................... 
+.................... void srand(unsigned int32 seed)
+.................... {
+....................    _Randseed = seed;
+.................... }
+.................... 
+.................... //---------------------------------------------------------------------------
+.................... // Searching and sorting utilities implementation
+.................... //---------------------------------------------------------------------------
+.................... 
+.................... #if !defined(__PCD__)
+.................... typedef signed int8 (*_Cmpfun)(char * p1,char * p2); 
+.................... #else 
+.................... typedef signed int16 (*_Cmpfun)(char * p1,char * p2); 
+.................... #endif
+.................... 
+.................... 
+.................... 
+.................... void qsort(char * qdata, unsigned int qitems, unsigned int qsize, _Cmpfun cmp) {
+....................    unsigned int m,j,i,l;
+....................    int1 done;
+....................    unsigned int8 t[16];
+.................... 
+....................    m = qitems/2;
+....................    while( m > 0 ) {
+....................      for(j=0; j<(qitems-m); ++j) {
+....................         i = j;
+....................         do
+....................         {
+....................            done=1;
+....................            l = i+m;
+....................            if( (*cmp)(qdata+i*qsize, qdata+l*qsize) > 0 ) {
+....................               memcpy(t, qdata+i*qsize, qsize);
+....................               memcpy(qdata+i*qsize, qdata+l*qsize, qsize);
+....................               memcpy(qdata+l*qsize, t, qsize);
+....................               if(m <= i)
+....................                 i -= m;
+....................                 done = 0;
+....................            }
+....................         } while(!done);
+....................      }
+....................      m = m/2;
+....................    }
+.................... }
+.................... 
+.................... 
+.................... char *bsearch(char *key, char *base, size_t num, size_t width,_Cmpfun cmp)
+.................... {
+....................    char *p, *q;
+....................    size_t n;
+....................    size_t pivot;
+....................    signed int val;
+.................... 
+....................    p = base;
+....................    n = num;
+.................... 
+....................    while (n > 0)
+....................    {
+....................       pivot = n >> 1;
+....................       q = p + width * pivot;
+.................... 
+....................       val = (*cmp)(key, q);
+.................... 
+....................       if (val < 0)
+....................          n = pivot;
+....................       else if (val == 0)
+....................          return ((char *)q);
+....................       else {
+....................          p = q + width;
+....................          n -= pivot + 1;
+....................       }
+....................    }
+.................... 
+....................    return NULL;      // There's no match
+.................... }
+.................... 
+.................... 
+.................... #endif
+.................... 
+.................... #include <stdio.h>
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2003 Custom Computer Services           ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STDIO
+.................... #define _STDIO
+.................... #include <string.h>
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996,2008 Custom Computer Services            ////
+.................... //// This source code may only be used by licensed users of the CCS C   ////
+.................... //// compiler.  This source code may only be distributed to other       ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction  ////
+.................... //// or distribution is permitted without written permission.           ////
+.................... //// Derivative programs created using this software in object code     ////
+.................... //// form are not restricted in any way.                                ////
+.................... ////////////////////////////////////////////////////////////////////////////
+.................... 
+.................... #ifndef _STRING
+.................... #define _STRING
+.................... #include <stddef.h>
+.................... #include <ctype.h>
+.................... 
+.................... 
+.................... 
+.................... //////////////////////////////////////////////
+.................... //// Uncomment the following define to    ////
+.................... //// allow some functions to use a        ////
+.................... //// quicker algorithm, but use more ROM  ////
+.................... ////                                      ////
+.................... //// #define FASTER_BUT_MORE_ROM          ////
+.................... //////////////////////////////////////////////
+.................... 
+.................... 
+.................... 
+.................... /*Copying functions*/
+.................... /* standard template:
+....................    void *memmove(void *s1, void *s2, size_t n).
+....................    Copies max of n characters safely (not following ending '\0')
+....................    from s2 in s1; if s2 has less than n characters, appends 0 */
+.................... 
+.................... unsigned char *memmove(void *s1,void *s2,size_t n)
+.................... {
+....................    unsigned char *sc1;
+....................    unsigned char *sc2;
+....................    sc1=s1;
+....................    sc2=s2;
+....................    if(sc2<sc1 && sc1 <sc2 +n)
+....................       for(sc1+=n,sc2+=n;0<n;--n)
+....................          *--sc1=*--sc2;
+....................    else
+....................       for(;0<n;--n)
+....................          *sc1++=*sc2++;
+....................   return s1;
+....................   }
+.................... 
+.................... /* Standard template: char *strcpy(char *s1, const char *s2)
+....................    copies the string s2 including the null character to s1.
+....................    This is a compiler built in to handle the different address
+....................    spaces */
+.................... 
+.................... #define strcopy strcpy
+.................... 
+.................... /* standard template:
+....................    char *strncpy(char *s1, const char *s2, size_t n).
+....................    Copies max of n characters (not following ending '\0')
+....................    from s2 in s1; if s2 has less than n characters, appends 0 */
+.................... 
+.................... char *strncpy(char *s1, char *s2, size_t n)
+.................... {
+....................   char *s;
+.................... 
+....................   for (s = s1; n > 0 && *s2 != '\0'; n--)
+....................      *s++ = *s2++;
+....................   for (; n > 0; n--)
+....................      *s++ = '\0';
+.................... 
+....................   return(s1);
+.................... }
+.................... /***********************************************************/
+.................... 
+.................... /*concatenation functions*/
+.................... /* standard template: char *strcat(char *s1, const char *s2)
+.................... appends s2 to s1*/
+.................... 
+.................... char *strcat(char *s1, char *s2)
+.................... {
+....................    unsigned char *s;
+.................... 
+....................    for (s = s1; *s != '\0'; ++s);
+....................    while(*s2 != '\0')
+....................    {
+....................       *s = *s2;
+....................       ++s;
+....................       ++s2;
+....................    }
+.................... 
+....................    *s = '\0';
+....................    return(s1);
+.................... }
+.................... /* standard template: char *strncat(char *s1, char *s2,size_t n)
+.................... appends not more than n characters from s2 to s1*/
+.................... 
+.................... char *strncat(char *s1, char *s2, size_t n)
+.................... {
+....................    char *s;
+.................... 
+....................    for (s = s1; *s != '\0'; ++s);
+....................    while(*s2 != '\0' && 0<n)
+....................    {
+....................       *s = *s2;
+....................       ++s;
+....................       ++s2;
+....................       --n;
+....................    }
+.................... 
+....................    *s = '\0';
+....................    return(s1);
+.................... }
+.................... 
+.................... /***********************************************************/
+.................... 
+.................... 
+.................... /*comparison functions*/
+.................... /* standard template: signed int memcmp(void *s1, void *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int memcmp(void * s1,void *s2,size_t n)
+.................... {
+.................... unsigned char *su1, *su2;
+.................... for(su1=s1, su2=s2; 0<n; ++su1, ++su2, --n)
+.................... {
+....................    if(*su1!=*su2)
+....................       return ((*su1<*su2)?-1:1);
+.................... }
+.................... return 0;
+.................... }
+.................... 
+.................... /* standard template: int strcmp(const char *s1, const char *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int strcmp(char *s1, char *s2)
+.................... {
+....................    for (; *s1 == *s2; s1++, s2++)
+....................       if (*s1 == '\0')
+....................          return(0);
+....................    return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... /* standard template: int strcoll(const char *s1, const char *s2).
+....................    Compares s1 & s2; returns -1 if s1<s2, 0 if s1=s2, 1 if s1>s2 */
+.................... 
+.................... signed int strcoll(char *s1, char *s2)
+.................... {
+....................    for (; *s1 == *s2; s1++, s2++)
+....................       if (*s1 == '\0')
+....................          return(0);
+....................    return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... 
+.................... /* standard template:
+....................    int strncmp(const char *s1, const char *s2, size_t n).
+....................    Compares max of n characters (not following 0) from s1 to s2;
+....................    returns same as strcmp */
+.................... 
+.................... signed int strncmp(char *s1, char *s2, size_t n)
+.................... {
+....................    for (; n > 0; s1++, s2++, n--)
+....................       if (*s1 != *s2)
+....................          return((*s1 <*s2) ? -1: 1);
+....................       else if (*s1 == '\0')
+....................          return(0);
+....................    return(0);
+.................... }
+.................... /* standard template:
+....................    int strxfrm(const char *s1, const char *s2, size_t n).
+....................    transforms maximum of n characters from s2 and places them into s1, returns number of chars written ot s1.
+....................    if s1 is NULL and n is 0, then it returns the length of s2.*/
+.................... size_t strxfrm(char *s1, char *s2, size_t n)
+.................... {
+....................    char c;
+....................    size_t n1;
+....................    
+....................    if (!s1 && !n)
+....................       n = -1; //find length
+.................... 
+....................    n1 = 0;
+....................    
+....................    for (; n1 < n; n1++)
+....................    {
+....................       c = *s2++;
+....................       if (!c)
+....................          break;
+....................       if (s1)
+....................          *s1++ = c;
+....................    }
+.................... 
+....................   return(n1);
+.................... }
+.................... 
+.................... 
+.................... 
+.................... 
+.................... 
+.................... /***********************************************************/
+.................... /*Search functions*/
+.................... /* standard template: void *memchr(const char *s, int c).
+....................    Finds first occurrence of c in n characters of s */
+.................... 
+.................... char *memchr(void *s,unsigned int8 c,size_t n)
+.................... {
+....................    char uc;
+....................    char *su;
+....................    uc=c;
+....................    for(su=s;0<n;++su,--n)
+....................       if(*su==uc)
+....................       return su;
+....................    return NULL;
+.................... }
+.................... 
+.................... /* standard template: char *strchr(const char *s, int c).
+....................    Finds first occurrence of c in s */
+.................... 
+.................... char *strchr(char *s, char c)
+.................... {
+....................    for (; *s != c; s++)
+....................       if (*s == '\0')
+....................          return(0);
+....................    return(s);
+.................... }
+.................... /* standard template:
+....................    size_t strcspn(const char *s1, const char *s2).
+....................    Computes length of max initial segment of s1 that
+....................    consists entirely of characters NOT from s2*/
+.................... 
+.................... size_t strcspn(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; *sc2 != 0; sc2++)
+....................          if (*sc1 == *sc2)
+....................             return(sc1 - s1);
+....................    return(sc1 - s1);
+.................... }
+.................... /* standard template:
+....................    char *strpbrk(const char *s1, const char *s2).
+....................    Locates first occurence of any character from s2 in s1;
+....................    returns s1 if s2 is empty string */
+.................... 
+.................... char *strpbrk(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; *sc2 != 0; sc2++)
+....................          if (*sc1 == *sc2)
+....................             return(sc1);
+....................    return(0);
+.................... }
+.................... 
+.................... 
+.................... /* standard template: char *strrchr(const char *s, int c).
+....................    Finds last occurrence of c in s */
+.................... 
+.................... char *strrchr(char *s, char c)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = 0; ; s++)
+....................    {
+....................       if (*s == c)
+....................          p = s;
+....................       if (*s == '\0')
+....................          return(p);
+....................    }
+.................... }
+.................... /* computes length of max initial segment of s1 consisting
+....................    entirely of characters from s2 */
+.................... 
+.................... size_t strspn(char *s1, char *s2)
+.................... {
+....................    char *sc1, *sc2;
+.................... 
+....................    for (sc1 = s1; *sc1 != 0; sc1++)
+....................       for (sc2 = s2; ; sc2++)
+....................     if (*sc2 == '\0')
+....................        return(sc1 - s1);
+....................          else if (*sc1 == *sc2)
+....................             break;
+....................    return(sc1 - s1);
+.................... }
+.................... /* standard template:
+....................    char *strstr(const char *s1, const char *s2);
+....................    Locates first occurence of character sequence s2 in s1;
+....................    returns 0 if s2 is empty string
+.................... 
+....................    Uncomment #define FASTER_BUT_MORE_ROM at the top of the
+....................    file to use the faster algorithm */
+.................... char *strstr(char *s1, char *s2)
+.................... {
+....................    char *s, *t;
+.................... 
+....................    #ifdef FASTER_BUT_MORE_ROM
+....................    if (*s2 == '\0')
+....................          return(s1);
+....................    #endif
+.................... 
+....................    while (*s1)
+....................    {
+....................       for(s = s1, t = s2; *t && (*s == *t); ++s, ++t);
+.................... 
+....................       if (*t == '\0')
+....................          return s1;
+....................       ++s1;
+....................       #ifdef FASTER_BUT_MORE_ROM
+....................          while(*s1 != '\0' && *s1 != *s2)
+....................             ++s1;
+....................       #endif
+....................    }
+....................    return 0;
+.................... }
+.................... 
+.................... /* standard template: size_t strlen(const char *s).
+....................    Computes length of s1 (preceding terminating 0) */
+.................... 
+.................... size_t strlen(char *s)
+.................... {
+....................    char *sc;
+.................... 
+....................    for (sc = s; *sc != 0; sc++);
+....................    return(sc - s);
+.................... }
+.................... 
+.................... /* standard template: char *strtok(char *s1, const char *s2).
+.................... 
+....................    Finds next token in s1 delimited by a character from separator
+....................    string s2 (which can be different from call to call).  First call
+....................    starts at beginning of s1 searching for first character NOT
+....................    contained in s2; returns 0 if none is found.
+....................    If one is found, it is the start of first token (return value).
+....................    Function then searches from there for a character contained in s2.
+....................    If none is found, current token extends to end of s1, and subsequent
+....................    searches for a token will return 0.  If one is found, it is
+....................    overwritten by '\0', which terminates current token.  Function saves
+....................    pointer to following character from which next search will start.
+....................    Each subsequent call, with 0 as first argument, starts searching
+....................    from saved pointer */
+.................... 
+.................... char *strtok(char *s1, char *s2)
+.................... {
+....................    char *beg, *end;
+....................    static char *save;
+.................... 
+....................    beg = (s1)? s1: save;
+....................    beg += strspn(beg, s2);
+....................    if (*beg == '\0')
+....................       return(0);
+....................       
+....................    end = strpbrk(beg, s2);
+....................    if (end != '\0')
+....................    {
+....................       *end = '\0';
+....................       end++;
+....................       save = end;
+....................    }
+....................    else
+....................       save = beg + strlen(beg);
+....................    
+....................    return(beg);
+.................... }
+.................... 
+.................... /*****************************************************************/
+.................... /*Miscellaneous functions*/
+.................... /* standard template
+.................... maps error number in errnum to an error message string
+.................... Returns: Pointer to string
+.................... */
+.................... #ifdef _ERRNO
+.................... char * strerror(unsigned int8 errnum)
+.................... {
+.................... static unsigned char s[13];
+.................... switch( errnum)
+.................... {
+.................... case 0:
+....................    strcpy(s,"no errors");
+....................    return s;
+.................... case EDOM :
+....................    strcpy(s,"domain error");
+....................    return s;
+.................... case ERANGE:
+....................    strcpy(s,"range error");
+....................    return s;
+.................... }
+.................... }
+.................... #ENDIF
+.................... 
+.................... /* standard template: size_t stricmp(const char *s1, const char *s2).
+....................    Compares s1 to s2 ignoring case (upper vs. lower) */
+.................... 
+.................... signed int stricmp(char *s1, char *s2)
+.................... {
+....................  for(; *s1==*s2||(isalpha(*s1)&&isalpha(*s2)&&((char)*s1==(char)*s2+(char)32||(char)*s2==(char)*s1+(char)32));
+....................     s1++, s2++)
+....................     if (*s1 == '\0')
+....................        return(0);
+....................  return((*s1 < *s2) ? -1: 1);
+.................... }
+.................... 
+.................... 
+.................... /* standard template: char *strlwr(char *s).
+....................    Replaces uppercase letters by lowercase;
+....................    returns pointer to new string s */
+.................... 
+.................... char *strlwr(char *s)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = s; *p != '\0'; p++)
+....................       if (*p >= 'A' && *p <='Z')
+....................          *p += 'a' - 'A';
+....................    return(s);
+.................... }
+.................... 
+.................... /* standard template: char *strupr(char *s).
+....................    Replaces lowercase letters by upercase;
+....................    returns pointer to new string s */
+.................... 
+.................... char *strupr(char *s)
+.................... {
+....................    char *p;
+.................... 
+....................    for (p = s; *p != '\0'; p++)
+....................       if (*p >= 'a' && *p <='z')
+....................          *p -= 'a' - 'A';
+....................    return(s);
+.................... }
+.................... 
+.................... 
+.................... /************************************************************/
+.................... 
+.................... 
+.................... #endif
+.................... 
+.................... #ifndef getc
+.................... #define getc getch
+.................... #define getchar getch
+.................... #define puts(s) {printf(s); putchar(13); putchar(10);}
+.................... #define putc putchar
+.................... #endif
+.................... /* maps error number to an error message. Writes a sequence of characters to
+.................... stderr stream thus: if s is not null then string pointed to by s follwed by
+.................... a colon (:) and a space and the appropriate error message returned by strerror
+.................... function with argument errno
+.................... 
+.................... Returns: no value
+.................... */
+.................... 
+.................... #ifdef _ERRNO
+.................... void perror(char *s)
+.................... {
+....................   if(s)
+....................   fprintf(STDERR,"%s: ",s);
+....................   fprintf(STDERR,"%s\r\n",strerror(errno));
+.................... }
+.................... #endif
+.................... #endif
+.................... 
+.................... #use delay (clock = 20000000)
+*
+0619:  MOVLW  A1
+061A:  MOVWF  04
+061B:  BCF    03.7
+061C:  MOVF   00,W
+061D:  BTFSC  03.2
+061E:  GOTO   62C
+061F:  MOVLW  06
+0620:  MOVWF  78
+0621:  CLRF   77
+0622:  DECFSZ 77,F
+0623:  GOTO   622
+0624:  DECFSZ 78,F
+0625:  GOTO   621
+0626:  MOVLW  7B
+0627:  MOVWF  77
+0628:  DECFSZ 77,F
+0629:  GOTO   628
+062A:  DECFSZ 00,F
+062B:  GOTO   61F
+062C:  BSF    0A.3
+062D:  BCF    0A.4
+062E:  GOTO   409 (RETURN)
+.................... #fuses HS, NOWDT, NOPROTECT, NOLVP
+.................... #use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+.................... int i = 0;
+.................... #INT_SSP
+.................... void rcv_spi ()
+.................... {
+....................    if (spi_data_is_in () == 1)
+*
+0051:  BSF    03.5
+0052:  BTFSS  14.0
+0053:  GOTO   05B
+....................    {
+....................       i = spi_read ();
+0054:  RRF    14,W
+0055:  BTFSS  03.0
+0056:  GOTO   054
+0057:  BCF    03.5
+0058:  MOVF   13,W
+0059:  MOVWF  31
+005A:  BSF    03.5
+....................    }
+005B:  BCF    03.5
+005C:  BCF    0C.3
+005D:  BCF    0A.3
+005E:  BCF    0A.4
+005F:  GOTO   02D
+.................... }
+.................... 
+.................... void main()
+*
+0800:  MOVF   03,W
+0801:  ANDLW  1F
+0802:  MOVWF  03
+0803:  MOVLW  81
+0804:  BSF    03.5
+0805:  MOVWF  19
+0806:  MOVLW  A6
+0807:  MOVWF  18
+0808:  MOVLW  90
+0809:  BCF    03.5
+080A:  MOVWF  18
+080B:  CLRF   31
+080C:  MOVLW  FF
+080D:  MOVWF  32
+080E:  CLRF   34
+080F:  CLRF   33
+0810:  BSF    03.5
+0811:  BSF    1F.0
+0812:  BSF    1F.1
+0813:  BSF    1F.2
+0814:  BCF    1F.3
+0815:  MOVLW  07
+0816:  MOVWF  1C
+0817:  BCF    03.7
+.................... {
+....................    enable_interrupts (INT_SSP);
+*
+081B:  BSF    03.5
+081C:  BSF    0C.3
+....................    enable_interrupts (global);
+081D:  MOVLW  C0
+081E:  BCF    03.5
+081F:  IORWF  0B,F
+....................    setup_spi (spi_slave|spi_l_to_h|spi_clk_div_16);
+0820:  BCF    14.5
+0821:  BCF    32.5
+0822:  MOVF   32,W
+0823:  BSF    03.5
+0824:  MOVWF  07
+0825:  BCF    03.5
+0826:  BSF    32.4
+0827:  MOVF   32,W
+0828:  BSF    03.5
+0829:  MOVWF  07
+082A:  BCF    03.5
+082B:  BSF    32.3
+082C:  MOVF   32,W
+082D:  BSF    03.5
+082E:  MOVWF  07
+082F:  MOVLW  25
+0830:  BCF    03.5
+0831:  MOVWF  14
+0832:  MOVLW  00
+0833:  BSF    03.5
+0834:  MOVWF  14
+....................    setup_adc_ports(ALL_ANALOG);
+0835:  BCF    1F.0
+0836:  BCF    1F.1
+0837:  BCF    1F.2
+0838:  BCF    1F.3
+....................    setup_adc(ADC_CLOCK_INTERNAL);
+0839:  BCF    1F.6
+083A:  BCF    03.5
+083B:  BSF    1F.6
+083C:  BSF    1F.7
+083D:  BSF    03.5
+083E:  BSF    1F.7
+083F:  BCF    03.5
+0840:  BSF    1F.0
+....................    
+....................    while(TRUE)
+....................    {
+....................        float x [7] = {0, 0, 0, 0, 0, 0, 0};
+0841:  CLRF   35
+0842:  CLRF   36
+0843:  CLRF   37
+0844:  CLRF   38
+0845:  CLRF   39
+0846:  CLRF   3A
+0847:  CLRF   3B
+0848:  CLRF   3C
+0849:  CLRF   3D
+084A:  CLRF   3E
+084B:  CLRF   3F
+084C:  CLRF   40
+084D:  CLRF   41
+084E:  CLRF   42
+084F:  CLRF   43
+0850:  CLRF   44
+0851:  CLRF   45
+0852:  CLRF   46
+0853:  CLRF   47
+0854:  CLRF   48
+0855:  CLRF   49
+0856:  CLRF   4A
+0857:  CLRF   4B
+0858:  CLRF   4C
+0859:  CLRF   4D
+085A:  CLRF   4E
+085B:  CLRF   4F
+085C:  CLRF   50
+....................        float xmax, max, max1, max2 = 0;
+....................        float a, b, d, out;
+....................        int j;
+085D:  CLRF   60
+085E:  CLRF   5F
+085F:  CLRF   5E
+0860:  CLRF   5D
+....................        for (j = 0; j < 7; j++)
+0861:  CLRF   71
+0862:  MOVF   71,W
+0863:  SUBLW  06
+0864:  BTFSS  03.0
+0865:  GOTO   0DF
+....................        {
+....................            if (j < 4) {
+0866:  MOVF   71,W
+0867:  SUBLW  03
+0868:  BTFSS  03.0
+0869:  GOTO   09F
+....................                set_adc_channel (j);
+086A:  RLF    71,W
+086B:  MOVWF  77
+086C:  RLF    77,F
+086D:  RLF    77,F
+086E:  MOVLW  F8
+086F:  ANDWF  77,F
+0870:  MOVF   1F,W
+0871:  ANDLW  C7
+0872:  IORWF  77,W
+0873:  MOVWF  1F
+....................                delay_us (10);
+0874:  MOVLW  10
+0875:  MOVWF  77
+0876:  DECFSZ 77,F
+0877:  GOTO   076
+0878:  NOP
+....................                x [j] = read_adc ();
+0879:  RLF    71,W
+087A:  MOVWF  77
+087B:  RLF    77,F
+087C:  MOVLW  FC
+087D:  ANDWF  77,F
+087E:  MOVF   77,W
+087F:  ADDLW  35
+0880:  MOVWF  04
+0881:  BCF    03.7
+0882:  BSF    1F.2
+0883:  BTFSC  1F.2
+0884:  GOTO   083
+0885:  MOVF   1E,W
+0886:  MOVWF  79
+0887:  BSF    03.5
+0888:  MOVF   1E,W
+0889:  MOVWF  78
+088A:  MOVF   79,W
+088B:  MOVWF  7A
+088C:  MOVF   1E,W
+088D:  MOVWF  22
+088E:  MOVF   79,W
+088F:  MOVWF  23
+0890:  BCF    0A.3
+0891:  BCF    03.5
+0892:  CALL   06D
+0893:  BSF    0A.3
+0894:  MOVF   77,W
+0895:  MOVWF  00
+0896:  INCF   04,F
+0897:  MOVF   78,W
+0898:  MOVWF  00
+0899:  INCF   04,F
+089A:  MOVF   79,W
+089B:  MOVWF  00
+089C:  INCF   04,F
+089D:  MOVF   7A,W
+089E:  MOVWF  00
+....................            }
+....................                
+....................            if (j >= 4) {
+089F:  MOVF   71,W
+08A0:  SUBLW  03
+08A1:  BTFSC  03.0
+08A2:  GOTO   0DD
+....................                set_adc_channel (j + 1);
+08A3:  MOVLW  01
+08A4:  ADDWF  71,W
+08A5:  BSF    03.5
+08A6:  MOVWF  20
+08A7:  RLF    20,W
+08A8:  MOVWF  77
+08A9:  RLF    77,F
+08AA:  RLF    77,F
+08AB:  MOVLW  F8
+08AC:  ANDWF  77,F
+08AD:  BCF    03.5
+08AE:  MOVF   1F,W
+08AF:  ANDLW  C7
+08B0:  IORWF  77,W
+08B1:  MOVWF  1F
+....................                delay_us (10);
+08B2:  MOVLW  10
+08B3:  MOVWF  77
+08B4:  DECFSZ 77,F
+08B5:  GOTO   0B4
+08B6:  NOP
+....................                x [j] = read_adc ();
+08B7:  RLF    71,W
+08B8:  MOVWF  77
+08B9:  RLF    77,F
+08BA:  MOVLW  FC
+08BB:  ANDWF  77,F
+08BC:  MOVF   77,W
+08BD:  ADDLW  35
+08BE:  MOVWF  04
+08BF:  BCF    03.7
+08C0:  BSF    1F.2
+08C1:  BTFSC  1F.2
+08C2:  GOTO   0C1
+08C3:  MOVF   1E,W
+08C4:  MOVWF  79
+08C5:  BSF    03.5
+08C6:  MOVF   1E,W
+08C7:  MOVWF  78
+08C8:  MOVF   79,W
+08C9:  MOVWF  7A
+08CA:  MOVF   1E,W
+08CB:  MOVWF  22
+08CC:  MOVF   79,W
+08CD:  MOVWF  23
+08CE:  BCF    0A.3
+08CF:  BCF    03.5
+08D0:  CALL   06D
+08D1:  BSF    0A.3
+08D2:  MOVF   77,W
+08D3:  MOVWF  00
+08D4:  INCF   04,F
+08D5:  MOVF   78,W
+08D6:  MOVWF  00
+08D7:  INCF   04,F
+08D8:  MOVF   79,W
+08D9:  MOVWF  00
+08DA:  INCF   04,F
+08DB:  MOVF   7A,W
+08DC:  MOVWF  00
+....................            }
+08DD:  INCF   71,F
+08DE:  GOTO   062
+....................        }
+....................       
+....................        for (j = 0; j < 7; j++)
+08DF:  CLRF   71
+08E0:  MOVF   71,W
+08E1:  SUBLW  06
+08E2:  BTFSS  03.0
+08E3:  GOTO   13D
+....................        {
+....................            if (x [j] > max) {
+08E4:  RLF    71,W
+08E5:  MOVWF  77
+08E6:  RLF    77,F
+08E7:  MOVLW  FC
+08E8:  ANDWF  77,F
+08E9:  MOVF   77,W
+08EA:  ADDLW  35
+08EB:  MOVWF  04
+08EC:  BCF    03.7
+08ED:  MOVF   00,W
+08EE:  BSF    03.5
+08EF:  MOVWF  20
+08F0:  INCF   04,F
+08F1:  MOVF   00,W
+08F2:  MOVWF  21
+08F3:  INCF   04,F
+08F4:  MOVF   00,W
+08F5:  MOVWF  22
+08F6:  INCF   04,F
+08F7:  MOVF   00,W
+08F8:  MOVWF  23
+08F9:  BCF    03.5
+08FA:  MOVF   58,W
+08FB:  BSF    03.5
+08FC:  MOVWF  27
+08FD:  BCF    03.5
+08FE:  MOVF   57,W
+08FF:  BSF    03.5
+0900:  MOVWF  26
+0901:  BCF    03.5
+0902:  MOVF   56,W
+0903:  BSF    03.5
+0904:  MOVWF  25
+0905:  BCF    03.5
+0906:  MOVF   55,W
+0907:  BSF    03.5
+0908:  MOVWF  24
+0909:  MOVF   23,W
+090A:  MOVWF  2B
+090B:  MOVF   22,W
+090C:  MOVWF  2A
+090D:  MOVF   21,W
+090E:  MOVWF  29
+090F:  MOVF   20,W
+0910:  MOVWF  28
+0911:  BCF    0A.3
+0912:  BCF    03.5
+0913:  GOTO   08C
+0914:  BSF    0A.3
+0915:  BTFSS  03.0
+0916:  GOTO   13B
+....................                max = x [j];
+0917:  RLF    71,W
+0918:  MOVWF  77
+0919:  RLF    77,F
+091A:  MOVLW  FC
+091B:  ANDWF  77,F
+091C:  MOVF   77,W
+091D:  ADDLW  35
+091E:  MOVWF  04
+091F:  BCF    03.7
+0920:  MOVF   00,W
+0921:  MOVWF  55
+0922:  INCF   04,F
+0923:  MOVF   00,W
+0924:  MOVWF  56
+0925:  INCF   04,F
+0926:  MOVF   00,W
+0927:  MOVWF  57
+0928:  INCF   04,F
+0929:  MOVF   00,W
+092A:  MOVWF  58
+....................                xmax = j;
+092B:  BSF    03.5
+092C:  CLRF   23
+092D:  MOVF   71,W
+092E:  MOVWF  22
+092F:  BCF    0A.3
+0930:  BCF    03.5
+0931:  CALL   06D
+0932:  BSF    0A.3
+0933:  MOVF   7A,W
+0934:  MOVWF  54
+0935:  MOVF   79,W
+0936:  MOVWF  53
+0937:  MOVF   78,W
+0938:  MOVWF  52
+0939:  MOVF   77,W
+093A:  MOVWF  51
+....................            }
+093B:  INCF   71,F
+093C:  GOTO   0E0
+....................        }
+....................       
+....................        max1 = x [xmax - 1];
+093D:  BSF    03.1
+093E:  MOVF   54,W
+093F:  BSF    03.5
+0940:  MOVWF  2B
+0941:  BCF    03.5
+0942:  MOVF   53,W
+0943:  BSF    03.5
+0944:  MOVWF  2A
+0945:  BCF    03.5
+0946:  MOVF   52,W
+0947:  BSF    03.5
+0948:  MOVWF  29
+0949:  BCF    03.5
+094A:  MOVF   51,W
+094B:  BSF    03.5
+094C:  MOVWF  28
+094D:  CLRF   2F
+094E:  CLRF   2E
+094F:  CLRF   2D
+0950:  MOVLW  7F
+0951:  MOVWF  2C
+0952:  BCF    0A.3
+0953:  BCF    03.5
+0954:  CALL   0CF
+0955:  BSF    0A.3
+0956:  MOVF   7A,W
+0957:  BSF    03.5
+0958:  MOVWF  23
+0959:  MOVF   79,W
+095A:  MOVWF  22
+095B:  MOVF   78,W
+095C:  MOVWF  21
+095D:  MOVF   77,W
+095E:  MOVWF  20
+095F:  MOVF   23,W
+0960:  MOVWF  34
+0961:  MOVF   22,W
+0962:  MOVWF  33
+0963:  MOVF   21,W
+0964:  MOVWF  32
+0965:  MOVF   20,W
+0966:  MOVWF  31
+0967:  CLRF   38
+0968:  CLRF   37
+0969:  CLRF   36
+096A:  MOVLW  81
+096B:  MOVWF  35
+096C:  BCF    0A.3
+096D:  BCF    03.5
+096E:  CALL   215
+096F:  BSF    0A.3
+0970:  MOVLW  35
+0971:  ADDWF  77,W
+0972:  MOVWF  04
+0973:  BCF    03.7
+0974:  BTFSC  7A.0
+0975:  BSF    03.7
+0976:  MOVF   00,W
+0977:  MOVWF  59
+0978:  INCF   04,F
+0979:  MOVF   00,W
+097A:  MOVWF  5A
+097B:  INCF   04,F
+097C:  MOVF   00,W
+097D:  MOVWF  5B
+097E:  INCF   04,F
+097F:  MOVF   00,W
+0980:  MOVWF  5C
+....................        max2 = x [xmax + 1];
+0981:  BCF    03.1
+0982:  MOVF   54,W
+0983:  BSF    03.5
+0984:  MOVWF  2B
+0985:  BCF    03.5
+0986:  MOVF   53,W
+0987:  BSF    03.5
+0988:  MOVWF  2A
+0989:  BCF    03.5
+098A:  MOVF   52,W
+098B:  BSF    03.5
+098C:  MOVWF  29
+098D:  BCF    03.5
+098E:  MOVF   51,W
+098F:  BSF    03.5
+0990:  MOVWF  28
+0991:  CLRF   2F
+0992:  CLRF   2E
+0993:  CLRF   2D
+0994:  MOVLW  7F
+0995:  MOVWF  2C
+0996:  BCF    0A.3
+0997:  BCF    03.5
+0998:  CALL   0CF
+0999:  BSF    0A.3
+099A:  MOVF   7A,W
+099B:  BSF    03.5
+099C:  MOVWF  23
+099D:  MOVF   79,W
+099E:  MOVWF  22
+099F:  MOVF   78,W
+09A0:  MOVWF  21
+09A1:  MOVF   77,W
+09A2:  MOVWF  20
+09A3:  MOVF   23,W
+09A4:  MOVWF  34
+09A5:  MOVF   22,W
+09A6:  MOVWF  33
+09A7:  MOVF   21,W
+09A8:  MOVWF  32
+09A9:  MOVF   20,W
+09AA:  MOVWF  31
+09AB:  CLRF   38
+09AC:  CLRF   37
+09AD:  CLRF   36
+09AE:  MOVLW  81
+09AF:  MOVWF  35
+09B0:  BCF    0A.3
+09B1:  BCF    03.5
+09B2:  CALL   215
+09B3:  BSF    0A.3
+09B4:  MOVLW  35
+09B5:  ADDWF  77,W
+09B6:  MOVWF  04
+09B7:  BCF    03.7
+09B8:  BTFSC  7A.0
+09B9:  BSF    03.7
+09BA:  MOVF   00,W
+09BB:  MOVWF  5D
+09BC:  INCF   04,F
+09BD:  MOVF   00,W
+09BE:  MOVWF  5E
+09BF:  INCF   04,F
+09C0:  MOVF   00,W
+09C1:  MOVWF  5F
+09C2:  INCF   04,F
+09C3:  MOVF   00,W
+09C4:  MOVWF  60
+....................            
+....................        a = (max1 + max2 - 2*max)*0.5;
+09C5:  BCF    03.1
+09C6:  MOVF   5C,W
+09C7:  BSF    03.5
+09C8:  MOVWF  2B
+09C9:  BCF    03.5
+09CA:  MOVF   5B,W
+09CB:  BSF    03.5
+09CC:  MOVWF  2A
+09CD:  BCF    03.5
+09CE:  MOVF   5A,W
+09CF:  BSF    03.5
+09D0:  MOVWF  29
+09D1:  BCF    03.5
+09D2:  MOVF   59,W
+09D3:  BSF    03.5
+09D4:  MOVWF  28
+09D5:  BCF    03.5
+09D6:  MOVF   60,W
+09D7:  BSF    03.5
+09D8:  MOVWF  2F
+09D9:  BCF    03.5
+09DA:  MOVF   5F,W
+09DB:  BSF    03.5
+09DC:  MOVWF  2E
+09DD:  BCF    03.5
+09DE:  MOVF   5E,W
+09DF:  BSF    03.5
+09E0:  MOVWF  2D
+09E1:  BCF    03.5
+09E2:  MOVF   5D,W
+09E3:  BSF    03.5
+09E4:  MOVWF  2C
+09E5:  BCF    0A.3
+09E6:  BCF    03.5
+09E7:  CALL   0CF
+09E8:  BSF    0A.3
+09E9:  MOVF   7A,W
+09EA:  BSF    03.5
+09EB:  MOVWF  23
+09EC:  MOVF   79,W
+09ED:  MOVWF  22
+09EE:  MOVF   78,W
+09EF:  MOVWF  21
+09F0:  MOVF   77,W
+09F1:  MOVWF  20
+09F2:  CLRF   34
+09F3:  CLRF   33
+09F4:  CLRF   32
+09F5:  MOVLW  80
+09F6:  MOVWF  31
+09F7:  BCF    03.5
+09F8:  MOVF   58,W
+09F9:  BSF    03.5
+09FA:  MOVWF  38
+09FB:  BCF    03.5
+09FC:  MOVF   57,W
+09FD:  BSF    03.5
+09FE:  MOVWF  37
+09FF:  BCF    03.5
+0A00:  MOVF   56,W
+0A01:  BSF    03.5
+0A02:  MOVWF  36
+0A03:  BCF    03.5
+0A04:  MOVF   55,W
+0A05:  BSF    03.5
+0A06:  MOVWF  35
+0A07:  BCF    0A.3
+0A08:  BCF    03.5
+0A09:  CALL   215
+0A0A:  BSF    0A.3
+0A0B:  BSF    03.1
+0A0C:  BSF    03.5
+0A0D:  MOVF   23,W
+0A0E:  MOVWF  2B
+0A0F:  MOVF   22,W
+0A10:  MOVWF  2A
+0A11:  MOVF   21,W
+0A12:  MOVWF  29
+0A13:  MOVF   20,W
+0A14:  MOVWF  28
+0A15:  MOVF   7A,W
+0A16:  MOVWF  2F
+0A17:  MOVF   79,W
+0A18:  MOVWF  2E
+0A19:  MOVF   78,W
+0A1A:  MOVWF  2D
+0A1B:  MOVF   77,W
+0A1C:  MOVWF  2C
+0A1D:  BCF    0A.3
+0A1E:  BCF    03.5
+0A1F:  CALL   0CF
+0A20:  BSF    0A.3
+0A21:  MOVF   7A,W
+0A22:  BSF    03.5
+0A23:  MOVWF  23
+0A24:  MOVF   79,W
+0A25:  MOVWF  22
+0A26:  MOVF   78,W
+0A27:  MOVWF  21
+0A28:  MOVF   77,W
+0A29:  MOVWF  20
+0A2A:  MOVF   23,W
+0A2B:  MOVWF  34
+0A2C:  MOVF   22,W
+0A2D:  MOVWF  33
+0A2E:  MOVF   21,W
+0A2F:  MOVWF  32
+0A30:  MOVF   20,W
+0A31:  MOVWF  31
+0A32:  CLRF   38
+0A33:  CLRF   37
+0A34:  CLRF   36
+0A35:  MOVLW  7E
+0A36:  MOVWF  35
+0A37:  BCF    0A.3
+0A38:  BCF    03.5
+0A39:  CALL   215
+0A3A:  BSF    0A.3
+0A3B:  MOVF   7A,W
+0A3C:  MOVWF  64
+0A3D:  MOVF   79,W
+0A3E:  MOVWF  63
+0A3F:  MOVF   78,W
+0A40:  MOVWF  62
+0A41:  MOVF   77,W
+0A42:  MOVWF  61
+....................        b = max - max1 - 2*a*(xmax - 1) - a;
+0A43:  BSF    03.1
+0A44:  MOVF   58,W
+0A45:  BSF    03.5
+0A46:  MOVWF  2B
+0A47:  BCF    03.5
+0A48:  MOVF   57,W
+0A49:  BSF    03.5
+0A4A:  MOVWF  2A
+0A4B:  BCF    03.5
+0A4C:  MOVF   56,W
+0A4D:  BSF    03.5
+0A4E:  MOVWF  29
+0A4F:  BCF    03.5
+0A50:  MOVF   55,W
+0A51:  BSF    03.5
+0A52:  MOVWF  28
+0A53:  BCF    03.5
+0A54:  MOVF   5C,W
+0A55:  BSF    03.5
+0A56:  MOVWF  2F
+0A57:  BCF    03.5
+0A58:  MOVF   5B,W
+0A59:  BSF    03.5
+0A5A:  MOVWF  2E
+0A5B:  BCF    03.5
+0A5C:  MOVF   5A,W
+0A5D:  BSF    03.5
+0A5E:  MOVWF  2D
+0A5F:  BCF    03.5
+0A60:  MOVF   59,W
+0A61:  BSF    03.5
+0A62:  MOVWF  2C
+0A63:  BCF    0A.3
+0A64:  BCF    03.5
+0A65:  CALL   0CF
+0A66:  BSF    0A.3
+0A67:  MOVF   7A,W
+0A68:  BSF    03.5
+0A69:  MOVWF  23
+0A6A:  MOVF   79,W
+0A6B:  MOVWF  22
+0A6C:  MOVF   78,W
+0A6D:  MOVWF  21
+0A6E:  MOVF   77,W
+0A6F:  MOVWF  20
+0A70:  CLRF   34
+0A71:  CLRF   33
+0A72:  CLRF   32
+0A73:  MOVLW  80
+0A74:  MOVWF  31
+0A75:  BCF    03.5
+0A76:  MOVF   64,W
+0A77:  BSF    03.5
+0A78:  MOVWF  38
+0A79:  BCF    03.5
+0A7A:  MOVF   63,W
+0A7B:  BSF    03.5
+0A7C:  MOVWF  37
+0A7D:  BCF    03.5
+0A7E:  MOVF   62,W
+0A7F:  BSF    03.5
+0A80:  MOVWF  36
+0A81:  BCF    03.5
+0A82:  MOVF   61,W
+0A83:  BSF    03.5
+0A84:  MOVWF  35
+0A85:  BCF    0A.3
+0A86:  BCF    03.5
+0A87:  CALL   215
+0A88:  BSF    0A.3
+0A89:  MOVF   7A,W
+0A8A:  BSF    03.5
+0A8B:  MOVWF  27
+0A8C:  MOVF   79,W
+0A8D:  MOVWF  26
+0A8E:  MOVF   78,W
+0A8F:  MOVWF  25
+0A90:  MOVF   77,W
+0A91:  MOVWF  24
+0A92:  BSF    03.1
+0A93:  BCF    03.5
+0A94:  MOVF   54,W
+0A95:  BSF    03.5
+0A96:  MOVWF  2B
+0A97:  BCF    03.5
+0A98:  MOVF   53,W
+0A99:  BSF    03.5
+0A9A:  MOVWF  2A
+0A9B:  BCF    03.5
+0A9C:  MOVF   52,W
+0A9D:  BSF    03.5
+0A9E:  MOVWF  29
+0A9F:  BCF    03.5
+0AA0:  MOVF   51,W
+0AA1:  BSF    03.5
+0AA2:  MOVWF  28
+0AA3:  CLRF   2F
+0AA4:  CLRF   2E
+0AA5:  CLRF   2D
+0AA6:  MOVLW  7F
+0AA7:  MOVWF  2C
+0AA8:  BCF    0A.3
+0AA9:  BCF    03.5
+0AAA:  CALL   0CF
+0AAB:  BSF    0A.3
+0AAC:  BSF    03.5
+0AAD:  MOVF   27,W
+0AAE:  MOVWF  34
+0AAF:  MOVF   26,W
+0AB0:  MOVWF  33
+0AB1:  MOVF   25,W
+0AB2:  MOVWF  32
+0AB3:  MOVF   24,W
+0AB4:  MOVWF  31
+0AB5:  MOVF   7A,W
+0AB6:  MOVWF  38
+0AB7:  MOVF   79,W
+0AB8:  MOVWF  37
+0AB9:  MOVF   78,W
+0ABA:  MOVWF  36
+0ABB:  MOVF   77,W
+0ABC:  MOVWF  35
+0ABD:  BCF    0A.3
+0ABE:  BCF    03.5
+0ABF:  CALL   215
+0AC0:  BSF    0A.3
+0AC1:  BSF    03.1
+0AC2:  BSF    03.5
+0AC3:  MOVF   23,W
+0AC4:  MOVWF  2B
+0AC5:  MOVF   22,W
+0AC6:  MOVWF  2A
+0AC7:  MOVF   21,W
+0AC8:  MOVWF  29
+0AC9:  MOVF   20,W
+0ACA:  MOVWF  28
+0ACB:  MOVF   7A,W
+0ACC:  MOVWF  2F
+0ACD:  MOVF   79,W
+0ACE:  MOVWF  2E
+0ACF:  MOVF   78,W
+0AD0:  MOVWF  2D
+0AD1:  MOVF   77,W
+0AD2:  MOVWF  2C
+0AD3:  BCF    0A.3
+0AD4:  BCF    03.5
+0AD5:  CALL   0CF
+0AD6:  BSF    0A.3
+0AD7:  MOVF   7A,W
+0AD8:  BSF    03.5
+0AD9:  MOVWF  23
+0ADA:  MOVF   79,W
+0ADB:  MOVWF  22
+0ADC:  MOVF   78,W
+0ADD:  MOVWF  21
+0ADE:  MOVF   77,W
+0ADF:  MOVWF  20
+0AE0:  BSF    03.1
+0AE1:  MOVF   23,W
+0AE2:  MOVWF  2B
+0AE3:  MOVF   22,W
+0AE4:  MOVWF  2A
+0AE5:  MOVF   21,W
+0AE6:  MOVWF  29
+0AE7:  MOVF   20,W
+0AE8:  MOVWF  28
+0AE9:  BCF    03.5
+0AEA:  MOVF   64,W
+0AEB:  BSF    03.5
+0AEC:  MOVWF  2F
+0AED:  BCF    03.5
+0AEE:  MOVF   63,W
+0AEF:  BSF    03.5
+0AF0:  MOVWF  2E
+0AF1:  BCF    03.5
+0AF2:  MOVF   62,W
+0AF3:  BSF    03.5
+0AF4:  MOVWF  2D
+0AF5:  BCF    03.5
+0AF6:  MOVF   61,W
+0AF7:  BSF    03.5
+0AF8:  MOVWF  2C
+0AF9:  BCF    0A.3
+0AFA:  BCF    03.5
+0AFB:  CALL   0CF
+0AFC:  BSF    0A.3
+0AFD:  MOVF   7A,W
+0AFE:  MOVWF  68
+0AFF:  MOVF   79,W
+0B00:  MOVWF  67
+0B01:  MOVF   78,W
+0B02:  MOVWF  66
+0B03:  MOVF   77,W
+0B04:  MOVWF  65
+....................        d = -b/(2*a);
+0B05:  MOVF   65,W
+0B06:  BSF    03.5
+0B07:  MOVWF  20
+0B08:  BCF    03.5
+0B09:  MOVF   66,W
+0B0A:  XORLW  80
+0B0B:  BSF    03.5
+0B0C:  MOVWF  21
+0B0D:  BCF    03.5
+0B0E:  MOVF   67,W
+0B0F:  BSF    03.5
+0B10:  MOVWF  22
+0B11:  BCF    03.5
+0B12:  MOVF   68,W
+0B13:  BSF    03.5
+0B14:  MOVWF  23
+0B15:  CLRF   34
+0B16:  CLRF   33
+0B17:  CLRF   32
+0B18:  MOVLW  80
+0B19:  MOVWF  31
+0B1A:  BCF    03.5
+0B1B:  MOVF   64,W
+0B1C:  BSF    03.5
+0B1D:  MOVWF  38
+0B1E:  BCF    03.5
+0B1F:  MOVF   63,W
+0B20:  BSF    03.5
+0B21:  MOVWF  37
+0B22:  BCF    03.5
+0B23:  MOVF   62,W
+0B24:  BSF    03.5
+0B25:  MOVWF  36
+0B26:  BCF    03.5
+0B27:  MOVF   61,W
+0B28:  BSF    03.5
+0B29:  MOVWF  35
+0B2A:  BCF    0A.3
+0B2B:  BCF    03.5
+0B2C:  CALL   215
+0B2D:  BSF    0A.3
+0B2E:  BSF    03.5
+0B2F:  MOVF   23,W
+0B30:  MOVWF  27
+0B31:  MOVF   22,W
+0B32:  MOVWF  26
+0B33:  MOVF   21,W
+0B34:  MOVWF  25
+0B35:  MOVF   20,W
+0B36:  MOVWF  24
+0B37:  MOVF   7A,W
+0B38:  MOVWF  2B
+0B39:  MOVF   79,W
+0B3A:  MOVWF  2A
+0B3B:  MOVF   78,W
+0B3C:  MOVWF  29
+0B3D:  MOVF   77,W
+0B3E:  MOVWF  28
+0B3F:  BCF    0A.3
+0B40:  BCF    03.5
+0B41:  GOTO   28C
+0B42:  BSF    0A.3
+0B43:  MOVF   7A,W
+0B44:  MOVWF  6C
+0B45:  MOVF   79,W
+0B46:  MOVWF  6B
+0B47:  MOVF   78,W
+0B48:  MOVWF  6A
+0B49:  MOVF   77,W
+0B4A:  MOVWF  69
+....................        out = 17*(d - 3);
+0B4B:  BSF    03.1
+0B4C:  MOVF   6C,W
+0B4D:  BSF    03.5
+0B4E:  MOVWF  2B
+0B4F:  BCF    03.5
+0B50:  MOVF   6B,W
+0B51:  BSF    03.5
+0B52:  MOVWF  2A
+0B53:  BCF    03.5
+0B54:  MOVF   6A,W
+0B55:  BSF    03.5
+0B56:  MOVWF  29
+0B57:  BCF    03.5
+0B58:  MOVF   69,W
+0B59:  BSF    03.5
+0B5A:  MOVWF  28
+0B5B:  CLRF   2F
+0B5C:  CLRF   2E
+0B5D:  MOVLW  40
+0B5E:  MOVWF  2D
+0B5F:  MOVLW  80
+0B60:  MOVWF  2C
+0B61:  BCF    0A.3
+0B62:  BCF    03.5
+0B63:  CALL   0CF
+0B64:  BSF    0A.3
+0B65:  BSF    03.5
+0B66:  CLRF   34
+0B67:  CLRF   33
+0B68:  MOVLW  08
+0B69:  MOVWF  32
+0B6A:  MOVLW  83
+0B6B:  MOVWF  31
+0B6C:  MOVF   7A,W
+0B6D:  MOVWF  38
+0B6E:  MOVF   79,W
+0B6F:  MOVWF  37
+0B70:  MOVF   78,W
+0B71:  MOVWF  36
+0B72:  MOVF   77,W
+0B73:  MOVWF  35
+0B74:  BCF    0A.3
+0B75:  BCF    03.5
+0B76:  CALL   215
+0B77:  BSF    0A.3
+0B78:  MOVF   7A,W
+0B79:  MOVWF  70
+0B7A:  MOVF   79,W
+0B7B:  MOVWF  6F
+0B7C:  MOVF   78,W
+0B7D:  MOVWF  6E
+0B7E:  MOVF   77,W
+0B7F:  MOVWF  6D
+....................        
+....................        for (j = 0; j < 7; j++)
+0B80:  CLRF   71
+0B81:  MOVF   71,W
+0B82:  SUBLW  06
+0B83:  BTFSS  03.0
+0B84:  GOTO   3CF
+....................        {
+....................            printf ("CB%d = %f\t", j, x [j]);
+0B85:  RLF    71,W
+0B86:  MOVWF  77
+0B87:  RLF    77,F
+0B88:  MOVLW  FC
+0B89:  ANDWF  77,F
+0B8A:  MOVF   77,W
+0B8B:  ADDLW  35
+0B8C:  MOVWF  04
+0B8D:  BCF    03.7
+0B8E:  MOVF   00,W
+0B8F:  BSF    03.5
+0B90:  MOVWF  20
+0B91:  INCF   04,F
+0B92:  MOVF   00,W
+0B93:  MOVWF  21
+0B94:  INCF   04,F
+0B95:  MOVF   00,W
+0B96:  MOVWF  22
+0B97:  INCF   04,F
+0B98:  MOVF   00,W
+0B99:  MOVWF  23
+0B9A:  MOVLW  43
+0B9B:  BCF    03.5
+0B9C:  BTFSS  0C.4
+0B9D:  GOTO   39C
+0B9E:  MOVWF  19
+0B9F:  MOVLW  42
+0BA0:  BTFSS  0C.4
+0BA1:  GOTO   3A0
+0BA2:  MOVWF  19
+0BA3:  MOVF   71,W
+0BA4:  BSF    03.5
+0BA5:  MOVWF  24
+0BA6:  MOVLW  18
+0BA7:  MOVWF  25
+0BA8:  BCF    0A.3
+0BA9:  BCF    03.5
+0BAA:  GOTO   371
+0BAB:  BSF    0A.3
+0BAC:  MOVLW  20
+0BAD:  BTFSS  0C.4
+0BAE:  GOTO   3AD
+0BAF:  MOVWF  19
+0BB0:  MOVLW  3D
+0BB1:  BTFSS  0C.4
+0BB2:  GOTO   3B1
+0BB3:  MOVWF  19
+0BB4:  MOVLW  20
+0BB5:  BTFSS  0C.4
+0BB6:  GOTO   3B5
+0BB7:  MOVWF  19
+0BB8:  MOVLW  89
+0BB9:  MOVWF  04
+0BBA:  BSF    03.5
+0BBB:  MOVF   23,W
+0BBC:  MOVWF  27
+0BBD:  MOVF   22,W
+0BBE:  MOVWF  26
+0BBF:  MOVF   21,W
+0BC0:  MOVWF  25
+0BC1:  MOVF   20,W
+0BC2:  MOVWF  24
+0BC3:  MOVLW  02
+0BC4:  MOVWF  28
+0BC5:  BCF    0A.3
+0BC6:  BCF    03.5
+0BC7:  CALL   42B
+0BC8:  BSF    0A.3
+0BC9:  MOVLW  09
+0BCA:  BTFSS  0C.4
+0BCB:  GOTO   3CA
+0BCC:  MOVWF  19
+0BCD:  INCF   71,F
+0BCE:  GOTO   381
+....................        }
+....................        
+....................        printf ("Khoang cach = %f\t", out);
+0BCF:  MOVLW  60
+0BD0:  BSF    03.6
+0BD1:  MOVWF  0D
+0BD2:  MOVLW  00
+0BD3:  MOVWF  0F
+0BD4:  BCF    03.0
+0BD5:  MOVLW  0E
+0BD6:  BSF    03.5
+0BD7:  BCF    03.6
+0BD8:  MOVWF  20
+0BD9:  BCF    0A.3
+0BDA:  BCF    03.5
+0BDB:  GOTO   523
+0BDC:  BSF    0A.3
+0BDD:  MOVLW  89
+0BDE:  MOVWF  04
+0BDF:  MOVF   70,W
+0BE0:  BSF    03.5
+0BE1:  MOVWF  27
+0BE2:  BCF    03.5
+0BE3:  MOVF   6F,W
+0BE4:  BSF    03.5
+0BE5:  MOVWF  26
+0BE6:  BCF    03.5
+0BE7:  MOVF   6E,W
+0BE8:  BSF    03.5
+0BE9:  MOVWF  25
+0BEA:  BCF    03.5
+0BEB:  MOVF   6D,W
+0BEC:  BSF    03.5
+0BED:  MOVWF  24
+0BEE:  MOVLW  02
+0BEF:  MOVWF  28
+0BF0:  BCF    0A.3
+0BF1:  BCF    03.5
+0BF2:  CALL   42B
+0BF3:  BSF    0A.3
+0BF4:  MOVLW  09
+0BF5:  BTFSS  0C.4
+0BF6:  GOTO   3F5
+0BF7:  MOVWF  19
+....................        printf ("\t\t\t\t\t\t");
+0BF8:  MOVLW  69
+0BF9:  BSF    03.6
+0BFA:  MOVWF  0D
+0BFB:  MOVLW  00
+0BFC:  MOVWF  0F
+0BFD:  BCF    0A.3
+0BFE:  BCF    03.6
+0BFF:  GOTO   5A1
+0C00:  BSF    0A.3
+....................        delay_ms (1000);
+0C01:  MOVLW  04
+0C02:  BSF    03.5
+0C03:  MOVWF  20
+0C04:  MOVLW  FA
+0C05:  MOVWF  21
+0C06:  BCF    0A.3
+0C07:  BCF    03.5
+0C08:  GOTO   619
+0C09:  BSF    0A.3
+0C0A:  BSF    03.5
+0C0B:  DECFSZ 20,F
+0C0C:  GOTO   404
+0C0D:  BCF    03.5
+0C0E:  GOTO   041
+....................     }
+.................... }
+0C0F:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

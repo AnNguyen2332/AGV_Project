@@ -1,0 +1,10 @@
+Compiling C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master_18F\main on 07-Nov-21 at 14:19
+*** Error 24 "C:\Program Files (x86)\PICC\Devices\18F4431.h" Line 11(9,19): Unknown device type    -- Try PCH
+      1 Errors,  0 Warnings.
+Build Failed.
+Compiling C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master_18F\main on 07-Nov-21 at 14:19
+>>> Warning 216 "C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master_18F\main.c" Line 55(1,2): Interrupts disabled during call to prevent re-entrancy:  (@I2C_WRITEU_129)
+>>> Warning 202 "C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master_18F\main.c" Line 8(6,14): Variable never used:   slv_add2
+      Memory usage:   ROM=3%      RAM=4% - 4%
+      0 Errors,  2 Warnings.
+Build Successful.

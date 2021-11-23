@@ -1,0 +1,8 @@
+Compiling C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Test_CB\main on 09-Nov-21 at 19:13
+*** Error 24 "C:\Program Files (x86)\PICC\Devices\16F877A.h" Line 11(9,19): Unknown device type    -- Try PCM
+      1 Errors,  0 Warnings.
+Build Failed.
+Compiling C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Test_CB\main on 09-Nov-21 at 19:13
+      Memory usage:   ROM=20%      RAM=8% - 14%
+      0 Errors,  0 Warnings.
+Build Successful.

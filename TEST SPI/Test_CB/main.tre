@@ -1,0 +1,48 @@
+ÀÄmain
+   ÀÄMAIN  0/664  Ram=22
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@cinit2  (Inline)  Ram=0
+      ÃÄcalib  0/77  Ram=16
+      ³  ÃÄ@MUL1616  0/21  Ram=5
+      ³  ÀÄ@DIV1616  0/37  Ram=5
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄcalib  0/77  Ram=16
+      ³  ÀÄ*
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@MUL1616  0/21  Ram=5
+      ÃÄ@DIV1616  0/37  Ram=5
+      ÃÄ@ITOF  0/31  Ram=2
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_LU_9600_62_63  0/89  Ram=9
+      ÃÄ@PSTRINGCN7_9600_62_63  0/89  Ram=5
+      ÃÄ@PRINTF_L32D_9600_62_63FPFPF  0/345  Ram=13
+      ³  ÃÄ@MULFF  (Inline)  Ram=13
+      ³  ÃÄ@FTOSD  (Inline)  Ram=5
+      ³  ÃÄ@DIV3232  0/79  Ram=13
+      ³  ÀÄ@DIV3232  0/79  Ram=13
+      ÃÄ@PSTRINGC7_9600_62_63  0/90  Ram=4
+      ÀÄ@delay_ms1  0/22  Ram=1

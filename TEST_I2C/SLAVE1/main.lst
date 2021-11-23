@@ -1,0 +1,292 @@
+CCS PCM C Compiler, Version 5.101, 43599               07-Nov-21 14:17
+
+               Filename:   C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\SLAVE1\main.lst
+
+               ROM used:   192 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   16 (4%) at main() level
+                           21 (6%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   080
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.3
+001A:  GOTO   01D
+001B:  BTFSC  0C.3
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   031
+.................... #include <16F877A.h>
+.................... //////////// Standard Header file for the PIC16F877A device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC16F877A
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #fuses HS, NOWDT, NOPROTECT, NOLVP
+.................... #use delay (clock = 20M)
+*
+006A:  MOVLW  2B
+006B:  MOVWF  04
+006C:  BCF    03.7
+006D:  MOVF   00,W
+006E:  BTFSC  03.2
+006F:  GOTO   07D
+0070:  MOVLW  06
+0071:  MOVWF  78
+0072:  CLRF   77
+0073:  DECFSZ 77,F
+0074:  GOTO   073
+0075:  DECFSZ 78,F
+0076:  GOTO   072
+0077:  MOVLW  7B
+0078:  MOVWF  77
+0079:  DECFSZ 77,F
+007A:  GOTO   079
+007B:  DECFSZ 00,F
+007C:  GOTO   070
+007D:  BCF    0A.3
+007E:  BCF    0A.4
+007F:  GOTO   0B8 (RETURN)
+.................... #use i2c (SLAVE, SDA = PIN_C4, SCL = PIN_C3, address = 0xa0, force_hw)
+*
+005B:  MOVF   2F,W
+005C:  MOVWF  13
+005D:  BSF    14.4
+005E:  BCF    0C.3
+005F:  BSF    03.5
+0060:  BTFSC  14.0
+0061:  GOTO   060
+0062:  CLRF   78
+0063:  BTFSS  11.6
+0064:  INCF   78,F
+0065:  BCF    03.5
+.................... #use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+.................... byte i;
+.................... #INT_SSP
+.................... void rcv_i2c ()
+.................... {
+....................    byte state, address, incoming;
+....................    state = i2c_isr_state();
+*
+0031:  BSF    03.5
+0032:  BTFSC  14.5
+0033:  GOTO   03C
+0034:  BCF    03.5
+0035:  CLRF   29
+0036:  BSF    03.5
+0037:  BTFSS  14.2
+0038:  GOTO   03C
+0039:  BCF    03.5
+003A:  BSF    29.7
+003B:  BSF    03.5
+003C:  BCF    03.5
+003D:  MOVF   29,W
+003E:  INCF   29,F
+003F:  MOVWF  2C
+....................    if(state < 0x80)
+0040:  MOVF   2C,W
+0041:  SUBLW  7F
+0042:  BTFSS  03.0
+0043:  GOTO   055
+....................    {
+....................       incoming = i2c_read();
+0044:  BCF    14.6
+0045:  BSF    03.5
+0046:  BTFSS  14.0
+0047:  GOTO   046
+0048:  BCF    03.5
+0049:  MOVF   13,W
+004A:  BSF    14.4
+004B:  MOVWF  2E
+....................       if (state == 0)
+004C:  MOVF   2C,F
+004D:  BTFSS  03.2
+004E:  GOTO   051
+....................       {
+....................          address = incoming;
+004F:  MOVF   2E,W
+0050:  MOVWF  2D
+....................       }
+....................       
+....................       if (state == 1)
+0051:  DECFSZ 2C,W
+0052:  GOTO   055
+....................       {
+....................          i = incoming;
+0053:  MOVF   2E,W
+0054:  MOVWF  28
+....................       }
+....................    }
+....................    if(state == 0x80) i2c_write(1);
+0055:  MOVF   2C,W
+0056:  SUBLW  80
+0057:  BTFSS  03.2
+0058:  GOTO   066
+0059:  MOVLW  01
+005A:  MOVWF  2F
+*
+0066:  BCF    0C.3
+0067:  BCF    0A.3
+0068:  BCF    0A.4
+0069:  GOTO   01D
+.................... }
+.................... 
+.................... /*void send_i2c (int data, int8 slv_add)
+.................... {
+....................    i2c_start();
+....................    i2c_write(slv_add);
+....................    i2c_write(data);
+....................    i2c_stop();
+.................... }*/
+.................... 
+.................... /*int8 Rece_data(int8 slave_add)
+.................... {
+....................    int8 value;
+....................    i2c_start();//khoi tao lenh khi o che do master
+....................    i2c_write(slave_add + 1);//gui dia chi slave giao tiep
+....................    value = i2c_read(0);///doc du lieu
+....................    i2c_stop();
+....................    return value;
+.................... }*/
+.................... void main()
+*
+0080:  MOVF   03,W
+0081:  ANDLW  1F
+0082:  MOVWF  03
+0083:  MOVLW  FF
+0084:  MOVWF  27
+0085:  BSF    27.3
+0086:  MOVF   27,W
+0087:  BSF    03.5
+0088:  MOVWF  07
+0089:  BCF    03.5
+008A:  BSF    27.4
+008B:  MOVF   27,W
+008C:  BSF    03.5
+008D:  MOVWF  07
+008E:  MOVLW  A0
+008F:  MOVWF  13
+0090:  MOVLW  36
+0091:  BCF    03.5
+0092:  MOVWF  14
+0093:  BSF    03.5
+0094:  BSF    11.0
+0095:  BSF    11.7
+0096:  MOVLW  81
+0097:  MOVWF  19
+0098:  MOVLW  A6
+0099:  MOVWF  18
+009A:  MOVLW  90
+009B:  BCF    03.5
+009C:  MOVWF  18
+009D:  MOVLW  03
+009E:  MOVWF  29
+009F:  BSF    03.5
+00A0:  BSF    1F.0
+00A1:  BSF    1F.1
+00A2:  BSF    1F.2
+00A3:  BCF    1F.3
+00A4:  MOVLW  07
+00A5:  MOVWF  1C
+00A6:  BCF    03.7
+.................... {
+....................    ENABLE_INTERRUPTS(GLOBAL);
+00A7:  MOVLW  C0
+00A8:  BCF    03.5
+00A9:  IORWF  0B,F
+....................    ENABLE_INTERRUPTS(INT_SSP);
+00AA:  BSF    03.5
+00AB:  BSF    0C.3
+....................    while(TRUE)
+....................    {
+....................       if (i == 0x01)
+00AC:  BCF    03.5
+00AD:  DECFSZ 28,W
+00AE:  GOTO   0BE
+....................       {
+....................          output_high (PIN_B0);
+00AF:  BSF    03.5
+00B0:  BCF    06.0
+00B1:  BCF    03.5
+00B2:  BSF    06.0
+....................          delay_ms (500);
+00B3:  MOVLW  02
+00B4:  MOVWF  2A
+00B5:  MOVLW  FA
+00B6:  MOVWF  2B
+00B7:  GOTO   06A
+00B8:  DECFSZ 2A,F
+00B9:  GOTO   0B5
+....................          output_low (PIN_B0);
+00BA:  BSF    03.5
+00BB:  BCF    06.0
+00BC:  BCF    03.5
+00BD:  BCF    06.0
+....................       }
+00BE:  GOTO   0AD
+....................       
+....................       /*if (i == 1)
+....................       {
+....................          output_high (PIN_B0);
+....................          delay_ms (1000);
+....................          output_low (PIN_B0);
+....................       }*/
+....................    }
+.................... }
+00BF:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F72   HS NOWDT PUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

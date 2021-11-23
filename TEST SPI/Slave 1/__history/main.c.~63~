@@ -1,0 +1,51 @@
+#include <16F877A.h>
+#use delay(crystal=20M)
+#include <stdlib.h>
+#include <string.h>
+#use rs232 (baud = 56000, parity = N, xmit = PIN_C6, rcv = PIN_C7)
+int i = 0;
+#byte SSPCON = 0x14
+#bit SSPM0 = SSPCON.0
+#bit SSPM1 = SSPCON.1
+#bit SSPM2 = SSPCON.2
+#bit SSPM3 = SSPCON.3
+#byte SSPBUF = 0x13
+#INT_SSP
+void rcv_spi ()
+{
+   if (spi_data_is_in () == 1)
+   {
+      i = spi_read ();
+   }
+}
+
+void main()
+{
+   enable_interrupts (INT_SSP);
+   enable_interrupts (global);
+   setup_spi (spi_slave|spi_l_to_h|spi_clk_div_16);
+   SSPM0 = 0;
+   SSPM1 = 0;
+   SSPM2 = 1;
+   SSPM3 = 0;
+   SSPBUF = 22;
+   
+   while(TRUE)
+   {
+      if (input (PIN_B0) == 0)
+      {
+         output_low (PIN_A0);
+         delay_ms (1000);
+         spi_write (1);
+      }
+      
+      if (i == 1)
+      {
+         output_high (PIN_B1);
+         delay_ms (1500);
+      }
+      output_low (PIN_B1);
+      i = 0;
+      delay_ms (100);
+    }
+}

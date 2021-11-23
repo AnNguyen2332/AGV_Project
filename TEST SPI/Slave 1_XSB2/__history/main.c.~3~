@@ -1,0 +1,90 @@
+#include <16F877A.h>
+#use delay (clock = 20M)
+#include <stdlib.h>
+#include <string.h>
+#use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+int i = 0;
+#INT_SSP
+void rcv_spi ()
+{
+   if (spi_data_is_in () == 1)
+   {
+      i = spi_read ();
+   }
+}
+
+void main()
+{
+   enable_interrupts (INT_SSP);
+   enable_interrupts (global);
+   setup_spi (spi_slave|spi_l_to_h|spi_clk_div_16);
+   setup_adc_ports(ALL_ANALOG);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   
+   while(TRUE)
+   {
+      int16 x [7] = {0, 0, 0, 0, 0, 0, 0};
+      int j;
+      for (j = 0; j < 7; j++)
+         {
+            if (j < 4) {
+               set_adc_channel (j);
+               delay_us (10);
+               x [j] = read_adc ();
+            }
+            
+            if (j >= 4) {
+               set_adc_channel (j + 1);
+               delay_us (10);
+               x [j] = read_adc ();
+            }
+         }
+      set_adc_channel (0);
+      delay_us (10);
+      x0= read_adc ();
+      
+      set_adc_channel (1);
+      delay_us (10);
+      x1 = read_adc ();
+      
+      set_adc_channel (2);
+      delay_us (10);
+      x2 = read_adc ();
+      
+      set_adc_channel (3);
+      delay_us (10);
+      x3 = read_adc ();
+      
+      set_adc_channel (5);
+      delay_us (10);
+      x4 = read_adc ();
+      
+      set_adc_channel (6);
+      delay_us (10);
+      x5 = read_adc ();
+      
+      set_adc_channel (7);
+      delay_us (10);
+      x6 = read_adc ();
+      
+      
+      
+      if (i == 1)
+      {
+         output_high (PIN_B7);
+         spi_write (x);
+         delay_ms (1000);
+         i = 0;
+      }
+      
+      printf ("CB1 = %lu\t", x1);
+      printf ("CB2 = %lu\t", x2);
+      printf ("CB3 = %lu\t", x3);
+      printf ("CB4 = %lu\t", x4);
+      printf ("CB5 = %lu\t", x5);
+      printf ("CB6 = %lu\t", x6);
+      printf ("CB7 = %lu\t", x7);
+      printf ("Khoang cach = %f\t", x);
+      printf ("\t\t\t\t\t\t");
+    }
+}

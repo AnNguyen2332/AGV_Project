@@ -1,0 +1,63 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Slave 1_XSB2\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=19-11-2021
+D1_L=10
+D1_L1=[66280]Project Opened.
+D1_L2=[66401]Started Editing.
+D1_L3=[67677]Stopped Editing.
+D1_L4=[68181]Started Editing.
+D1_L5=[68808]Stopped Editing.
+D1_L6=[68929]Started Editing.
+D1_L7=[69229]Stopped Editing.
+D1_L8=[85332]Started Editing.
+D1_L9=[85644]Stopped Editing.
+TotalEdit=35
+TotalDebug=0
+D1_E=22
+D1_D=0
+D1_L10=[85928]Project Closed.
+D2=20-11-2021
+D2_L=10
+D2_L1=[56073]Project Opened.
+D2_L2=[56151]Started Editing.
+D2_L3=[56451]Stopped Editing.
+D2_L4=[56946]Started Editing.
+D2_L5=[57340]Stopped Editing.
+D2_L6=[57874]Started Editing.
+D2_L7=[58186]Stopped Editing.
+D2_L8=[59003]Started Editing.
+D2_L9=[59965]Stopped Editing.
+D2_E=13
+D2_D=0
+D2_L10=[63881]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=11
+[Units]
+Count=1
+1=main (main)

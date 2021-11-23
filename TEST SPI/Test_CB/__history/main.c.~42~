@@ -1,0 +1,63 @@
+#include <16F877A.h>
+#include <math.h>
+#device ADC=10
+#use delay(crystal=20000000)
+#FUSES NOWDT //No Watch Dog Timer
+#FUSES HS
+#use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+int calib (int x, int max_x, int min_x)
+{
+   int max_y = 929;
+   int min_y = 38;
+   int y = min_y + (max_y - min_y)*(x - min_x)/(max_x - min_x);
+   return y;
+}
+void main()
+{
+   setup_adc_ports(ALL_ANALOG);
+   setup_adc(ADC_CLOCK_INTERNAL);
+   while(TRUE)
+   {
+      long x1, x2, x3, x4, x5, x6, x7;
+      set_adc_channel (0);
+      delay_us (10);
+      x1 = read_adc ();
+      
+      set_adc_channel (1);
+      delay_us (10);
+      x2 = read_adc ();
+      
+      set_adc_channel (2);
+      delay_us (10);
+      x3 = read_adc ();
+      
+      set_adc_channel (3);
+      delay_us (10);
+      x4 = read_adc ();
+      
+      set_adc_channel (4);
+      delay_us (10);
+      x5 = read_adc ();
+      
+      set_adc_channel (5);
+      delay_us (10);
+      x6 = read_adc ();
+      
+      set_adc_channel (6);
+      delay_us (10);
+      x7 = read_adc ();
+      
+      float x = ((-3)*x1 + (-2)*x2 + (-1)*x3 + 0*x4 + 1*x5 + 2*x6 + 3*x7)*17/(x1 + x2 + x3 + x4 + x5 + x6 + x7);
+      printf ("CB1 = %ld\t", x1);
+      printf ("CB2 = %ld\t", x2);
+      printf ("CB3 = %ld\t", x3);
+      printf ("CB4 = %ld\t", x4);
+      printf ("CB5 = %ld\t", x5);
+      printf ("CB6 = %ld\t", x6);
+      printf ("CB7 = %ld\t", x7);
+      printf ("Khoang cach = %f\t", x);
+      printf ("\t\t\t\t\t\t");
+      delay_ms (2000);
+   }
+
+}

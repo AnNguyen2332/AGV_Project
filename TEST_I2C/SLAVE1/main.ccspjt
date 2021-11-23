@@ -1,0 +1,83 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\SLAVE1\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=06-11-2021
+D1_L=6
+D1_L1=[82657]Project Opened.
+D1_L2=[82661]Started Editing.
+D1_L3=[82985]Stopped Editing.
+D1_L4=[83413]Started Editing.
+D1_L5=[83428]Stopped Editing.
+TotalEdit=21
+TotalDebug=0
+D1_E=1
+D1_D=0
+D1_L6=[83428]Project Closed.
+D2=07-11-2021
+D2_L=34
+D2_L1=[39467]Project Opened.
+D2_L2=[39533]Started Editing.
+D2_L3=[39644]Stopped Editing.
+D2_E=20
+D2_D=0
+D2_L4=[39644]Project Closed.
+D2_L5=[39664]Project Opened.
+D2_L6=[39672]Project Closed.
+D2_L7=[39672]Project Opened.
+D2_L8=[39679]Project Closed.
+D2_L9=[39897]Project Opened.
+D2_L10=[39908]Started Editing.
+D2_L11=[40213]Stopped Editing.
+D2_L12=[40442]Project Closed.
+D2_L13=[40774]Project Opened.
+D2_L14=[40780]Started Editing.
+D2_L15=[41102]Stopped Editing.
+D2_L16=[41351]Started Editing.
+D2_L17=[41436]Stopped Editing.
+D2_L18=[41436]Project Closed.
+D2_L19=[43484]Project Opened.
+D2_L20=[43491]Started Editing.
+D2_L21=[43868]Stopped Editing.
+D2_L22=[45121]Started Editing.
+D2_L23=[45135]Stopped Editing.
+D2_L24=[45136]Project Closed.
+D2_L25=[48372]Project Opened.
+D2_L26=[48378]Started Editing.
+D2_L27=[48680]Stopped Editing.
+D2_L28=[50782]Started Editing.
+D2_L29=[51502]Stopped Editing.
+D2_L30=[51502]Project Closed.
+D2_L31=[51690]Project Opened.
+D2_L32=[51726]Project Closed.
+D2_L33=[51917]Project Opened.
+D2_L34=[52094]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=12
+[Units]
+Count=1
+1=main (main)

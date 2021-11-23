@@ -1,0 +1,285 @@
+CCS PCH C Compiler, Version 5.101, 43599               07-Nov-21 14:19
+
+               Filename:   C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master_18F\main.lst
+
+               ROM used:   478 bytes (3%)
+                           Largest free fragment is 15902
+               RAM used:   30 (4%) at main() level
+                           34 (4%) worst case
+               Stack used: 0 locations
+               Stack size: 31
+
+*
+0000:  GOTO   0166
+*
+0008:  MOVWF  04
+000A:  MOVFF  FD8,05
+000E:  MOVFF  FE0,06
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0C
+0018:  MOVFF  FEA,07
+001C:  MOVFF  FE1,08
+0020:  MOVFF  FE2,09
+0024:  MOVFF  FD9,0A
+0028:  MOVFF  FDA,0B
+002C:  MOVFF  FF3,12
+0030:  MOVFF  FF4,13
+0034:  MOVFF  FFA,14
+0038:  MOVFF  FF5,15
+003C:  MOVFF  FF6,16
+0040:  MOVFF  FF7,17
+0044:  MOVFF  00,0E
+0048:  MOVFF  01,0F
+004C:  MOVFF  02,10
+0050:  MOVFF  03,11
+0054:  BTFSS  F9D.3
+0056:  GOTO   0060
+005A:  BTFSC  F9E.3
+005C:  GOTO   00E8
+0060:  MOVFF  0E,00
+0064:  MOVFF  0F,01
+0068:  MOVFF  10,02
+006C:  MOVFF  11,03
+0070:  MOVFF  0C,FE9
+0074:  MOVFF  07,FEA
+0078:  BSF    07.7
+007A:  MOVFF  08,FE1
+007E:  MOVFF  09,FE2
+0082:  MOVFF  0A,FD9
+0086:  MOVFF  0B,FDA
+008A:  MOVFF  12,FF3
+008E:  MOVFF  13,FF4
+0092:  MOVFF  14,FFA
+0096:  MOVFF  15,FF5
+009A:  MOVFF  16,FF6
+009E:  MOVFF  17,FF7
+00A2:  MOVF   04,W
+00A4:  MOVFF  06,FE0
+00A8:  MOVFF  05,FD8
+00AC:  RETFIE 0
+.................... #include <18F4431.h>
+.................... //////////// Standard Header file for the PIC18F4431 device ////////////////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... ////        (C) Copyright 1996, 2020 Custom Computer Services          ////
+.................... //// This source code may only be used by licensed users of the CCS C  ////
+.................... //// compiler.  This source code may only be distributed to other      ////
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction ////
+.................... //// or distribution is permitted without written permission.          ////
+.................... //// Derivative programs created using this software in object code    ////
+.................... //// form are not restricted in any way.                               ////
+.................... ///////////////////////////////////////////////////////////////////////////
+.................... #device PIC18F4431
+.................... 
+.................... #list
+.................... 
+.................... #device ADC=10
+.................... #fuses HS, NOWDT, NOPROTECT, NOLVP
+.................... #use delay (clock = 20M)
+*
+0140:  CLRF   FEA
+0142:  MOVLW  1E
+0144:  MOVWF  FE9
+0146:  MOVF   FEF,W
+0148:  BZ    0164
+014A:  MOVLW  06
+014C:  MOVWF  01
+014E:  CLRF   00
+0150:  DECFSZ 00,F
+0152:  BRA    0150
+0154:  DECFSZ 01,F
+0156:  BRA    014E
+0158:  MOVLW  7B
+015A:  MOVWF  00
+015C:  DECFSZ 00,F
+015E:  BRA    015C
+0160:  DECFSZ FEF,F
+0162:  BRA    014A
+0164:  RETURN 0
+.................... #use i2c (MASTER, SDA = PIN_C4, SCL = PIN_C5, force_hw)
+*
+00AE:  BCF    FC6.7
+00B0:  BCF    F9E.3
+00B2:  MOVFF  21,FC9
+00B6:  MOVLW  02
+00B8:  BTFSC  FC6.7
+00BA:  BRA    00C6
+00BC:  BTFSC  FC7.2
+00BE:  BRA    00BC
+00C0:  MOVLW  00
+00C2:  BTFSC  FC5.6
+00C4:  MOVLW  01
+00C6:  MOVWF  01
+00C8:  RETURN 0
+00CA:  BCF    FC6.6
+00CC:  BSF    FC5.3
+00CE:  BTFSC  FC5.3
+00D0:  BRA    00CE
+00D2:  BTFSC  00.0
+00D4:  BCF    FC5.5
+00D6:  BTFSS  00.0
+00D8:  BSF    FC5.5
+00DA:  BSF    FC5.4
+00DC:  BTFSC  FC5.4
+00DE:  BRA    00DC
+00E0:  MOVFF  FC9,01
+00E4:  GOTO   00FC (RETURN)
+.................... #use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+.................... byte slv_add1 = 0xa0;
+.................... byte slv_add2 = 0xa1;
+.................... byte i;
+.................... #INT_SSP
+.................... void rcv_i2c (void)
+.................... {
+....................    i2c_start();
+00E8:  BSF    FC5.0
+00EA:  BTFSC  FC5.0
+00EC:  BRA    00EA
+....................    i2c_write (slv_add1+1);
+00EE:  MOVLW  01
+00F0:  ADDWF  1A,W
+00F2:  MOVWF  20
+00F4:  MOVWF  21
+00F6:  RCALL  00AE
+....................    i = i2c_read (0);
+00F8:  CLRF   00
+00FA:  BRA    00CA
+00FC:  MOVFF  01,1C
+....................    i2c_stop();
+0100:  BSF    FC5.2
+0102:  BTFSC  FC5.2
+0104:  BRA    0102
+0106:  BCF    F9E.3
+0108:  GOTO   0060
+.................... }
+.................... 
+.................... void send_i2c (byte data, byte slv_add)
+.................... {
+....................    i2c_start();
+010C:  BSF    FC5.0
+010E:  BTFSC  FC5.0
+0110:  BRA    010E
+0112:  CLRF   19
+0114:  BTFSC  FF2.7
+0116:  BSF    19.7
+0118:  BCF    FF2.7
+....................    i2c_write (slv_add);
+011A:  MOVFF  1E,21
+011E:  RCALL  00AE
+0120:  BTFSC  19.7
+0122:  BSF    FF2.7
+0124:  CLRF   19
+0126:  BTFSC  FF2.7
+0128:  BSF    19.7
+012A:  BCF    FF2.7
+....................    i2c_write (data);
+012C:  MOVFF  1D,21
+0130:  RCALL  00AE
+0132:  BTFSC  19.7
+0134:  BSF    FF2.7
+....................    i2c_stop ();
+0136:  BSF    FC5.2
+0138:  BTFSC  FC5.2
+013A:  BRA    0138
+013C:  GOTO   01B6 (RETURN)
+.................... }
+.................... 
+.................... /*int8 Rece_data(int8 slave_add)
+.................... {
+....................    int8 value;
+....................    i2c_start();//khoi tao lenh khi o che do master
+....................    i2c_write(slave_add + 1);//gui dia chi slave giao tiep
+....................    value = i2c_read(0);///doc du lieu
+....................    i2c_stop();
+....................    return value;
+.................... }*/
+.................... void main()
+*
+0166:  CLRF   FF8
+0168:  BCF    FD0.7
+016A:  BSF    07.7
+016C:  BSF    F94.5
+016E:  BSF    F94.4
+0170:  MOVLW  31
+0172:  MOVWF  FC8
+0174:  MOVLW  28
+0176:  MOVWF  FC6
+0178:  BSF    FC7.7
+017A:  BCF    FC7.6
+017C:  BSF    FAA.3
+017E:  MOVLW  08
+0180:  MOVWF  FAF
+0182:  MOVLW  02
+0184:  MOVWF  FB0
+0186:  MOVLW  A6
+0188:  MOVWF  FAC
+018A:  MOVLW  90
+018C:  MOVWF  FAB
+018E:  MOVLW  A0
+0190:  MOVWF  1A
+0192:  MOVLW  A1
+0194:  MOVWF  1B
+0196:  BCF    FB9.0
+0198:  BCF    FC1.6
+019A:  BCF    FC1.7
+019C:  MOVLW  00
+019E:  MOVWF  FB8
+.................... {
+....................    ENABLE_INTERRUPTS(GLOBAL);
+01A0:  MOVLW  C0
+01A2:  IORWF  FF2,F
+....................    ENABLE_INTERRUPTS(INT_SSP);
+01A4:  BSF    F9D.3
+....................    while(TRUE)
+....................    {
+....................       if (input (PIN_B7) == 0)
+01A6:  BSF    F93.7
+01A8:  BTFSC  F81.7
+01AA:  BRA    01C4
+....................       {
+....................          send_i2c (0x01, slv_add1);
+01AC:  MOVLW  01
+01AE:  MOVWF  1D
+01B0:  MOVFF  1A,1E
+01B4:  BRA    010C
+....................          delay_ms (500);
+01B6:  MOVLW  02
+01B8:  MOVWF  1D
+01BA:  MOVLW  FA
+01BC:  MOVWF  1E
+01BE:  RCALL  0140
+01C0:  DECFSZ 1D,F
+01C2:  BRA    01BA
+....................       }
+....................       
+....................       if (i == 1)
+01C4:  DECFSZ 1C,W
+01C6:  BRA    01DE
+....................       {
+....................          output_high (PIN_B0);
+01C8:  BCF    F93.0
+01CA:  BSF    F8A.0
+....................          delay_ms (1000);
+01CC:  MOVLW  04
+01CE:  MOVWF  1D
+01D0:  MOVLW  FA
+01D2:  MOVWF  1E
+01D4:  RCALL  0140
+01D6:  DECFSZ 1D,F
+01D8:  BRA    01D0
+....................          output_low (PIN_B0);
+01DA:  BCF    F93.0
+01DC:  BCF    F8A.0
+....................       }
+01DE:  BRA    01A6
+....................    }
+.................... }
+01E0:  SLEEP 
+
+Configuration Fuses:
+   Word  1: C200   HS FCMEN IESO
+   Word  2: 3E0E   PUT BROWNOUT BORV20 NOWDT WDT32768 NOWINEN
+   Word  3: 9D3C   NOPWMPIN LPOL_HIGH HPOL_HIGH T1LOWPOWER FLTAC1 SSP_RC PWM4B5 EXCLKC3 MCLR
+   Word  4: 0081   STVREN NOLVP NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB

@@ -1,0 +1,57 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\Desktop\Project\TEST_I2C\Master\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=2
+D1=06-11-2021
+D1_L=10
+D1_L1=[80455]Project Opened.
+D1_L2=[80475]Started Editing.
+D1_L3=[81992]Stopped Editing.
+D1_L4=[82112]Started Editing.
+D1_L5=[82657]Stopped Editing.
+TotalEdit=31
+TotalDebug=0
+D1_E=31
+D1_D=0
+D1_L6=[82657]Project Closed.
+D1_L7=[83428]Project Opened.
+D1_L8=[83434]Started Editing.
+D1_L9=[83736]Stopped Editing.
+D1_L10=[84018]Project Closed.
+D2=07-11-2021
+D2_L=4
+D2_L1=[33601]Project Opened.
+D2_L2=[33871]Project Closed.
+D2_L3=[38801]Project Opened.
+D2_L4=[38809]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=2
+2=main.h
+t2=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=3
+[Units]
+Count=1
+1=main (main)

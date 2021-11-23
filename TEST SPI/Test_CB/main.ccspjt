@@ -1,0 +1,141 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Test_CB\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=7
+D1=04-11-2021
+D1_L=46
+D1_L1=[31768]Project Opened.
+D1_L2=[31791]Started Editing.
+D1_L3=[32249]Stopped Editing.
+D1_L4=[32303]Started Editing.
+D1_L5=[33115]Stopped Editing.
+D1_L6=[35477]Started Editing.
+D1_L7=[35779]Stopped Editing.
+D1_L8=[36138]Started Editing.
+D1_L9=[36438]Stopped Editing.
+D1_L10=[37311]Started Editing.
+D1_L11=[37625]Stopped Editing.
+D1_L12=[38737]Started Editing.
+D1_L13=[39066]Stopped Editing.
+D1_L14=[40209]Started Editing.
+D1_L15=[40514]Stopped Editing.
+D1_L16=[41125]Started Editing.
+D1_L17=[42626]Stopped Editing.
+D1_L18=[49655]Started Editing.
+D1_L19=[49967]Stopped Editing.
+D1_L20=[49995]Started Editing.
+D1_L21=[50303]Stopped Editing.
+D1_L22=[50687]Started Editing.
+D1_L23=[51373]Stopped Editing.
+D1_L24=[51594]Started Editing.
+D1_L25=[52240]Stopped Editing.
+D1_L26=[52393]Started Editing.
+D1_L27=[52696]Stopped Editing.
+D1_L28=[52706]Started Editing.
+D1_L29=[53152]Stopped Editing.
+D1_L30=[53925]Started Editing.
+D1_L31=[54503]Stopped Editing.
+D1_L32=[55042]Started Editing.
+D1_L33=[55590]Stopped Editing.
+TotalEdit=107
+TotalDebug=0
+D1_E=98
+D1_D=0
+D1_L34=[57227]Project Closed.
+D1_L35=[57969]Project Opened.
+D1_L36=[57985]Started Editing.
+D1_L37=[58924]Stopped Editing.
+D1_L38=[59250]Started Editing.
+D1_L39=[60422]Stopped Editing.
+D1_L40=[61491]Started Editing.
+D1_L41=[62674]Stopped Editing.
+D1_L42=[62801]Started Editing.
+D1_L43=[63122]Stopped Editing.
+D1_L44=[63191]Started Editing.
+D1_L45=[63588]Stopped Editing.
+D1_L46=[63657]Project Closed.
+D2=06-11-2021
+D2_L=2
+D2_L1=[80315]Project Opened.
+D2_L2=[80455]Project Closed.
+D3=08-11-2021
+D3_L=6
+D3_L1=[57814]Project Opened.
+D3_L2=[58743]Started Editing.
+D3_L3=[59077]Stopped Editing.
+D3_E=1
+D3_D=0
+D3_L4=[60486]Project Closed.
+D3_L5=[62066]Project Opened.
+D3_L6=[62120]Project Closed.
+D4=09-11-2021
+D4_L=14
+D4_L1=[63598]Project Opened.
+D4_L2=[63625]Started Editing.
+D4_L3=[63958]Stopped Editing.
+D4_L4=[67851]Started Editing.
+D4_L5=[68020]Stopped Editing.
+D4_E=6
+D4_D=0
+D4_L6=[68020]Project Closed.
+D4_L7=[68040]Project Opened.
+D4_L8=[68045]Started Editing.
+D4_L9=[68346]Stopped Editing.
+D4_L10=[68427]Project Closed.
+D4_L11=[69171]Project Opened.
+D4_L12=[69215]Started Editing.
+D4_L13=[69524]Stopped Editing.
+D4_L14=[72840]Project Closed.
+D5=11-11-2021
+D5_L=4
+D5_L1=[72807]Project Opened.
+D5_L2=[72853]Started Editing.
+D5_L3=[72915]Stopped Editing.
+D5_E=2
+D5_D=0
+D5_L4=[72915]Project Closed.
+D6=15-11-2021
+D6_L=2
+D6_L1=[39537]Project Opened.
+D6_L2=[39902]Project Closed.
+D7=19-11-2021
+D7_L=2
+D7_L1=[66151]Project Opened.
+D7_L2=[66279]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=1
+2=..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+t2=1
+3=main.h
+t3=1
+4=lcd.c
+t4=1
+5=..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h
+t5=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=43
+[Units]
+Count=1
+1=main (main)

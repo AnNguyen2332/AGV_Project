@@ -1,0 +1,10 @@
+ÀÄmain
+   ÃÄMAIN  0/146  Ram=1
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÃÄ@cinit2  (Inline)  Ram=0
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÃÄ@delay_ms1  0/20  Ram=1
+   ³  ÀÄ@delay_ms1  0/20  Ram=1
+   ÀÄrcv_spi  0/15  Ram=1

@@ -1,0 +1,51 @@
+
+ROM used:   478/16384 (3%)
+            478/16384 (3%) including unused fragments
+
+            0.5 Average locations per line
+            22.8 Average locations per statement
+
+RAM used:   30/768 (4%) at main() level
+            34/768 (4%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   56    21 100  main.c
+  949     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4431.h
+----- -----
+ 1005    21 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     38   4    1             @delay_ms1
+0     28   3    1             @I2C_WRITEU_129
+0     30   3    1             @I2C_READU_129
+0     36   4    1     84  2.0  rcv_i2c
+0     52   5    2     80  2.0  send_i2c
+0    124  13    1    245  3.2  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              21
+    Comments                174
+    Volume (V)              552
+    Difficulty (D)          6.7
+    Effort to implement (E) 3680
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    77
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-000AC   166  0  
+000AE-03FFE   308  15902  
+
+
+

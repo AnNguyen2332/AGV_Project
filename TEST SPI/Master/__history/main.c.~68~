@@ -1,0 +1,48 @@
+#include <16F877a.h>
+#device ADC=10
+#fuses HS, NOWDT, NOPROTECT, NOLVP
+#use delay (clock = 20M)
+#include <stdlib.h>
+#include <string.h>
+#use rs232 (baud = 96000, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+int i = 0;
+#INT_SSP
+void rcv_spi ()
+{
+   if (spi_data_is_in () == 1)
+   {
+      i = spi_read ();
+   }
+}
+
+void main()
+{
+   setup_spi (spi_master|spi_l_to_h|spi_clk_div_16);
+   enable_interrupts (INT_SSP);
+   enable_interrupts (global);
+   while(TRUE)
+   {
+         delay_ms (1000);
+         output_low (PIN_A0);
+         output_high (PIN_A1);
+         delay_ms (500);
+         spi_write (1);
+         delay_ms (500);
+         output_high (PIN_A0);
+         output_high (PIN_A1);
+      
+      if (i == 1)
+      {
+         output_high (PIN_B4);
+         output_low (PIN_A1);
+         output_high (PIN_A0);
+         delay_ms (1000);
+         spi_write (1);
+         delay_ms (1000);
+         output_high (PIN_A0);
+         output_high (PIN_A1);
+         output_low (PIN_B4);
+      }
+      i = 0;
+   }
+}

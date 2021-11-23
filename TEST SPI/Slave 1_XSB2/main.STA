@@ -1,0 +1,69 @@
+
+ROM used:   2623/8192 (32%)
+            3088/8192 (38%) including unused fragments
+
+            1.0 Average locations per line
+            6.6 Average locations per statement
+
+RAM used:   104/368 (28%) at main() level
+            127/368 (35%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   73    40  10  main.c
+  707     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+ 1354   359  90  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h
+   32     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h
+  435     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h
+   28     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h
+   37     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h
+----- -----
+ 2666   399 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0    119   5   13             @MULFF
+0     31   1    2             @ITOF
+0    326  12   16             @ADDFF
+0    206   8   14             @DIVFF
+0     22   1    1             @delay_ms1
+0     15   1    1     50  2.0  rcv_spi
+1   1040  40   78   1875  8.9  MAIN
+0     67   3   10             @FLT
+0     23   1    3             @DIV88
+0    105   4    6             @PRINTF_D_9600_62_63
+ Inline         5             @FTOSD
+0     81   3   13             @DIV3232
+0    248   9   13             @PRINTF_L32D_9600_62_63FPFPF
+0      9   0    0             @const1008
+0    126   5    5             @PSTRINGCN7_9600_62_63
+0      4   0    0             @const1011
+0    120   5    4             @PSTRINGC7_9600_62_63
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              399
+    Comments                675
+    Volume (V)              2048
+    Difficulty (D)          10.3
+    Effort to implement (E) 21159
+    Time to implement (T)   20 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   7
+    Maintainability (MI)    39
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-00050    77  0  
+00051-007FF  1502  465  
+00800-00FFF  1040  1008  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

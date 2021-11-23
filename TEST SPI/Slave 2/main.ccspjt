@@ -1,0 +1,89 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\Desktop\Project\TEST SPI\Slave 2\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=3
+D1=29-10-2021
+D1_L=8
+D1_L1=[64144]Project Opened.
+D1_L2=[64149]Started Editing.
+D1_L3=[65233]Stopped Editing.
+D1_L4=[65648]Started Editing.
+D1_L5=[66197]Stopped Editing.
+D1_L6=[71452]Started Editing.
+D1_L7=[72058]Stopped Editing.
+TotalEdit=45
+TotalDebug=0
+D1_E=28
+D1_D=0
+D1_L8=[72058]Project Closed.
+D2=31-10-2021
+D2_L=28
+D2_L1=[46773]Project Opened.
+D2_L2=[46786]Started Editing.
+D2_L3=[47073]Stopped Editing.
+D2_E=15
+D2_D=0
+D2_L4=[47073]Project Closed.
+D2_L5=[54236]Project Opened.
+D2_L6=[54655]Project Closed.
+D2_L7=[55386]Project Opened.
+D2_L8=[55422]Started Editing.
+D2_L9=[55549]Stopped Editing.
+D2_L10=[55549]Project Closed.
+D2_L11=[55628]Project Opened.
+D2_L12=[55647]Project Closed.
+D2_L13=[55975]Project Opened.
+D2_L14=[56000]Started Editing.
+D2_L15=[56071]Stopped Editing.
+D2_L16=[56071]Project Closed.
+D2_L17=[56114]Project Opened.
+D2_L18=[56239]Started Editing.
+D2_L19=[56522]Stopped Editing.
+D2_L20=[56523]Project Closed.
+D2_L21=[56699]Project Opened.
+D2_L22=[56724]Project Closed.
+D2_L23=[79170]Project Opened.
+D2_L24=[79181]Project Closed.
+D2_L25=[79244]Project Opened.
+D2_L26=[79266]Project Closed.
+D2_L27=[79363]Project Opened.
+D2_L28=[79395]Project Closed.
+D3=07-11-2021
+D3_L=4
+D3_L1=[58074]Project Opened.
+D3_L2=[58088]Started Editing.
+D3_L3=[58156]Stopped Editing.
+D3_E=2
+D3_D=0
+D3_L4=[58157]Project Closed.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=2
+2=..\Master\main.c
+t2=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=16
+[Units]
+Count=1
+1=main (main)

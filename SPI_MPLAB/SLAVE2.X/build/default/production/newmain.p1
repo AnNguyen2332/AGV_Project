@@ -35,6 +35,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1059
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1059: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
+"1816
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1816: extern volatile unsigned char PR2 __attribute__((address(0x092)));
+[v _PR2 `Vuc ~T0 @X0 0 e@146 ]
+"2452
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2452: extern volatile __bit CCP1X __attribute__((address(0xBD)));
+[v _CCP1X `Vb ~T0 @X0 0 e@189 ]
+"2455
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2455: extern volatile __bit CCP1Y __attribute__((address(0xBC)));
+[v _CCP1Y `Vb ~T0 @X0 0 e@188 ]
+"892
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 892: extern volatile unsigned char CCPR1L __attribute__((address(0x015)));
+[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"2476
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2476: extern volatile __bit CCP2X __attribute__((address(0xED)));
+[v _CCP2X `Vb ~T0 @X0 0 e@237 ]
+"2479
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2479: extern volatile __bit CCP2Y __attribute__((address(0xEC)));
+[v _CCP2Y `Vb ~T0 @X0 0 e@236 ]
+"1080
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1080: extern volatile unsigned char CCPR2L __attribute__((address(0x01B)));
+[v _CCPR2L `Vuc ~T0 @X0 0 e@27 ]
+"912
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 912:     struct {
+[s S35 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . CCP1M CCP1Y CCP1X ]
+"917
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 917:     struct {
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 ]
+"911
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 911: typedef union {
+[u S34 `S35 1 `S36 1 ]
+[n S34 . . . ]
+"924
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 924: extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0x017)));
+[v _CCP1CONbits `VS34 ~T0 @X0 0 e@23 ]
+"743
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 743:     struct {
+[s S29 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S29 . T2CKPS TMR2ON TOUTPS ]
+"748
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 748:     struct {
+[s S30 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S30 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+"742
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 742: typedef union {
+[u S28 `S29 1 `S30 1 ]
+[n S28 . . . ]
+"758
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 758: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x012)));
+[v _T2CONbits `VS28 ~T0 @X0 0 e@18 ]
+"1443
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1443:     struct {
+[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S58 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"1442
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1442: typedef union {
+[u S57 `S58 1 ]
+[n S57 . . ]
+"1454
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1454: extern volatile TRISCbits_t TRISCbits __attribute__((address(0x087)));
+[v _TRISCbits `VS57 ~T0 @X0 0 e@135 ]
+"1100
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1100:     struct {
+[s S43 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S43 . CCP2M CCP2Y CCP2X ]
+"1105
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1105:     struct {
+[s S44 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S44 . CCP2M0 CCP2M1 CCP2M2 CCP2M3 ]
+"1099
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1099: typedef union {
+[u S42 `S43 1 `S44 1 ]
+[n S42 . . . ]
+"1112
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1112: extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0x01D)));
+[v _CCP2CONbits `VS42 ~T0 @X0 0 e@29 ]
 [p mainexit ]
 "1499
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1499: extern volatile unsigned char TRISD __attribute__((address(0x088)));
@@ -60,8 +137,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2932
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2932: extern volatile __bit TRISA5 __attribute__((address(0x42D)));
 [v _TRISA5 `Vb ~T0 @X0 0 e@1069 ]
-"36 newmain.c
-[; ;newmain.c: 36:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"38 newmain.c
+[; ;newmain.c: 38:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E850 32 33 34 35 36 37 .. ]
 [n E850 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E858 0 128 .. ]
@@ -73,7 +150,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44 ./spi.h
 [; ;./spi.h: 44: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 [v _spiInit `(v ~T0 @X0 0 ef4`E850`E858`E862`E866 ]
-"46
+"346 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 346:     struct {
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"345
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 345: typedef union {
+[u S11 `S12 1 ]
+[n S11 . . ]
+"357
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 357: extern volatile PORTDbits_t PORTDbits __attribute__((address(0x008)));
+[v _PORTDbits `VS11 ~T0 @X0 0 e@8 ]
+"46 ./spi.h
 [; ;./spi.h: 46: unsigned spiDataReady();
 [v _spiDataReady `(ui ~T0 @X0 0 e? ]
 "47
@@ -515,116 +603,363 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./uart.h: 58: }
 [e :UE 113 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"24 newmain.c
-[; ;newmain.c: 24: void main()
-[v _main `(v ~T0 @X0 1 ef ]
+"2 ./pwm.h
+[; ;./pwm.h: 2: long freq;
+[v _freq `l ~T0 @X0 1 e ]
+"6
+[; ;./pwm.h: 6: int PWM_Max_Duty()
+[v _PWM_Max_Duty `(i ~T0 @X0 1 ef ]
+"7
+[; ;./pwm.h: 7: {
+{
+[e :U _PWM_Max_Duty ]
+[f ]
+"8
+[; ;./pwm.h: 8:   return(8000000/(freq*4));
+[e ) -> / -> 8000000 `l * _freq -> -> 4 `i `l `i ]
+[e $UE 118  ]
+"9
+[; ;./pwm.h: 9: }
+[e :UE 118 ]
+}
+"11
+[; ;./pwm.h: 11: PWM1_Init_Fre(long fre)
+[v _PWM1_Init_Fre `(i ~T0 @X0 1 ef1`l ]
+"12
+[; ;./pwm.h: 12: {
+{
+[e :U _PWM1_Init_Fre ]
+"11
+[; ;./pwm.h: 11: PWM1_Init_Fre(long fre)
+[v _fre `l ~T0 @X0 1 r1 ]
+"12
+[; ;./pwm.h: 12: {
+[f ]
+"13
+[; ;./pwm.h: 13:   PR2 = (8000000/(freq*4*4)) - 1;
+[e = _PR2 -> - / -> 8000000 `l * * _freq -> -> 4 `i `l -> -> 4 `i `l -> -> 1 `i `l `uc ]
+"14
+[; ;./pwm.h: 14:   freq = fre;
+[e = _freq _fre ]
+"15
+[; ;./pwm.h: 15: }
+[e :UE 119 ]
+}
+"16
+[; ;./pwm.h: 16: PWM2_Init_Fre(long fre)
+[v _PWM2_Init_Fre `(i ~T0 @X0 1 ef1`l ]
+"17
+[; ;./pwm.h: 17: {
+{
+[e :U _PWM2_Init_Fre ]
+"16
+[; ;./pwm.h: 16: PWM2_Init_Fre(long fre)
+[v _fre `l ~T0 @X0 1 r1 ]
+"17
+[; ;./pwm.h: 17: {
+[f ]
+"18
+[; ;./pwm.h: 18:   PR2 = (8000000/(freq*4*4)) - 1;
+[e = _PR2 -> - / -> 8000000 `l * * _freq -> -> 4 `i `l -> -> 4 `i `l -> -> 1 `i `l `uc ]
+"19
+[; ;./pwm.h: 19:   freq = fre;
+[e = _freq _fre ]
+"20
+[; ;./pwm.h: 20: }
+[e :UE 120 ]
+}
+"22
+[; ;./pwm.h: 22: PWM1_Duty(unsigned int duty)
+[v _PWM1_Duty `(i ~T0 @X0 1 ef1`ui ]
+"23
+[; ;./pwm.h: 23: {
+{
+[e :U _PWM1_Duty ]
+"22
+[; ;./pwm.h: 22: PWM1_Duty(unsigned int duty)
+[v _duty `ui ~T0 @X0 1 r1 ]
+"23
+[; ;./pwm.h: 23: {
+[f ]
+"24
+[; ;./pwm.h: 24:     duty = ((float)duty/100.0)*PWM_Max_Duty();
+[e = _duty -> * / -> -> _duty `f `d .100.0 -> ( _PWM_Max_Duty ..  `d `ui ]
 "25
-[; ;newmain.c: 25: {
+[; ;./pwm.h: 25:     CCP1X = duty & 2;
+[e = _CCP1X -> & _duty -> -> 2 `i `ui `b ]
+"26
+[; ;./pwm.h: 26:     CCP1Y = duty & 1;
+[e = _CCP1Y -> & _duty -> -> 1 `i `ui `b ]
+"27
+[; ;./pwm.h: 27:     CCPR1L = duty>>2;
+[e = _CCPR1L -> >> _duty -> 2 `i `uc ]
+"28
+[; ;./pwm.h: 28: }
+[e :UE 121 ]
+}
+"29
+[; ;./pwm.h: 29: PWM2_Duty(unsigned int duty)
+[v _PWM2_Duty `(i ~T0 @X0 1 ef1`ui ]
+"30
+[; ;./pwm.h: 30: {
+{
+[e :U _PWM2_Duty ]
+"29
+[; ;./pwm.h: 29: PWM2_Duty(unsigned int duty)
+[v _duty `ui ~T0 @X0 1 r1 ]
+"30
+[; ;./pwm.h: 30: {
+[f ]
+"31
+[; ;./pwm.h: 31:     duty = ((float)duty/100.0)*PWM_Max_Duty();
+[e = _duty -> * / -> -> _duty `f `d .100.0 -> ( _PWM_Max_Duty ..  `d `ui ]
+"32
+[; ;./pwm.h: 32:     CCP2X = duty & 2;
+[e = _CCP2X -> & _duty -> -> 2 `i `ui `b ]
+"33
+[; ;./pwm.h: 33:     CCP2Y = duty & 1;
+[e = _CCP2Y -> & _duty -> -> 1 `i `ui `b ]
+"34
+[; ;./pwm.h: 34:     CCPR2L = duty>>2;
+[e = _CCPR2L -> >> _duty -> 2 `i `uc ]
+"35
+[; ;./pwm.h: 35: }
+[e :UE 122 ]
+}
+"37
+[; ;./pwm.h: 37: PWM1_Start()
+[v _PWM1_Start `(i ~T0 @X0 1 ef ]
+"38
+[; ;./pwm.h: 38: {
+{
+[e :U _PWM1_Start ]
+[f ]
+"39
+[; ;./pwm.h: 39:   CCP1CONbits.CCP1M3 = 1;
+[e = . . _CCP1CONbits 1 3 -> -> 1 `i `uc ]
+"40
+[; ;./pwm.h: 40:   CCP1CONbits.CCP1M2 = 1;
+[e = . . _CCP1CONbits 1 2 -> -> 1 `i `uc ]
+"45
+[; ;./pwm.h: 45:     T2CONbits.T2CKPS0 = 1;
+[e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
+"46
+[; ;./pwm.h: 46:     T2CONbits.T2CKPS1 = 0;
+[e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
+"51
+[; ;./pwm.h: 51:   T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"52
+[; ;./pwm.h: 52:   TRISCbits.TRISC2 = 0;
+[e = . . _TRISCbits 0 2 -> -> 0 `i `uc ]
+"53
+[; ;./pwm.h: 53: }
+[e :UE 123 ]
+}
+"54
+[; ;./pwm.h: 54: PWM2_Start()
+[v _PWM2_Start `(i ~T0 @X0 1 ef ]
+"55
+[; ;./pwm.h: 55: {
+{
+[e :U _PWM2_Start ]
+[f ]
+"56
+[; ;./pwm.h: 56:   CCP2CONbits.CCP2M3 = 1;
+[e = . . _CCP2CONbits 1 3 -> -> 1 `i `uc ]
+"57
+[; ;./pwm.h: 57:   CCP2CONbits.CCP2M2 = 1;
+[e = . . _CCP2CONbits 1 2 -> -> 1 `i `uc ]
+"62
+[; ;./pwm.h: 62:     T2CONbits.T2CKPS0 = 1;
+[e = . . _T2CONbits 1 0 -> -> 1 `i `uc ]
+"63
+[; ;./pwm.h: 63:     T2CONbits.T2CKPS1 = 0;
+[e = . . _T2CONbits 1 1 -> -> 0 `i `uc ]
+"68
+[; ;./pwm.h: 68:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+"69
+[; ;./pwm.h: 69:     TRISCbits.TRISC1 = 0;
+[e = . . _TRISCbits 0 1 -> -> 0 `i `uc ]
+"70
+[; ;./pwm.h: 70: }
+[e :UE 124 ]
+}
+"72
+[; ;./pwm.h: 72: PWM1_Stop()
+[v _PWM1_Stop `(i ~T0 @X0 1 ef ]
+"73
+[; ;./pwm.h: 73: {
+{
+[e :U _PWM1_Stop ]
+[f ]
+"74
+[; ;./pwm.h: 74:   CCP1CONbits.CCP1M3 = 0;
+[e = . . _CCP1CONbits 1 3 -> -> 0 `i `uc ]
+"75
+[; ;./pwm.h: 75:   CCP1CONbits.CCP1M2 = 0;
+[e = . . _CCP1CONbits 1 2 -> -> 0 `i `uc ]
+"76
+[; ;./pwm.h: 76: }
+[e :UE 125 ]
+}
+"77
+[; ;./pwm.h: 77: PWM2_Stop()
+[v _PWM2_Stop `(i ~T0 @X0 1 ef ]
+"78
+[; ;./pwm.h: 78: {
+{
+[e :U _PWM2_Stop ]
+[f ]
+"79
+[; ;./pwm.h: 79:   CCP2CONbits.CCP2M3 = 0;
+[e = . . _CCP2CONbits 1 3 -> -> 0 `i `uc ]
+"80
+[; ;./pwm.h: 80:   CCP2CONbits.CCP2M2 = 0;
+[e = . . _CCP2CONbits 1 2 -> -> 0 `i `uc ]
+"81
+[; ;./pwm.h: 81: }
+[e :UE 126 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"26 newmain.c
+[; ;newmain.c: 26: void main()
+[v _main `(v ~T0 @X0 1 ef ]
+"27
+[; ;newmain.c: 27: {
 {
 [e :U _main ]
 [f ]
-"26
-[; ;newmain.c: 26:    TRISD = 0;
+"28
+[; ;newmain.c: 28:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"27
-[; ;newmain.c: 27:    PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
 "29
-[; ;newmain.c: 29:    GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
-"30
-[; ;newmain.c: 30:    PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
+[; ;newmain.c: 29:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
 "31
-[; ;newmain.c: 31:    SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
+[; ;newmain.c: 31:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "32
-[; ;newmain.c: 32:    SSPIE = 1;
-[e = _SSPIE -> -> 1 `i `b ]
+[; ;newmain.c: 32:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "33
-[; ;newmain.c: 33:    ADCON1 = 0x07;
-[e = _ADCON1 -> -> 7 `i `uc ]
+[; ;newmain.c: 33:     SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
 "34
-[; ;newmain.c: 34:    TRISA5 = 1;
-[e = _TRISA5 -> -> 1 `i `b ]
+[; ;newmain.c: 34:     SSPIE = 1;
+[e = _SSPIE -> -> 1 `i `b ]
 "35
-[; ;newmain.c: 35:    UART_Init (9600);
-[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;newmain.c: 35:     ADCON1 = 0x07;
+[e = _ADCON1 -> -> 7 `i `uc ]
 "36
-[; ;newmain.c: 36:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e ( _spiInit (4 , , , . `E850 4 . `E858 0 . `E862 1 . `E866 0 ]
+[; ;newmain.c: 36:     TRISA5 = 1;
+[e = _TRISA5 -> -> 1 `i `b ]
 "37
-[; ;newmain.c: 37:    while(1)
-[e :U 120 ]
+[; ;newmain.c: 37:     UART_Init(9600);
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
 "38
-[; ;newmain.c: 38:    {
-{
+[; ;newmain.c: 38:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e ( _spiInit (4 , , , . `E850 4 . `E858 0 . `E862 1 . `E866 0 ]
 "39
-[; ;newmain.c: 39:        if(spiDataReady())
-[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 122  ]
+[; ;newmain.c: 39:     PWM2_Init_Fre(1000);
+[e ( _PWM2_Init_Fre (1 -> -> 1000 `i `l ]
 "40
-[; ;newmain.c: 40:        {
-{
+[; ;newmain.c: 40:     PWM1_Init_Fre(1000);
+[e ( _PWM1_Init_Fre (1 -> -> 1000 `i `l ]
 "41
-[; ;newmain.c: 41:            int data;
-[v _data `i ~T0 @X0 1 a ]
+[; ;newmain.c: 41:     PORTDbits.RD1 = 0;
+[e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
 "42
-[; ;newmain.c: 42:            data = spiRead ();
-[e = _data -> ( _spiRead ..  `i ]
+[; ;newmain.c: 42:     PORTDbits.RD2 = 1;
+[e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
 "43
-[; ;newmain.c: 43:            if (spiRead ())
-[e $ ! != -> ( _spiRead ..  `i -> 0 `i 123  ]
+[; ;newmain.c: 43:     while(1)
+[e :U 129 ]
 "44
-[; ;newmain.c: 44:            {
+[; ;newmain.c: 44:     {
 {
 "45
-[; ;newmain.c: 45:                RD0 = 1;
-[e = _RD0 -> -> 1 `i `b ]
+[; ;newmain.c: 45:         PWM2_Duty(127);
+[e ( _PWM2_Duty (1 -> -> 127 `i `ui ]
 "46
-[; ;newmain.c: 46:                spiWrite (1);
-[e ( _spiWrite (1 -> -> 1 `i `uc ]
+[; ;newmain.c: 46:         PWM1_Duty(50);
+[e ( _PWM1_Duty (1 -> -> 50 `i `ui ]
 "47
-[; ;newmain.c: 47:                UART_Write_Text ("Data = ");
-[e ( _UART_Write_Text (1 :s 1C ]
+[; ;newmain.c: 47:         PWM2_Start();
+[e ( _PWM2_Start ..  ]
 "48
-[; ;newmain.c: 48:                UART_Write (data);
-[e ( _UART_Write (1 -> _data `uc ]
+[; ;newmain.c: 48:         PWM1_Start();
+[e ( _PWM1_Start ..  ]
 "49
-[; ;newmain.c: 49:                _delay((unsigned long)((90)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 49:         UART_Write_Text("Test message\n\r");
+[e ( _UART_Write_Text (1 :s 1C ]
 "50
-[; ;newmain.c: 50:                UART_Write_Text ("\n\r");
-[e ( _UART_Write_Text (1 :s 2C ]
+[; ;newmain.c: 50:         if(spiDataReady())
+[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 131  ]
 "51
-[; ;newmain.c: 51:                _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 51:         {
+{
 "52
-[; ;newmain.c: 52:            }
-}
-[e :U 123 ]
+[; ;newmain.c: 52:             int data;
+[v _data `i ~T0 @X0 1 a ]
 "53
-[; ;newmain.c: 53:            RD0 = 0;
-[e = _RD0 -> -> 0 `i `b ]
+[; ;newmain.c: 53:             data = spiRead ();
+[e = _data -> ( _spiRead ..  `i ]
 "54
-[; ;newmain.c: 54:            SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
+[; ;newmain.c: 54:             if (spiRead())
+[e $ ! != -> ( _spiRead ..  `i -> 0 `i 132  ]
 "55
-[; ;newmain.c: 55:        }
-}
-[e :U 122 ]
+[; ;newmain.c: 55:             {
+{
 "56
-[; ;newmain.c: 56:        _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 56:                 RD0 = 1;
+[e = _RD0 -> -> 1 `i `b ]
 "57
-[; ;newmain.c: 57:    }
-}
-[e :U 119 ]
-[e $U 120  ]
-[e :U 121 ]
+[; ;newmain.c: 57:                 spiWrite (1);
+[e ( _spiWrite (1 -> -> 1 `i `uc ]
 "58
-[; ;newmain.c: 58: }
-[e :UE 118 ]
+[; ;newmain.c: 58:                 UART_Write_Text("Data = ");
+[e ( _UART_Write_Text (1 :s 2C ]
+"59
+[; ;newmain.c: 59:                 UART_Write(data);
+[e ( _UART_Write (1 -> _data `uc ]
+"60
+[; ;newmain.c: 60:                 _delay((unsigned long)((90)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"61
+[; ;newmain.c: 61:                 UART_Write_Text("\n\r");
+[e ( _UART_Write_Text (1 :s 3C ]
+"62
+[; ;newmain.c: 62:                 _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"63
+[; ;newmain.c: 63:             }
 }
-[a 1C 68 97 116 97 32 61 32 0 ]
-[a 2C 10 13 0 ]
+[e :U 132 ]
+"64
+[; ;newmain.c: 64:             RD0 = 0;
+[e = _RD0 -> -> 0 `i `b ]
+"65
+[; ;newmain.c: 65:             SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"66
+[; ;newmain.c: 66:         }
+}
+[e :U 131 ]
+"67
+[; ;newmain.c: 67:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"68
+[; ;newmain.c: 68:     }
+}
+[e :U 128 ]
+[e $U 129  ]
+[e :U 130 ]
+"69
+[; ;newmain.c: 69: }
+[e :UE 127 ]
+}
+[a 2C 68 97 116 97 32 61 32 0 ]
+[a 1C 84 101 115 116 32 109 101 115 115 97 103 101 10 13 0 ]
+[a 3C 10 13 0 ]

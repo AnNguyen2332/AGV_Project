@@ -1734,7 +1734,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 18 "newmain.c" 2
+# 19 "newmain.c" 2
+
 
 
 # 1 "./spi.h" 1
@@ -1772,10 +1773,7 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 20 "newmain.c" 2
-
-
-
+# 23 "newmain.c" 2
 # 1 "./uart.h" 1
 char UART_Init(const long int baudrate)
 {
@@ -1835,40 +1833,132 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 23 "newmain.c" 2
+# 24 "newmain.c" 2
+# 1 "./pwm.h" 1
+
+long freq;
+
+
+
+int PWM_Max_Duty()
+{
+  return(8000000/(freq*4));
+}
+
+PWM1_Init_Fre(long fre)
+{
+  PR2 = (8000000/(freq*4*4)) - 1;
+  freq = fre;
+}
+PWM2_Init_Fre(long fre)
+{
+  PR2 = (8000000/(freq*4*4)) - 1;
+  freq = fre;
+}
+
+PWM1_Duty(unsigned int duty)
+{
+    duty = ((float)duty/100.0)*PWM_Max_Duty();
+    CCP1X = duty & 2;
+    CCP1Y = duty & 1;
+    CCPR1L = duty>>2;
+}
+PWM2_Duty(unsigned int duty)
+{
+    duty = ((float)duty/100.0)*PWM_Max_Duty();
+    CCP2X = duty & 2;
+    CCP2Y = duty & 1;
+    CCPR2L = duty>>2;
+}
+
+PWM1_Start()
+{
+  CCP1CONbits.CCP1M3 = 1;
+  CCP1CONbits.CCP1M2 = 1;
+
+
+
+
+    T2CONbits.T2CKPS0 = 1;
+    T2CONbits.T2CKPS1 = 0;
+
+
+
+
+  T2CONbits.TMR2ON = 1;
+  TRISCbits.TRISC2 = 0;
+}
+PWM2_Start()
+{
+  CCP2CONbits.CCP2M3 = 1;
+  CCP2CONbits.CCP2M2 = 1;
+
+
+
+
+    T2CONbits.T2CKPS0 = 1;
+    T2CONbits.T2CKPS1 = 0;
+
+
+
+
+    T2CONbits.TMR2ON = 1;
+    TRISCbits.TRISC1 = 0;
+}
+
+PWM1_Stop()
+{
+  CCP1CONbits.CCP1M3 = 0;
+  CCP1CONbits.CCP1M2 = 0;
+}
+PWM2_Stop()
+{
+  CCP2CONbits.CCP2M3 = 0;
+  CCP2CONbits.CCP2M2 = 0;
+}
+# 25 "newmain.c" 2
 
 void main()
 {
-   TRISD = 0;
-   PORTD = 0;
+    TRISD = 0;
+    PORTD = 0;
 
-   GIE = 1;
-   PEIE = 1;
-   SSPIF = 0;
-   SSPIE = 1;
-   ADCON1 = 0x07;
-   TRISA5 = 1;
-   UART_Init (9600);
-   spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-   while(1)
-   {
-       if(spiDataReady())
-       {
-           int data;
-           data = spiRead ();
-           if (spiRead ())
-           {
-               RD0 = 1;
-               spiWrite (1);
-               UART_Write_Text ("Data = ");
-               UART_Write (data);
-               _delay((unsigned long)((90)*(8000000/4000.0)));
-               UART_Write_Text ("\n\r");
-               _delay((unsigned long)((1000)*(8000000/4000.0)));
-           }
-           RD0 = 0;
-           SSPIF = 0;
-       }
-       _delay((unsigned long)((5)*(8000000/4000.0)));
-   }
+    GIE = 1;
+    PEIE = 1;
+    SSPIF = 0;
+    SSPIE = 1;
+    ADCON1 = 0x07;
+    TRISA5 = 1;
+    UART_Init(9600);
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    PWM2_Init_Fre(1000);
+    PWM1_Init_Fre(1000);
+    PORTDbits.RD1 = 0;
+    PORTDbits.RD2 = 1;
+    while(1)
+    {
+        PWM2_Duty(127);
+        PWM1_Duty(50);
+        PWM2_Start();
+        PWM1_Start();
+        UART_Write_Text("Test message\n\r");
+        if(spiDataReady())
+        {
+            int data;
+            data = spiRead ();
+            if (spiRead())
+            {
+                RD0 = 1;
+                spiWrite (1);
+                UART_Write_Text("Data = ");
+                UART_Write(data);
+                _delay((unsigned long)((90)*(8000000/4000.0)));
+                UART_Write_Text("\n\r");
+                _delay((unsigned long)((1000)*(8000000/4000.0)));
+            }
+            RD0 = 0;
+            SSPIF = 0;
+        }
+        _delay((unsigned long)((5)*(8000000/4000.0)));
+    }
 }

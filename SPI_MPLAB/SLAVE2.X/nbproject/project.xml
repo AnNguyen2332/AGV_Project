@@ -14,6 +14,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>.</sourceRootElem>
+                <sourceRootElem>../../../PWM/PWM.X</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>spi.h</itemPath>
       <itemPath>uart.h</itemPath>
+      <itemPath>pwm.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +26,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
+    <Elem>../../../PWM/PWM.X</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

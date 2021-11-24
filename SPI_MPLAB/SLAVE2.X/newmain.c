@@ -17,42 +17,53 @@
 
 #include <xc.h>
 #include <pic16f877a.h>
-#include "spi.h"
-
 #define _XTAL_FREQ 8000000
+
+#include "spi.h"
 #include "uart.h"
+#include "pwm.h"
+
 void main()
 {
-   TRISD = 0;                 //PORTD as output
-   PORTD = 0;              //All LEDs OFF
-   
-   GIE = 1;
-   PEIE = 1;
-   SSPIF = 0;
-   SSPIE = 1;
-   ADCON1 = 0x07;
-   TRISA5 = 1; 
-   UART_Init (9600);
-   spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-   while(1)
-   {
-       if(spiDataReady())
-       {
-           int data;
-           data = spiRead ();
-           if (spiRead ())
-           {
-               RD0 = 1;
-               spiWrite (1);
-               UART_Write_Text ("Data = ");
-               UART_Write (data);
-               __delay_ms(90);
-               UART_Write_Text ("\n\r");
-               __delay_ms (1000);
-           }
-           RD0 = 0;
-           SSPIF = 0;
-       }
-       __delay_ms(5);
-   }
+    TRISD = 0;                 //PORTD as output
+    PORTD = 0;              //All LEDs OFF
+
+    GIE = 1;
+    PEIE = 1;
+    SSPIF = 0;
+    SSPIE = 1;
+    ADCON1 = 0x07;
+    TRISA5 = 1; 
+    UART_Init(9600);
+    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+    PWM2_Init_Fre(1000);// tan so
+    PWM1_Init_Fre(1000);// tan so
+    PORTDbits.RD1 = 0;
+    PORTDbits.RD2 = 1;
+    while(1)
+    {
+        PWM2_Duty(127);
+        PWM1_Duty(50);
+        PWM2_Start();
+        PWM1_Start();
+        UART_Write_Text("Test message\n\r");
+        if(spiDataReady())
+        {
+            int data;
+            data = spiRead ();
+            if (spiRead())
+            {
+                RD0 = 1;
+                spiWrite (1);
+                UART_Write_Text("Data = ");
+                UART_Write(data);
+                __delay_ms(90);
+                UART_Write_Text("\n\r");
+                __delay_ms (1000);
+            }
+            RD0 = 0;
+            SSPIF = 0;
+        }
+        __delay_ms(5);
+    }    
 }

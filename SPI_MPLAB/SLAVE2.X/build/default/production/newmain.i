@@ -1935,9 +1935,11 @@ void main()
     PWM1_Init_Fre(1000);
     PORTDbits.RD1 = 0;
     PORTDbits.RD2 = 1;
+    PORTDbits.RD3 = 0;
+    PORTDbits.RD4 = 1;
     while(1)
     {
-        PWM2_Duty(127);
+        PWM2_Duty(255);
         PWM1_Duty(50);
         PWM2_Start();
         PWM1_Start();

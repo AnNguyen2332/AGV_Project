@@ -274,9 +274,9 @@ SPI_ACTIVE_2_IDLE 64
 "26 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"52
+"54
 [v main@data data `i  1 a 2 12 ]
-"69
+"71
 } 0
 "34 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]

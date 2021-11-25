@@ -38,9 +38,9 @@ void main()
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
     PWM2_Init_Fre(1000);// tan so
     PWM1_Init_Fre(1000);// tan so
-    PORTDbits.RD1 = 0;
+    PORTDbits.RD1 = 0; //0
     PORTDbits.RD2 = 1;
-    PORTDbits.RD3 = 0;
+    PORTDbits.RD3 = 0; //0
     PORTDbits.RD4 = 1;
     while(1)
     {

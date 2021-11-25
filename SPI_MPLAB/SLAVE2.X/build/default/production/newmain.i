@@ -1734,7 +1734,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "newmain.c" 2
+# 18 "newmain.c" 2
+
 
 
 
@@ -1773,7 +1774,8 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 23 "newmain.c" 2
+# 22 "newmain.c" 2
+
 # 1 "./uart.h" 1
 char UART_Init(const long int baudrate)
 {
@@ -1833,7 +1835,8 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 24 "newmain.c" 2
+# 23 "newmain.c" 2
+
 # 1 "./pwm.h" 1
 
 long freq;
@@ -1916,7 +1919,8 @@ PWM2_Stop()
   CCP2CONbits.CCP2M3 = 0;
   CCP2CONbits.CCP2M2 = 0;
 }
-# 25 "newmain.c" 2
+# 24 "newmain.c" 2
+
 
 void main()
 {

@@ -54,8 +54,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2222
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2222: extern volatile unsigned char ADRESL __attribute__((address(0x09E)));
 [v _ADRESL `Vuc ~T0 @X0 0 e@158 ]
+"194 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 [p mainexit ]
-"1325
+"1325 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1325: extern volatile unsigned char TRISA __attribute__((address(0x085)));
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "1499
@@ -76,19 +78,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2821
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2821: extern volatile __bit SSPIE __attribute__((address(0x463)));
 [v _SSPIE `Vb ~T0 @X0 0 e@1123 ]
-"107 newmain.c
-[; ;newmain.c: 107:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[c E910 32 33 34 35 36 37 .. ]
-[n E910 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
-[c E918 0 128 .. ]
-[n E918 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
-[c E922 16 0 .. ]
-[n E922 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
-[c E926 0 64 .. ]
-[n E926 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
+"112 newmain.c
+[; ;newmain.c: 112:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[c E1091 32 33 34 35 36 37 .. ]
+[n E1091 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
+[c E1099 0 128 .. ]
+[n E1099 . SPI_DATA_SAMPLE_MIDDLE SPI_DATA_SAMPLE_END  ]
+[c E1103 16 0 .. ]
+[n E1103 . SPI_CLOCK_IDLE_HIGH SPI_CLOCK_IDLE_LOW  ]
+[c E1107 0 64 .. ]
+[n E1107 . SPI_IDLE_2_ACTIVE SPI_ACTIVE_2_IDLE  ]
 "44 ./spi.h
 [; ;./spi.h: 44: void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
-[v _spiInit `(v ~T0 @X0 0 ef4`E910`E918`E922`E926 ]
+[v _spiInit `(v ~T0 @X0 0 ef4`E1091`E1099`E1103`E1107 ]
 "46
 [; ;./spi.h: 46: unsigned spiDataReady();
 [v _spiDataReady `(ui ~T0 @X0 0 e? ]
@@ -318,7 +320,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _x -> / - -> 8000000 `l * _baudrate -> -> 64 `i `l * _baudrate -> -> 64 `i `l `ui ]
 "5
 [; ;./uart.h: 5:  if(x>255)
-[e $ ! > _x -> -> 255 `i `ui 96  ]
+[e $ ! > _x -> -> 255 `i `ui 101  ]
 "6
 [; ;./uart.h: 6:  {
 {
@@ -331,10 +333,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;./uart.h: 9:  }
 }
-[e :U 96 ]
+[e :U 101 ]
 "10
 [; ;./uart.h: 10:  if(x<256)
-[e $ ! < _x -> -> 256 `i `ui 97  ]
+[e $ ! < _x -> -> 256 `i `ui 102  ]
 "11
 [; ;./uart.h: 11:  {
 {
@@ -362,18 +364,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./uart.h: 19:    return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 95  ]
+[e $UE 100  ]
 "20
 [; ;./uart.h: 20:  }
 }
-[e :U 97 ]
+[e :U 102 ]
 "21
 [; ;./uart.h: 21:  return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 95  ]
+[e $UE 100  ]
 "22
 [; ;./uart.h: 22: }
-[e :UE 95 ]
+[e :UE 100 ]
 }
 "24
 [; ;./uart.h: 24: char UART_TX_Empty()
@@ -386,10 +388,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26
 [; ;./uart.h: 26:   return TRMT;
 [e ) -> _TRMT `uc ]
-[e $UE 98  ]
+[e $UE 103  ]
 "27
 [; ;./uart.h: 27: }
-[e :UE 98 ]
+[e :UE 103 ]
 }
 "29
 [; ;./uart.h: 29: char UART_Data_Ready()
@@ -402,10 +404,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31
 [; ;./uart.h: 31:    return RCIF;
 [e ) -> _RCIF `uc ]
-[e $UE 99  ]
+[e $UE 104  ]
 "32
 [; ;./uart.h: 32: }
-[e :UE 99 ]
+[e :UE 104 ]
 }
 "33
 [; ;./uart.h: 33: char UART_Read()
@@ -417,18 +419,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "36
 [; ;./uart.h: 36:   while(!RCIF);
-[e $U 101  ]
-[e :U 102 ]
-[e :U 101 ]
-[e $ ! _RCIF 102  ]
-[e :U 103 ]
+[e $U 106  ]
+[e :U 107 ]
+[e :U 106 ]
+[e $ ! _RCIF 107  ]
+[e :U 108 ]
 "37
 [; ;./uart.h: 37:   return RCREG;
 [e ) -> _RCREG `uc ]
-[e $UE 100  ]
+[e $UE 105  ]
 "38
 [; ;./uart.h: 38: }
-[e :UE 100 ]
+[e :UE 105 ]
 }
 "40
 [; ;./uart.h: 40: void UART_Read_Text(char *Output, unsigned int length)
@@ -452,19 +454,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 108  ]
-[e :U 105 ]
+[e $U 113  ]
+[e :U 110 ]
 "44
 [; ;./uart.h: 44:   Output[i] = UART_Read();
 [e = *U + _Output * -> _i `x -> -> # *U _Output `i `x ( _UART_Read ..  ]
 [e ++ _i -> 1 `i ]
-[e :U 108 ]
-[e $ < -> _i `ui _length 105  ]
-[e :U 106 ]
+[e :U 113 ]
+[e $ < -> _i `ui _length 110  ]
+[e :U 111 ]
 }
 "45
 [; ;./uart.h: 45: }
-[e :UE 104 ]
+[e :UE 109 ]
 }
 "47
 [; ;./uart.h: 47: void UART_Write(char data)
@@ -481,17 +483,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "49
 [; ;./uart.h: 49:   while(!TRMT);
-[e $U 110  ]
-[e :U 111 ]
-[e :U 110 ]
-[e $ ! _TRMT 111  ]
-[e :U 112 ]
+[e $U 115  ]
+[e :U 116 ]
+[e :U 115 ]
+[e $ ! _TRMT 116  ]
+[e :U 117 ]
 "50
 [; ;./uart.h: 50:   TXREG = data;
 [e = _TXREG -> _data `uc ]
 "51
 [; ;./uart.h: 51: }
-[e :UE 109 ]
+[e :UE 114 ]
 }
 "53
 [; ;./uart.h: 53: void UART_Write_Text(char *text)
@@ -513,91 +515,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./uart.h: 56:   for(i=0;text[i]!='\0';i++)
 {
 [e = _i -> 0 `i ]
-[e $U 117  ]
-[e :U 114 ]
+[e $U 122  ]
+[e :U 119 ]
 "57
 [; ;./uart.h: 57:    UART_Write(text[i]);
 [e ( _UART_Write (1 *U + _text * -> _i `x -> -> # *U _text `i `x ]
 [e ++ _i -> 1 `i ]
-[e :U 117 ]
-[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 114  ]
-[e :U 115 ]
+[e :U 122 ]
+[e $ != -> *U + _text * -> _i `x -> -> # *U _text `i `x `ui -> 0 `ui 119  ]
+[e :U 120 ]
 }
 "58
 [; ;./uart.h: 58: }
-[e :UE 113 ]
+[e :UE 118 ]
 }
-"26 newmain.c
-[; ;newmain.c: 26: void ADC_Init()
+"28 newmain.c
+[; ;newmain.c: 28: void ADC_Init()
 [v _ADC_Init `(v ~T0 @X0 1 ef ]
-"27
-[; ;newmain.c: 27: {
+"29
+[; ;newmain.c: 29: {
 {
 [e :U _ADC_Init ]
 [f ]
-"28
-[; ;newmain.c: 28:    ADCON0 = 0b1000001;
-[e = _ADCON0 -> -> 65 `i `uc ]
-"29
-[; ;newmain.c: 29:    ADCON1 = 0b11000000;
-[e = _ADCON1 -> -> 192 `i `uc ]
 "30
-[; ;newmain.c: 30: }
-[e :UE 118 ]
-}
+[; ;newmain.c: 30:    ADCON0 = 0b1000001;
+[e = _ADCON0 -> -> 65 `i `uc ]
+"31
+[; ;newmain.c: 31:    ADCON1 = 0b11000000;
+[e = _ADCON1 -> -> 192 `i `uc ]
 "32
-[; ;newmain.c: 32: unsigned int ADC_Read(unsigned char channel)
+[; ;newmain.c: 32: }
+[e :UE 123 ]
+}
+"34
+[; ;newmain.c: 34: unsigned int ADC_Read(unsigned char channel)
 [v _ADC_Read `(ui ~T0 @X0 1 ef1`uc ]
-"33
-[; ;newmain.c: 33: {
+"35
+[; ;newmain.c: 35: {
 {
 [e :U _ADC_Read ]
-"32
-[; ;newmain.c: 32: unsigned int ADC_Read(unsigned char channel)
-[v _channel `uc ~T0 @X0 1 r1 ]
-"33
-[; ;newmain.c: 33: {
-[f ]
 "34
-[; ;newmain.c: 34:   ADCON0 &= 0x11000101;
-[e =& _ADCON0 -> -> 285212929 `l `Vuc ]
+[; ;newmain.c: 34: unsigned int ADC_Read(unsigned char channel)
+[v _channel `uc ~T0 @X0 1 r1 ]
 "35
-[; ;newmain.c: 35:   ADCON0 |= channel<<3;
-[e =| _ADCON0 -> << -> _channel `i -> 3 `i `Vuc ]
+[; ;newmain.c: 35: {
+[f ]
 "36
-[; ;newmain.c: 36:   _delay((unsigned long)((2)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 36:   ADCON0 &= 0x11000101;
+[e =& _ADCON0 -> -> 285212929 `l `Vuc ]
 "37
-[; ;newmain.c: 37:   GO_nDONE = 1;
-[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;newmain.c: 37:   ADCON0 |= channel<<3;
+[e =| _ADCON0 -> << -> _channel `i -> 3 `i `Vuc ]
 "38
-[; ;newmain.c: 38:   while(GO_nDONE);
-[e $U 120  ]
-[e :U 121 ]
-[e :U 120 ]
-[e $ _GO_nDONE 121  ]
-[e :U 122 ]
+[; ;newmain.c: 38:   _delay((unsigned long)((2)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "39
-[; ;newmain.c: 39:   return ((ADRESH<<8)+ADRESL);
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-[e $UE 119  ]
+[; ;newmain.c: 39:   GO_nDONE = 1;
+[e = _GO_nDONE -> -> 1 `i `b ]
 "40
-[; ;newmain.c: 40: }
-[e :UE 119 ]
-}
+[; ;newmain.c: 40:   while(GO_nDONE);
+[e $U 125  ]
+[e :U 126 ]
+[e :U 125 ]
+[e $ _GO_nDONE 126  ]
+[e :U 127 ]
+"41
+[; ;newmain.c: 41:   return ((ADRESH<<8)+ADRESL);
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 124  ]
 "42
-[; ;newmain.c: 42: float Quadra_Al ()
+[; ;newmain.c: 42: }
+[e :UE 124 ]
+}
+"44
+[; ;newmain.c: 44: float Quadra_Al ()
 [v _Quadra_Al `(f ~T0 @X0 1 ef ]
-"43
-[; ;newmain.c: 43: {
+"45
+[; ;newmain.c: 45: {
 {
 [e :U _Quadra_Al ]
 [f ]
-[v F959 `f ~T0 @X0 -> 7 `i s ]
-[i F959
+[v F1140 `f ~T0 @X0 -> 7 `i s ]
+[i F1140
 :U ..
-"44
-[; ;newmain.c: 44:     float x [7] = {0, 0, 0, 0, 0, 0, 0};
+"46
+[; ;newmain.c: 46:     float x [7] = {0, 0, 0, 0, 0, 0, 0};
 -> -> 0 `i `f
 -> -> 0 `i `f
 -> -> 0 `i `f
@@ -608,270 +610,286 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _x `f ~T0 @X0 -> 7 `i a ]
-[e = _x F959 ]
-"45
-[; ;newmain.c: 45:     float max, max1, max2 = 0;
+[e = _x F1140 ]
+"47
+[; ;newmain.c: 47:     float max, max1, max2 = 0;
 [v _max `f ~T0 @X0 1 a ]
 [v _max1 `f ~T0 @X0 1 a ]
 [v _max2 `f ~T0 @X0 1 a ]
 [e = _max2 -> -> 0 `i `f ]
-"46
-[; ;newmain.c: 46:     float a, b, d, out;
+"48
+[; ;newmain.c: 48:     float a, b, d, out;
 [v _a `f ~T0 @X0 1 a ]
 [v _b `f ~T0 @X0 1 a ]
 [v _d `f ~T0 @X0 1 a ]
 [v _out `f ~T0 @X0 1 a ]
-"47
-[; ;newmain.c: 47:     int j, xmax;
+"49
+[; ;newmain.c: 49:     int j, xmax;
 [v _j `i ~T0 @X0 1 a ]
 [v _xmax `i ~T0 @X0 1 a ]
-"49
-[; ;newmain.c: 49:     for (j = 0; j < 7; j++)
-{
-[e = _j -> 0 `i ]
-[e $ < _j -> 7 `i 124  ]
-[e $U 125  ]
-[e :U 124 ]
 "50
-[; ;newmain.c: 50:     {
-{
+[; ;newmain.c: 50:     char data[10];
+[v _data `uc ~T0 @X0 -> 10 `i a ]
 "51
-[; ;newmain.c: 51:         if (j < 4) {
-[e $ ! < _j -> 4 `i 127  ]
-{
-"52
-[; ;newmain.c: 52:             x [j] = ADC_Read (j);
-[e = *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux -> ( _ADC_Read (1 -> _j `uc `f ]
-"53
-[; ;newmain.c: 53:         }
-}
-[e :U 127 ]
-"55
-[; ;newmain.c: 55:         if (j >= 4) {
-[e $ ! >= _j -> 4 `i 128  ]
-{
-"56
-[; ;newmain.c: 56:             x [j] = ADC_Read (j + 1);
-[e = *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux -> ( _ADC_Read (1 -> + _j -> 1 `i `uc `f ]
-"57
-[; ;newmain.c: 57:         }
-}
-[e :U 128 ]
-"58
-[; ;newmain.c: 58:     }
-}
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 7 `i 124  ]
-[e :U 125 ]
-}
-"60
-[; ;newmain.c: 60:     for (j = 0; j < 7; j++)
+[; ;newmain.c: 51:     for (j = 0; j < 7; j++)
 {
 [e = _j -> 0 `i ]
 [e $ < _j -> 7 `i 129  ]
 [e $U 130  ]
 [e :U 129 ]
-"61
-[; ;newmain.c: 61:     {
+"52
+[; ;newmain.c: 52:     {
 {
-"62
-[; ;newmain.c: 62:         if (x [j] > max) {
-[e $ ! > *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux _max 132  ]
+"53
+[; ;newmain.c: 53:         if (j < 4) {
+[e $ ! < _j -> 4 `i 132  ]
 {
-"63
-[; ;newmain.c: 63:             max = x [j];
-[e = _max *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux ]
-"64
-[; ;newmain.c: 64:             xmax = j;
-[e = _xmax _j ]
-"65
-[; ;newmain.c: 65:         }
+"54
+[; ;newmain.c: 54:             x [j] = ADC_Read (j);
+[e = *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux -> ( _ADC_Read (1 -> _j `uc `f ]
+"55
+[; ;newmain.c: 55:         }
 }
 [e :U 132 ]
-"66
-[; ;newmain.c: 66:     }
+"57
+[; ;newmain.c: 57:         if (j >= 4) {
+[e $ ! >= _j -> 4 `i 133  ]
+{
+"58
+[; ;newmain.c: 58:             x [j] = ADC_Read (j + 1);
+[e = *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux -> ( _ADC_Read (1 -> + _j -> 1 `i `uc `f ]
+"59
+[; ;newmain.c: 59:         }
+}
+[e :U 133 ]
+"60
+[; ;newmain.c: 60:     }
 }
 [e ++ _j -> 1 `i ]
 [e $ < _j -> 7 `i 129  ]
 [e :U 130 ]
 }
-"68
-[; ;newmain.c: 68:     max1 = x [xmax - 1];
-[e = _max1 *U + &U _x * -> -> - _xmax -> 1 `i `ui `ux -> -> # *U &U _x `ui `ux ]
-"69
-[; ;newmain.c: 69:     max2 = x [xmax + 1];
-[e = _max2 *U + &U _x * -> -> + _xmax -> 1 `i `ui `ux -> -> # *U &U _x `ui `ux ]
-"71
-[; ;newmain.c: 71:     a = (max1 + max2 - 2*max)*0.5;
-[e = _a -> * -> - + _max1 _max2 * -> -> 2 `i `f _max `d .0.5 `f ]
-"72
-[; ;newmain.c: 72:     b = max - max1 - 2*a*(xmax - 1) - a;
-[e = _b - - - _max _max1 * * -> -> 2 `i `f _a -> - _xmax -> 1 `i `f _a ]
-"73
-[; ;newmain.c: 73:     d = -b/(2*a);
-[e = _d / -U _b * -> -> 2 `i `f _a ]
-"74
-[; ;newmain.c: 74:     out = 17*(d - 3);
-[e = _out * -> -> 17 `i `f - _d -> -> 3 `i `f ]
-"76
-[; ;newmain.c: 76:     for (j = 0; j < 7; j++)
+"62
+[; ;newmain.c: 62:     for (j = 0; j < 7; j++)
 {
 [e = _j -> 0 `i ]
-[e $ < _j -> 7 `i 133  ]
-[e $U 134  ]
-[e :U 133 ]
-"77
-[; ;newmain.c: 77:     {
+[e $ < _j -> 7 `i 134  ]
+[e $U 135  ]
+[e :U 134 ]
+"63
+[; ;newmain.c: 63:     {
 {
-"78
-[; ;newmain.c: 78:         UART_Write_Text ("CB");
-[e ( _UART_Write_Text (1 :s 1C ]
-"79
-[; ;newmain.c: 79:         UART_Write (j);
-[e ( _UART_Write (1 -> _j `uc ]
-"80
-[; ;newmain.c: 80:         UART_Write_Text (" = ");
-[e ( _UART_Write_Text (1 :s 2C ]
-"81
-[; ;newmain.c: 81:         UART_Write (x [j]);
-[e ( _UART_Write (1 -> *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux `uc ]
-"82
-[; ;newmain.c: 82:         _delay((unsigned long)((90)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"83
-[; ;newmain.c: 83:         UART_Write_Text ("\n\r");
-[e ( _UART_Write_Text (1 :s 3C ]
-"84
-[; ;newmain.c: 84:     }
+"64
+[; ;newmain.c: 64:         if (x [j] > max) {
+[e $ ! > *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux _max 137  ]
+{
+"65
+[; ;newmain.c: 65:             max = x [j];
+[e = _max *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux ]
+"66
+[; ;newmain.c: 66:             xmax = j;
+[e = _xmax _j ]
+"67
+[; ;newmain.c: 67:         }
+}
+[e :U 137 ]
+"68
+[; ;newmain.c: 68:     }
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 7 `i 133  ]
-[e :U 134 ]
+[e $ < _j -> 7 `i 134  ]
+[e :U 135 ]
 }
+"70
+[; ;newmain.c: 70:     max1 = x [xmax - 1];
+[e = _max1 *U + &U _x * -> -> - _xmax -> 1 `i `ui `ux -> -> # *U &U _x `ui `ux ]
+"71
+[; ;newmain.c: 71:     max2 = x [xmax + 1];
+[e = _max2 *U + &U _x * -> -> + _xmax -> 1 `i `ui `ux -> -> # *U &U _x `ui `ux ]
+"73
+[; ;newmain.c: 73:     a = (max1 + max2 - 2*max)*0.5;
+[e = _a -> * -> - + _max1 _max2 * -> -> 2 `i `f _max `d .0.5 `f ]
+"74
+[; ;newmain.c: 74:     b = max - max1 - 2*a*(xmax - 1) - a;
+[e = _b - - - _max _max1 * * -> -> 2 `i `f _a -> - _xmax -> 1 `i `f _a ]
+"75
+[; ;newmain.c: 75:     d = -b/(2*a);
+[e = _d / -U _b * -> -> 2 `i `f _a ]
+"76
+[; ;newmain.c: 76:     out = 17*(d - 3);
+[e = _out * -> -> 17 `i `f - _d -> -> 3 `i `f ]
+"78
+[; ;newmain.c: 78:     for (j = 0; j < 7; j++)
+{
+[e = _j -> 0 `i ]
+[e $ < _j -> 7 `i 138  ]
+[e $U 139  ]
+[e :U 138 ]
+"79
+[; ;newmain.c: 79:     {
+{
+"80
+[; ;newmain.c: 80:         UART_Write_Text ("CB");
+[e ( _UART_Write_Text (1 :s 1C ]
+"81
+[; ;newmain.c: 81:         sprintf (data, "%d\n", j);
+[e ( _sprintf (1 , (. , &U _data :s 2C _j ]
+"82
+[; ;newmain.c: 82:         UART_Write_Text (data);
+[e ( _UART_Write_Text (1 &U _data ]
+"83
+[; ;newmain.c: 83:         UART_Write_Text (" = ");
+[e ( _UART_Write_Text (1 :s 3C ]
+"84
+[; ;newmain.c: 84:         sprintf (data, "%d\n", x [j]);
+[e ( _sprintf (1 , (. , &U _data :s 4C -> *U + &U _x * -> -> _j `ui `ux -> -> # *U &U _x `ui `ux `d ]
+"85
+[; ;newmain.c: 85:         UART_Write_Text (data);
+[e ( _UART_Write_Text (1 &U _data ]
 "86
-[; ;newmain.c: 86:     UART_Write_Text ("Khoang cach = ");
-[e ( _UART_Write_Text (1 :s 4C ]
-"87
-[; ;newmain.c: 87:     UART_Write (out);
-[e ( _UART_Write (1 -> _out `uc ]
-"88
-[; ;newmain.c: 88:     _delay((unsigned long)((90)*(8000000/4000.0)));
+[; ;newmain.c: 86:         _delay((unsigned long)((90)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"89
-[; ;newmain.c: 89:     UART_Write_Text ("\n\r");
+"87
+[; ;newmain.c: 87:         UART_Write_Text ("\n\r");
 [e ( _UART_Write_Text (1 :s 5C ]
+"88
+[; ;newmain.c: 88:     }
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 7 `i 138  ]
+[e :U 139 ]
+}
 "90
-[; ;newmain.c: 90:     return out;
-[e ) _out ]
-[e $UE 123  ]
+[; ;newmain.c: 90:     UART_Write_Text ("Khoang cach = ");
+[e ( _UART_Write_Text (1 :s 6C ]
 "91
-[; ;newmain.c: 91: }
-[e :UE 123 ]
+[; ;newmain.c: 91:     sprintf (data, "%d\n", out);
+[e ( _sprintf (1 , (. , &U _data :s 7C -> _out `d ]
+"92
+[; ;newmain.c: 92:     UART_Write_Text (data);
+[e ( _UART_Write_Text (1 &U _data ]
+"93
+[; ;newmain.c: 93:     _delay((unsigned long)((90)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"94
+[; ;newmain.c: 94:     UART_Write_Text ("\n\r");
+[e ( _UART_Write_Text (1 :s 8C ]
+"95
+[; ;newmain.c: 95:     return out;
+[e ) _out ]
+[e $UE 128  ]
+"96
+[; ;newmain.c: 96: }
+[e :UE 128 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"93
-[; ;newmain.c: 93: void main()
+"98
+[; ;newmain.c: 98: void main()
 [v _main `(v ~T0 @X0 1 ef ]
-"94
-[; ;newmain.c: 94: {
+"99
+[; ;newmain.c: 99: {
 {
 [e :U _main ]
 [f ]
-"95
-[; ;newmain.c: 95:    TRISA = 1;
-[e = _TRISA -> -> 1 `i `uc ]
-"96
-[; ;newmain.c: 96:    TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
-"97
-[; ;newmain.c: 97:    PORTD = 0;
-[e = _PORTD -> -> 0 `i `uc ]
-"99
-[; ;newmain.c: 99:    GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
 "100
-[; ;newmain.c: 100:    PEIE = 1;
-[e = _PEIE -> -> 1 `i `b ]
+[; ;newmain.c: 100:    TRISA = 1;
+[e = _TRISA -> -> 1 `i `uc ]
 "101
-[; ;newmain.c: 101:    SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
+[; ;newmain.c: 101:    TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "102
-[; ;newmain.c: 102:    SSPIE = 1;
-[e = _SSPIE -> -> 1 `i `b ]
-"103
-[; ;newmain.c: 103:    ADCON1 = 0x07;
-[e = _ADCON1 -> -> 7 `i `uc ]
+[; ;newmain.c: 102:    PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"104
+[; ;newmain.c: 104:    GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "105
-[; ;newmain.c: 105:    ADC_Init ();
-[e ( _ADC_Init ..  ]
+[; ;newmain.c: 105:    PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
 "106
-[; ;newmain.c: 106:    UART_Init (9600);
-[e ( _UART_Init (1 -> -> 9600 `i `l ]
+[; ;newmain.c: 106:    SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
 "107
-[; ;newmain.c: 107:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-[e ( _spiInit (4 , , , . `E910 4 . `E918 0 . `E922 1 . `E926 0 ]
+[; ;newmain.c: 107:    SSPIE = 1;
+[e = _SSPIE -> -> 1 `i `b ]
 "108
-[; ;newmain.c: 108:    while(1)
-[e :U 138 ]
-"109
-[; ;newmain.c: 109:    {
-{
+[; ;newmain.c: 108:    ADCON1 = 0x07;
+[e = _ADCON1 -> -> 7 `i `uc ]
 "110
-[; ;newmain.c: 110:        if(spiDataReady())
-[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 140  ]
+[; ;newmain.c: 110:    ADC_Init ();
+[e ( _ADC_Init ..  ]
 "111
-[; ;newmain.c: 111:        {
-{
+[; ;newmain.c: 111:    UART_Init (9600);
+[e ( _UART_Init (1 -> -> 9600 `i `l ]
 "112
-[; ;newmain.c: 112:            float data;
-[v _data `f ~T0 @X0 1 a ]
+[; ;newmain.c: 112:    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e ( _spiInit (4 , , , . `E1091 4 . `E1099 0 . `E1103 1 . `E1107 0 ]
 "113
-[; ;newmain.c: 113:            if (spiRead ())
-[e $ ! != -> ( _spiRead ..  `i -> 0 `i 141  ]
+[; ;newmain.c: 113:    while(1)
+[e :U 143 ]
 "114
-[; ;newmain.c: 114:            {
+[; ;newmain.c: 114:    {
 {
 "115
-[; ;newmain.c: 115:                RD0 = 1;
-[e = _RD0 -> -> 1 `i `b ]
+[; ;newmain.c: 115:        if(spiDataReady())
+[e $ ! != ( _spiDataReady ..  -> -> 0 `i `ui 145  ]
 "116
-[; ;newmain.c: 116:                data = Quadra_Al ();
-[e = _data ( _Quadra_Al ..  ]
+[; ;newmain.c: 116:        {
+{
 "117
-[; ;newmain.c: 117:                spiWrite (data);
-[e ( _spiWrite (1 -> _data `uc ]
+[; ;newmain.c: 117:            float data;
+[v _data `f ~T0 @X0 1 a ]
 "118
-[; ;newmain.c: 118:                _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 118:            if (spiRead ())
+[e $ ! != -> ( _spiRead ..  `i -> 0 `i 146  ]
 "119
-[; ;newmain.c: 119:            }
-}
-[e :U 141 ]
+[; ;newmain.c: 119:            {
+{
 "120
-[; ;newmain.c: 120:            RD0 = 0;
-[e = _RD0 -> -> 0 `i `b ]
+[; ;newmain.c: 120:                RD0 = 1;
+[e = _RD0 -> -> 1 `i `b ]
 "121
-[; ;newmain.c: 121:            SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
+[; ;newmain.c: 121:                data = Quadra_Al ();
+[e = _data ( _Quadra_Al ..  ]
 "122
-[; ;newmain.c: 122:        }
-}
-[e :U 140 ]
+[; ;newmain.c: 122:                spiWrite (data);
+[e ( _spiWrite (1 -> _data `uc ]
 "123
-[; ;newmain.c: 123:        _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 123:                _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "124
-[; ;newmain.c: 124:    }
+[; ;newmain.c: 124:            }
 }
-[e :U 137 ]
-[e $U 138  ]
-[e :U 139 ]
+[e :U 146 ]
 "125
-[; ;newmain.c: 125: }
-[e :UE 136 ]
+[; ;newmain.c: 125:            RD0 = 0;
+[e = _RD0 -> -> 0 `i `b ]
+"126
+[; ;newmain.c: 126:            SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"127
+[; ;newmain.c: 127:        }
 }
+[e :U 145 ]
+"128
+[; ;newmain.c: 128:        _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"129
+[; ;newmain.c: 129:    }
+}
+[e :U 142 ]
+[e $U 143  ]
+[e :U 144 ]
+"130
+[; ;newmain.c: 130: }
+[e :UE 141 ]
+}
+[p f _sprintf 8388736 ]
 [a 1C 67 66 0 ]
-[a 4C 75 104 111 97 110 103 32 99 97 99 104 32 61 32 0 ]
-[a 2C 32 61 32 0 ]
-[a 3C 10 13 0 ]
+[a 6C 75 104 111 97 110 103 32 99 97 99 104 32 61 32 0 ]
+[a 3C 32 61 32 0 ]
 [a 5C 10 13 0 ]
+[a 8C 10 13 0 ]
+[a 2C 37 100 10 0 ]
+[a 4C 37 100 10 0 ]
+[a 7C 37 100 10 0 ]

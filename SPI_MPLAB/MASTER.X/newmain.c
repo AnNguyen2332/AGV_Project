@@ -39,7 +39,7 @@ void main()
    {    
        int s1 = 0;
        int s2 = 0;
-      
+       char out [10];
        if (RB0 == 0)
        {
            RA1 = 0;       //Slave 1 Select
@@ -47,13 +47,16 @@ void main()
            
            spiWrite(1);
            s1 = spiRead();
+           sprintf (out, "%d\n", s1);
            UART_Write_Text ("s1 = ");
-           UART_Write(s1);
+           UART_Write_Text (out);
            __delay_ms(90);
            UART_Write_Text ("\n\r");
            
            __delay_ms(1);
-           RA1 = 1;       //Slave 1 Deselect 
+           RA1 = 1;       //Slave 1 Deselect
+           SSPIF = 0;
+
        }
        
        if (s1 == 1)
@@ -64,13 +67,16 @@ void main()
 
            spiWrite(1);
            s2 = spiRead();
+           sprintf (out, "%d\n", s2);
            UART_Write_Text ("s2 = ");
-           UART_Write (s2);
+           UART_Write_Text (out);
            __delay_ms(90);
            UART_Write_Text ("\n\r");
            
            __delay_ms(1);
            RA2 = 1;       //Slave 2 Deselect 
+           SSPIF = 0;
+           
        }
        
        if (s2 == 1)
@@ -80,5 +86,6 @@ void main()
            __delay_ms (1000);
            RD1 = 0;
        }
+
    }
 }

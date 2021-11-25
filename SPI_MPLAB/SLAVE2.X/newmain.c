@@ -16,6 +16,7 @@
 #pragma config CP = OFF    // Flash Program Memory Code Protection bit
 
 #include <xc.h>
+#include <stdio.h>
 #include <pic16f877a.h>
 #define _XTAL_FREQ 8000000
 
@@ -48,17 +49,18 @@ void main()
         PWM1_Duty(50);
         PWM2_Start();
         PWM1_Start();
-        UART_Write_Text("Test message\n\r");
+  
         if(spiDataReady())
         {
-            int data;
-            data = spiRead ();
+            char out [10];
+            int num = spiRead ();
+            sprintf(out, "%d\n", num);
             if (spiRead())
             {
                 RD0 = 1;
                 spiWrite (1);
                 UART_Write_Text("Data = ");
-                UART_Write(data);
+                UART_Write_Text (out);
                 __delay_ms(90);
                 UART_Write_Text("\n\r");
                 __delay_ms (1000);

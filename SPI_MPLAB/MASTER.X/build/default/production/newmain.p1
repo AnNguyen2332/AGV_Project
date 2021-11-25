@@ -83,7 +83,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47
 [; ;./spi.h: 47: char spiRead();
 [v _spiRead `(uc ~T0 @X0 0 e? ]
-"2749 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+"194 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"2824 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2824: extern volatile __bit SSPIF __attribute__((address(0x63)));
+[v _SSPIF `Vb ~T0 @X0 0 e@99 ]
+"2749
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2749: extern volatile __bit RD0 __attribute__((address(0x40)));
 [v _RD0 `Vb ~T0 @X0 0 e@64 ]
 "2752
@@ -565,6 +570,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 41:        int s2 = 0;
 [v _s2 `i ~T0 @X0 1 a ]
 [e = _s2 -> 0 `i ]
+"42
+[; ;newmain.c: 42:        char out [10];
+[v _out `uc ~T0 @X0 -> 10 `i a ]
 "43
 [; ;newmain.c: 43:        if (RB0 == 0)
 [e $ ! == -> _RB0 `i -> 0 `i 127  ]
@@ -584,103 +592,118 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 49:            s1 = spiRead();
 [e = _s1 -> ( _spiRead ..  `i ]
 "50
-[; ;newmain.c: 50:            UART_Write_Text ("s1 = ");
-[e ( _UART_Write_Text (1 :s 1C ]
+[; ;newmain.c: 50:            sprintf (out, "%d\n", s1);
+[e ( _sprintf (1 , (. , &U _out :s 1C _s1 ]
 "51
-[; ;newmain.c: 51:            UART_Write(s1);
-[e ( _UART_Write (1 -> _s1 `uc ]
-"52
-[; ;newmain.c: 52:            _delay((unsigned long)((90)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"53
-[; ;newmain.c: 53:            UART_Write_Text ("\n\r");
+[; ;newmain.c: 51:            UART_Write_Text ("s1 = ");
 [e ( _UART_Write_Text (1 :s 2C ]
-"55
-[; ;newmain.c: 55:            _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"52
+[; ;newmain.c: 52:            UART_Write_Text (out);
+[e ( _UART_Write_Text (1 &U _out ]
+"53
+[; ;newmain.c: 53:            _delay((unsigned long)((90)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"54
+[; ;newmain.c: 54:            UART_Write_Text ("\n\r");
+[e ( _UART_Write_Text (1 :s 3C ]
 "56
-[; ;newmain.c: 56:            RA1 = 1;
-[e = _RA1 -> -> 1 `i `b ]
+[; ;newmain.c: 56:            _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "57
-[; ;newmain.c: 57:        }
+[; ;newmain.c: 57:            RA1 = 1;
+[e = _RA1 -> -> 1 `i `b ]
+"58
+[; ;newmain.c: 58:            SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"60
+[; ;newmain.c: 60:        }
 }
 [e :U 127 ]
-"59
-[; ;newmain.c: 59:        if (s1 == 1)
-[e $ ! == _s1 -> 1 `i 128  ]
-"60
-[; ;newmain.c: 60:        {
-{
-"61
-[; ;newmain.c: 61:            RD0 = 1;
-[e = _RD0 -> -> 1 `i `b ]
 "62
-[; ;newmain.c: 62:            RA2 = 0;
-[e = _RA2 -> -> 0 `i `b ]
+[; ;newmain.c: 62:        if (s1 == 1)
+[e $ ! == _s1 -> 1 `i 128  ]
 "63
-[; ;newmain.c: 63:            _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 63:        {
+{
+"64
+[; ;newmain.c: 64:            RD0 = 1;
+[e = _RD0 -> -> 1 `i `b ]
 "65
-[; ;newmain.c: 65:            spiWrite(1);
-[e ( _spiWrite (1 -> -> 1 `i `uc ]
+[; ;newmain.c: 65:            RA2 = 0;
+[e = _RA2 -> -> 0 `i `b ]
 "66
-[; ;newmain.c: 66:            s2 = spiRead();
-[e = _s2 -> ( _spiRead ..  `i ]
-"67
-[; ;newmain.c: 67:            UART_Write_Text ("s2 = ");
-[e ( _UART_Write_Text (1 :s 3C ]
-"68
-[; ;newmain.c: 68:            UART_Write (s2);
-[e ( _UART_Write (1 -> _s2 `uc ]
-"69
-[; ;newmain.c: 69:            _delay((unsigned long)((90)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"70
-[; ;newmain.c: 70:            UART_Write_Text ("\n\r");
-[e ( _UART_Write_Text (1 :s 4C ]
-"72
-[; ;newmain.c: 72:            _delay((unsigned long)((1)*(8000000/4000.0)));
+[; ;newmain.c: 66:            _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"68
+[; ;newmain.c: 68:            spiWrite(1);
+[e ( _spiWrite (1 -> -> 1 `i `uc ]
+"69
+[; ;newmain.c: 69:            s2 = spiRead();
+[e = _s2 -> ( _spiRead ..  `i ]
+"70
+[; ;newmain.c: 70:            sprintf (out, "%d\n", s2);
+[e ( _sprintf (1 , (. , &U _out :s 4C _s2 ]
+"71
+[; ;newmain.c: 71:            UART_Write_Text ("s2 = ");
+[e ( _UART_Write_Text (1 :s 5C ]
+"72
+[; ;newmain.c: 72:            UART_Write_Text (out);
+[e ( _UART_Write_Text (1 &U _out ]
 "73
-[; ;newmain.c: 73:            RA2 = 1;
-[e = _RA2 -> -> 1 `i `b ]
+[; ;newmain.c: 73:            _delay((unsigned long)((90)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 90 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "74
-[; ;newmain.c: 74:        }
+[; ;newmain.c: 74:            UART_Write_Text ("\n\r");
+[e ( _UART_Write_Text (1 :s 6C ]
+"76
+[; ;newmain.c: 76:            _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"77
+[; ;newmain.c: 77:            RA2 = 1;
+[e = _RA2 -> -> 1 `i `b ]
+"78
+[; ;newmain.c: 78:            SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"80
+[; ;newmain.c: 80:        }
 }
 [e :U 128 ]
-"76
-[; ;newmain.c: 76:        if (s2 == 1)
-[e $ ! == _s2 -> 1 `i 129  ]
-"77
-[; ;newmain.c: 77:        {
-{
-"78
-[; ;newmain.c: 78:            RD0 = 0;
-[e = _RD0 -> -> 0 `i `b ]
-"79
-[; ;newmain.c: 79:            RD1 = 1;
-[e = _RD1 -> -> 1 `i `b ]
-"80
-[; ;newmain.c: 80:            _delay((unsigned long)((1000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"81
-[; ;newmain.c: 81:            RD1 = 0;
-[e = _RD1 -> -> 0 `i `b ]
 "82
-[; ;newmain.c: 82:        }
+[; ;newmain.c: 82:        if (s2 == 1)
+[e $ ! == _s2 -> 1 `i 129  ]
+"83
+[; ;newmain.c: 83:        {
+{
+"84
+[; ;newmain.c: 84:            RD0 = 0;
+[e = _RD0 -> -> 0 `i `b ]
+"85
+[; ;newmain.c: 85:            RD1 = 1;
+[e = _RD1 -> -> 1 `i `b ]
+"86
+[; ;newmain.c: 86:            _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"87
+[; ;newmain.c: 87:            RD1 = 0;
+[e = _RD1 -> -> 0 `i `b ]
+"88
+[; ;newmain.c: 88:        }
 }
 [e :U 129 ]
-"83
-[; ;newmain.c: 83:    }
+"90
+[; ;newmain.c: 90:    }
 }
 [e :U 124 ]
 [e $U 125  ]
 [e :U 126 ]
-"84
-[; ;newmain.c: 84: }
+"91
+[; ;newmain.c: 91: }
 [e :UE 123 ]
 }
-[a 3C 115 50 32 61 32 0 ]
-[a 1C 115 49 32 61 32 0 ]
-[a 2C 10 13 0 ]
-[a 4C 10 13 0 ]
+[p f _sprintf 8388736 ]
+[a 5C 115 50 32 61 32 0 ]
+[a 2C 115 49 32 61 32 0 ]
+[a 3C 10 13 0 ]
+[a 6C 10 13 0 ]
+[a 1C 37 100 10 0 ]
+[a 4C 37 100 10 0 ]

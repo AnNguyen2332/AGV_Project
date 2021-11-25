@@ -2046,7 +2046,7 @@ void main()
    {
        int s1 = 0;
        int s2 = 0;
-
+       char out [10];
        if (RB0 == 0)
        {
            RA1 = 0;
@@ -2054,13 +2054,16 @@ void main()
 
            spiWrite(1);
            s1 = spiRead();
+           sprintf (out, "%d\n", s1);
            UART_Write_Text ("s1 = ");
-           UART_Write(s1);
+           UART_Write_Text (out);
            _delay((unsigned long)((90)*(8000000/4000.0)));
            UART_Write_Text ("\n\r");
 
            _delay((unsigned long)((1)*(8000000/4000.0)));
            RA1 = 1;
+           SSPIF = 0;
+
        }
 
        if (s1 == 1)
@@ -2071,13 +2074,16 @@ void main()
 
            spiWrite(1);
            s2 = spiRead();
+           sprintf (out, "%d\n", s2);
            UART_Write_Text ("s2 = ");
-           UART_Write (s2);
+           UART_Write_Text (out);
            _delay((unsigned long)((90)*(8000000/4000.0)));
            UART_Write_Text ("\n\r");
 
            _delay((unsigned long)((1)*(8000000/4000.0)));
            RA2 = 1;
+           SSPIF = 0;
+
        }
 
        if (s2 == 1)
@@ -2087,5 +2093,6 @@ void main()
            _delay((unsigned long)((1000)*(8000000/4000.0)));
            RD1 = 0;
        }
+
    }
 }

@@ -16,6 +16,8 @@
 #pragma config CP = OFF    // Flash Program Memory Code Protection bit
 
 #include <xc.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <pic16f877a.h>
 #include <math.h>
 #include "spi.h"
@@ -45,7 +47,7 @@ float Quadra_Al ()
     float max, max1, max2 = 0;
     float a, b, d, out;
     int j, xmax;
-    
+    char data[10];
     for (j = 0; j < 7; j++)
     {
         if (j < 4) {
@@ -76,15 +78,18 @@ float Quadra_Al ()
     for (j = 0; j < 7; j++)
     {
         UART_Write_Text ("CB");
-        UART_Write (j);
+        sprintf (data, "%d\n", j);
+        UART_Write_Text (data);
         UART_Write_Text (" = ");
-        UART_Write (x [j]);
+        sprintf (data, "%d\n", x [j]);
+        UART_Write_Text (data);
         __delay_ms(90);
         UART_Write_Text ("\n\r");
     }
 
     UART_Write_Text ("Khoang cach = ");
-    UART_Write (out);
+    sprintf (data, "%d\n", out);
+    UART_Write_Text (data);
     __delay_ms(90);
     UART_Write_Text ("\n\r");
     return out;

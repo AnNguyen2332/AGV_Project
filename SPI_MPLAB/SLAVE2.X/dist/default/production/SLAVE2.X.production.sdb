@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"39 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
+"39 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
 [e E907 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -24,7 +24,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"12 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
+"12 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
 [e E850 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -45,7 +45,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"6 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
+"6 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
 [v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
 "11
 [v _PWM1_Init_Fre PWM1_Init_Fre `(i  1 e 2 0 ]
@@ -59,7 +59,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _PWM1_Start PWM1_Start `(i  1 e 2 0 ]
 "54
 [v _PWM2_Start PWM2_Start `(i  1 e 2 0 ]
-"1 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/uart.h
+"1 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/uart.h
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 "33
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
@@ -91,9 +91,9 @@ SPI_ACTIVE_2_IDLE 64
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"27 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
+"27 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
-"12 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
+"12 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
 "29
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
@@ -103,7 +103,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiDataReady spiDataReady `(ui  1 e 2 0 ]
 "47
 [v _spiRead spiRead `(uc  1 e 1 0 ]
-"2 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
+"2 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
 [v _freq freq `l  1 e 4 0 ]
 "340 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
@@ -279,7 +279,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "358 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"27 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
+"27 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
 "55
@@ -331,7 +331,7 @@ SPI_ACTIVE_2_IDLE 64
 [v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
 "30
 } 0
-"34 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
+"34 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X\spi.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
 {
 [v spiWrite@dat dat `uc  1 a 1 wreg ]
@@ -367,7 +367,7 @@ SPI_ACTIVE_2_IDLE 64
 {
 "45
 } 0
-"53 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/uart.h
+"53 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/uart.h
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 {
 "55
@@ -393,7 +393,7 @@ SPI_ACTIVE_2_IDLE 64
 [v UART_Init@baudrate baudrate `DCl  1 p 4 6 ]
 "22
 } 0
-"54 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
+"54 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
 [v _PWM2_Start PWM2_Start `(i  1 e 2 0 ]
 {
 "70
@@ -511,7 +511,7 @@ SPI_ACTIVE_2_IDLE 64
 [v ___fldiv@b b `d  1 p 4 26 ]
 "185
 } 0
-"6 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
+"6 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE2.X/pwm.h
 [v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
 {
 "9

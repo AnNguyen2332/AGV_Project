@@ -18,6 +18,7 @@
 #include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <pic16f877a.h>
 #include <math.h>
 #include "spi.h"
@@ -43,55 +44,48 @@ unsigned int ADC_Read(unsigned char channel)
 
 float Quadra_Al ()
 {
-    float x [7] = {0, 0, 0, 0, 0, 0, 0};
-    float max, max1, max2 = 0;
+    unsigned char x[7] = {40, 42, 41, 38, 631, 891, 243};
+    unsigned char max, max1, max2;
+    max = 0;
     float a, b, d, out;
     int j, xmax;
-    char data[10];
+    char uart_logs[50];
+//    for (j = 0; j < 7; j++)
+//    {
+//        if (j < 4) {
+//            x [j] = ADC_Read (j);
+//        }
+//
+//        if (j >= 4) {
+//            x [j] = ADC_Read (j + 1);
+//        }
+//    }
+
     for (j = 0; j < 7; j++)
     {
-        if (j < 4) {
-            x [j] = ADC_Read (j);
-        }
-
-        if (j >= 4) {
-            x [j] = ADC_Read (j + 1);
-        }
-    }
-
-    for (j = 0; j < 7; j++)
-    {
-        if (x [j] > max) {
-            max = x [j];
+        if (x[j] > max) {
+            max = x[j];
             xmax = j;
+            sprintf(uart_logs, "%d\n\r", max);
+            UART_Write_Text(uart_logs);
+            __delay_ms(90);
         }
     }
-
-    max1 = x [xmax - 1];
-    max2 = x [xmax + 1];
+    
+    max1 = x[xmax - 1];
+    max2 = x[xmax + 1];
 
     a = (max1 + max2 - 2*max)*0.5;
     b = max - max1 - 2*a*(xmax - 1) - a;
     d = -b/(2*a);
     out = 17*(d - 3);
 
-    for (j = 0; j < 7; j++)
-    {
-        UART_Write_Text ("CB");
-        sprintf (data, "%d\n", j);
-        UART_Write_Text (data);
-        UART_Write_Text (" = ");
-        sprintf (data, "%d\n", x [j]);
-        UART_Write_Text (data);
-        __delay_ms(90);
-        UART_Write_Text ("\n\r");
-    }
-
-    UART_Write_Text ("Khoang cach = ");
-    sprintf (data, "%d\n", out);
-    UART_Write_Text (data);
+    sprintf(uart_logs, "%d %d %d %d %d %d %d\n\r", x[0], x[1], x[2], x[3], x[4], x[5], x[6]);
+    UART_Write_Text(uart_logs);
     __delay_ms(90);
-    UART_Write_Text ("\n\r");
+    sprintf(uart_logs, "d = %d\n\r", out);
+    UART_Write_Text(uart_logs);
+    __delay_ms(90);
     return out;
 }
 
@@ -118,9 +112,9 @@ void main()
            if (spiRead ())
            {
                RD0 = 1;
-               data = Quadra_Al ();
-               spiWrite (data);
-               __delay_ms (1000);
+               data = Quadra_Al();
+               spiWrite(data);
+               __delay_ms(1000);
            }
            RD0 = 0;
            SSPIF = 0;

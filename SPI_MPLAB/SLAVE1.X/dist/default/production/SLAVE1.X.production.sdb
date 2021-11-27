@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 16F877A ]
 [d frameptr 0 ]
-"112 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
-[e E1091 . `uc
+"106 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
+[e E1175 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
 SPI_MASTER_OSC_DIV64 34
@@ -12,19 +12,19 @@ SPI_MASTER_TMR2 35
 SPI_SLAVE_SS_EN 36
 SPI_SLAVE_SS_DIS 37
 ]
-[e E1099 . `uc
+[e E1183 . `uc
 SPI_DATA_SAMPLE_MIDDLE 0
 SPI_DATA_SAMPLE_END 128
 ]
-[e E1103 . `uc
+[e E1187 . `uc
 SPI_CLOCK_IDLE_HIGH 16
 SPI_CLOCK_IDLE_LOW 0
 ]
-[e E1107 . `uc
+[e E1191 . `uc
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"12 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
+"12 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
 [e E850 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -45,7 +45,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"1 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
+"1 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 "33
 [v _UART_Read UART_Read `(uc  1 e 1 0 ]
@@ -83,15 +83,13 @@ SPI_ACTIVE_2_IDLE 64
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"28 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
+"29 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
-"34
-[v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
-"44
+"45
 [v _Quadra_Al Quadra_Al `(f  1 e 4 0 ]
-"98
+"92
 [v _main main `(v  1 e 1 0 ]
-"12 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
+"12 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
 "29
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
@@ -121,7 +119,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1830
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S169 . 1 `uc 1 BF 1 0 :1:0 
+[s S163 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -131,39 +129,39 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 SMP 1 0 :1:7 
 ]
 "1884
-[s S178 . 1 `uc 1 . 1 0 :2:0 
+[s S172 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S183 . 1 `uc 1 . 1 0 :2:0 
+[s S177 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S189 . 1 `uc 1 . 1 0 :2:0 
+[s S183 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S194 . 1 `uc 1 . 1 0 :2:0 
+[s S188 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S199 . 1 `uc 1 . 1 0 :2:0 
+[s S193 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S204 . 1 `uc 1 . 1 0 :2:0 
+[s S198 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S209 . 1 `S169 1 . 1 0 `S178 1 . 1 0 `S183 1 . 1 0 `S189 1 . 1 0 `S194 1 . 1 0 `S199 1 . 1 0 `S204 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES209  1 e 1 @148 ]
+[u S203 . 1 `S163 1 . 1 0 `S172 1 . 1 0 `S177 1 . 1 0 `S183 1 . 1 0 `S188 1 . 1 0 `S193 1 . 1 0 `S198 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES203  1 e 1 @148 ]
 "2080
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
 "2222
@@ -206,14 +204,14 @@ SPI_ACTIVE_2_IDLE 64
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "358 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
-"98 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
+"92 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
 [v _main main `(v  1 e 1 0 ]
 {
-"117
-[v main@data data `f  1 a 4 72 ]
-"130
+"111
+[v main@data data `f  1 a 4 44 ]
+"124
 } 0
-"34 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
+"34 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\spi.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
 {
 [v spiWrite@dat dat `uc  1 a 1 wreg ]
@@ -259,7 +257,7 @@ SPI_ACTIVE_2_IDLE 64
 [v ___fltol@f1 f1 `d  1 p 4 0 ]
 "70
 } 0
-"1 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
+"1 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
 {
 "3
@@ -281,49 +279,51 @@ SPI_ACTIVE_2_IDLE 64
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"44 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
+"45 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
 [v _Quadra_Al Quadra_Al `(f  1 e 4 0 ]
 {
-"46
-[v Quadra_Al@x x `[7]f  1 a 28 10 ]
+"52
+[v Quadra_Al@uart_logs uart_logs `[50]uc  1 a 50 0 ]
+"47
+[v Quadra_Al@x x `[7]f  1 a 28 0 ]
+"48
+[v Quadra_Al@max max `f  1 a 4 40 ]
 "50
-[v Quadra_Al@data data `[10]uc  1 a 10 0 ]
+[v Quadra_Al@a a `f  1 a 4 36 ]
+[v Quadra_Al@out out `f  1 a 4 32 ]
 "48
-[v Quadra_Al@a a `f  1 a 4 82 ]
-"47
-[v Quadra_Al@max max `f  1 a 4 78 ]
+[v Quadra_Al@max1 max1 `f  1 a 4 28 ]
+"50
+[v Quadra_Al@d d `f  1 a 4 76 ]
+[v Quadra_Al@b b `f  1 a 4 72 ]
 "48
-[v Quadra_Al@out out `f  1 a 4 74 ]
-"47
-[v Quadra_Al@max1 max1 `f  1 a 4 70 ]
-[v Quadra_Al@max2 max2 `f  1 a 4 66 ]
-"48
-[v Quadra_Al@d d `f  1 a 4 42 ]
-[v Quadra_Al@b b `f  1 a 4 38 ]
-"49
-[v Quadra_Al@j j `i  1 a 2 88 ]
-[v Quadra_Al@xmax xmax `i  1 a 2 86 ]
-"96
+[v Quadra_Al@max2 max2 `f  1 a 4 68 ]
+"51
+[v Quadra_Al@j j `i  1 a 2 72 ]
+[v Quadra_Al@xmax xmax `i  1 a 2 70 ]
+"46
+[v Quadra_Al@F1224 F1224 `[7]f  1 s 28 F1224 ]
+"90
 } 0
 "505 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[v sprintf@sp sp `*.5uc  1 a 1 wreg ]
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 "545
-[v sprintf@val val `ui  1 a 2 11 ]
+[v sprintf@val val `ui  1 a 2 35 ]
 "512
-[v sprintf@c c `uc  1 a 1 14 ]
+[v sprintf@c c `uc  1 a 1 38 ]
 "521
-[v sprintf@prec prec `c  1 a 1 10 ]
+[v sprintf@prec prec `c  1 a 1 34 ]
 "525
-[v sprintf@flag flag `uc  1 a 1 9 ]
+[v sprintf@flag flag `uc  1 a 1 33 ]
 "507
-[v sprintf@ap ap `[1]*.4v  1 a 1 8 ]
+[v sprintf@ap ap `[1]*.4v  1 a 1 32 ]
 "505
-[v sprintf@sp sp `*.5uc  1 a 1 wreg ]
+[v sprintf@sp sp `*.4uc  1 a 1 wreg ]
 [v sprintf@f f `*.24DCuc  1 p 1 0 ]
 "550
-[v sprintf@sp sp `*.5uc  1 a 1 13 ]
+[v sprintf@sp sp `*.4uc  1 a 1 37 ]
 "1567
 } 0
 "5 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\lwmod.c
@@ -353,14 +353,14 @@ SPI_ACTIVE_2_IDLE 64
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 2 ]
+[v ___xxtofl@arg arg `ul  1 a 4 10 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 1 ]
+[v ___xxtofl@exp exp `uc  1 a 1 9 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 5 ]
+[v ___xxtofl@val val `l  1 p 4 0 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 0 ]
+[v ___xxtofl@sign sign `uc  1 a 1 8 ]
 "44
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
@@ -395,17 +395,17 @@ SPI_ACTIVE_2_IDLE 64
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S598 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S592 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S603 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S606 . 4 `l 1 i 4 0 `d 1 f 4 0 `S598 1 fAsBytes 4 0 `S603 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S606  1 a 4 28 ]
+[s S597 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S600 . 4 `l 1 i 4 0 `d 1 f 4 0 `S592 1 fAsBytes 4 0 `S597 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S600  1 a 4 28 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 22 ]
-[s S675 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S669 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S678 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S675 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S678  1 a 2 32 ]
+[u S672 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S669 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S672  1 a 2 32 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 27 ]
 "11
@@ -458,13 +458,16 @@ SPI_ACTIVE_2_IDLE 64
 [v ___fldiv@b b `d  1 p 4 38 ]
 "185
 } 0
-"53 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
+"53 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X/uart.h
 [v _UART_Write_Text UART_Write_Text `(v  1 e 1 0 ]
 {
+[v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
 "55
-[v UART_Write_Text@i i `i  1 a 2 6 ]
+[v UART_Write_Text@i i `i  1 a 2 2 ]
 "53
-[v UART_Write_Text@text text `*.26uc  1 p 2 1 ]
+[v UART_Write_Text@text text `*.4uc  1 a 1 wreg ]
+"56
+[v UART_Write_Text@text text `*.4uc  1 a 1 4 ]
 "58
 } 0
 "47
@@ -475,17 +478,8 @@ SPI_ACTIVE_2_IDLE 64
 [v UART_Write@data data `uc  1 a 1 0 ]
 "51
 } 0
-"34 C:\Users\Nguyen Truong An\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
-[v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
-{
-[v ADC_Read@channel channel `uc  1 a 1 wreg ]
-[v ADC_Read@channel channel `uc  1 a 1 wreg ]
-"36
-[v ADC_Read@channel channel `uc  1 a 1 4 ]
-"42
-} 0
-"28
+"29 D:\learning_stuffs\HK211\DATKCDT\AGV_Project\SPI_MPLAB\SLAVE1.X\newmain.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 {
-"32
+"33
 } 0

@@ -1734,8 +1734,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 18 "newmain.c" 2
-
+# 19 "newmain.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
 
 
@@ -1833,8 +1832,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 19 "newmain.c" 2
-
+# 20 "newmain.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
 
@@ -1918,8 +1916,39 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 20 "newmain.c" 2
+# 21 "newmain.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
+# 14 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
 
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 22 "newmain.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 1 3
 
@@ -1954,8 +1983,7 @@ extern double ldexp(double, int);
 extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
-# 22 "newmain.c" 2
-
+# 24 "newmain.c" 2
 # 1 "./spi.h" 1
 # 15 "./spi.h"
 typedef enum
@@ -1991,8 +2019,7 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 23 "newmain.c" 2
-
+# 25 "newmain.c" 2
 
 
 # 1 "./uart.h" 1
@@ -2054,8 +2081,7 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 26 "newmain.c" 2
-
+# 28 "newmain.c" 2
 
 void ADC_Init()
 {
@@ -2075,55 +2101,38 @@ unsigned int ADC_Read(unsigned char channel)
 
 float Quadra_Al ()
 {
-    float x [7] = {0, 0, 0, 0, 0, 0, 0};
-    float max, max1, max2 = 0;
+    float x[7] = {40, 42, 41, 38, 631, 891, 243};
+    float max, max1, max2;
+    max = 0;
     float a, b, d, out;
     int j, xmax;
-    char data[10];
+    char uart_logs[50];
+# 64 "newmain.c"
     for (j = 0; j < 7; j++)
     {
-        if (j < 4) {
-            x [j] = ADC_Read (j);
-        }
-
-        if (j >= 4) {
-            x [j] = ADC_Read (j + 1);
-        }
-    }
-
-    for (j = 0; j < 7; j++)
-    {
-        if (x [j] > max) {
-            max = x [j];
+        if (x[j] > max) {
+            max = x[j];
             xmax = j;
+            sprintf(uart_logs, "%d\n\r", max);
+            UART_Write_Text(uart_logs);
+            _delay((unsigned long)((90)*(8000000/4000.0)));
         }
     }
 
-    max1 = x [xmax - 1];
-    max2 = x [xmax + 1];
+    max1 = x[xmax - 1];
+    max2 = x[xmax + 1];
 
     a = (max1 + max2 - 2*max)*0.5;
     b = max - max1 - 2*a*(xmax - 1) - a;
     d = -b/(2*a);
     out = 17*(d - 3);
 
-    for (j = 0; j < 7; j++)
-    {
-        UART_Write_Text ("CB");
-        sprintf (data, "%d\n", j);
-        UART_Write_Text (data);
-        UART_Write_Text (" = ");
-        sprintf (data, "%d\n", x [j]);
-        UART_Write_Text (data);
-        _delay((unsigned long)((90)*(8000000/4000.0)));
-        UART_Write_Text ("\n\r");
-    }
-
-    UART_Write_Text ("Khoang cach = ");
-    sprintf (data, "%d\n", out);
-    UART_Write_Text (data);
+    sprintf(uart_logs, "%d %d %d %d %d %d %d\n\r", x[0], x[1], x[2], x[3], x[4], x[5], x[6]);
+    UART_Write_Text(uart_logs);
     _delay((unsigned long)((90)*(8000000/4000.0)));
-    UART_Write_Text ("\n\r");
+    sprintf(uart_logs, "d = %d\n\r", out);
+    UART_Write_Text(uart_logs);
+    _delay((unsigned long)((90)*(8000000/4000.0)));
     return out;
 }
 
@@ -2150,8 +2159,8 @@ void main()
            if (spiRead ())
            {
                RD0 = 1;
-               data = Quadra_Al ();
-               spiWrite (data);
+               data = Quadra_Al();
+               spiWrite(data);
                _delay((unsigned long)((1000)*(8000000/4000.0)));
            }
            RD0 = 0;

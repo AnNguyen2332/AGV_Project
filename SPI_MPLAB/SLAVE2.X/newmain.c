@@ -17,6 +17,7 @@
 
 #include <xc.h>
 #include <stdio.h>
+#include <math.h>
 #include <pic16f877a.h>
 #define _XTAL_FREQ 8000000
 
@@ -24,6 +25,22 @@
 #include "uart.h"
 #include "pwm.h"
 
+int v_l, v_r;
+float k1 = 0.01;
+float k2 = 0.0005;
+float k3 = 0.01;
+float v_ref = 1800;
+float omega_ref = 3.6;
+int wheel_distance = 170;
+
+void computeLyapunov(float e2, float e3){
+    float v, omega;
+    v = v_ref*cos(e3);
+    omega = k2*v_ref*e2 + omega_ref + k3*sin(e3);
+    
+    v_r = (int)(2*v + omega*wheel_distance) / 2;
+    v_l = (int) 2*v - v_r;
+}
 void main()
 {
     TRISD = 0;                 //PORTD as output

@@ -1833,6 +1833,40 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 # 20 "newmain.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 1 3
+
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__unsupported.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 2 3
+# 30 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 3
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double) ;
+extern double cos(double) ;
+extern double tan(double) ;
+extern double asin(double) ;
+extern double acos(double) ;
+extern double atan(double);
+extern double atan2(double, double) ;
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double) ;
+extern double exp(double) ;
+extern double sinh(double) ;
+extern double cosh(double) ;
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+# 21 "newmain.c" 2
 
 
 
@@ -1871,7 +1905,7 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 24 "newmain.c" 2
+# 25 "newmain.c" 2
 # 1 "./uart.h" 1
 char UART_Init(const long int baudrate)
 {
@@ -1931,7 +1965,7 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 25 "newmain.c" 2
+# 26 "newmain.c" 2
 # 1 "./pwm.h" 1
 
 long freq;
@@ -2014,8 +2048,24 @@ PWM2_Stop()
   CCP2CONbits.CCP2M3 = 0;
   CCP2CONbits.CCP2M2 = 0;
 }
-# 26 "newmain.c" 2
+# 27 "newmain.c" 2
 
+int v_l, v_r;
+float k1 = 0.01;
+float k2 = 0.0005;
+float k3 = 0.01;
+float v_ref = 1800;
+float omega_ref = 3.6;
+int wheel_distance = 170;
+
+void computeLyapunov(float e2, float e3){
+    float v, omega;
+    v = v_ref*cos(e3);
+    omega = k2*v_ref*e2 + omega_ref + k3*sin(e3);
+
+    v_r = (int)(2*v + omega*wheel_distance) / 2;
+    v_l = (int) 2*v - v_r;
+}
 void main()
 {
     TRISD = 0;

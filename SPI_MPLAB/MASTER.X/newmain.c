@@ -1,6 +1,6 @@
 /*
  * File:    newmain.c
- * Author: NguyenTruongAn
+ * Author: Nguyen Truong An & Dang Linh Anh
  *
  * Created on November 20, 2021, 6:00 PM
  */
@@ -15,77 +15,87 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <xc.h>
 #include <pic16f877a.h>
 #define _XTAL_FREQ 8000000
 #include "uart.h"
 #include "spi.h"
 
+int v_l, v_r;
+float k1 = 0.01;
+float k2 = 0.0005;
+float k3 = 0.01;
+float v_ref = 1800;
+float omega_ref = 3.6;
+int wheel_distance = 170;
 
-void main()
-{
-   nRBPU = 0;                   //Enable PORTB internal pull up resistor
-   TRISA = 0;
-   TRISB = 1;                   //PORTB as input
-   TRISD = 0;                   //PORTD as output
-   PORTD = 0;
-   RA1 = 1;
-   RA2 = 1;
-   UART_Init (9600);
-   
-   spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-   
-   while(1)
-   {    
-       int s1 = 0;
-       int s2 = 0;
-       char out [10];
-       if (RB0 == 0)
-       {
-           RA1 = 0;       //Slave 1 Select
-           __delay_ms(1);
-           
-           spiWrite(1);
-           s1 = spiRead();
-           sprintf (out, "%d\n", s1);
-           UART_Write_Text ("s1 = ");
-           UART_Write_Text (out);
-           __delay_ms(90);
-           UART_Write_Text ("\n\r");
-           
-           __delay_ms(1);
-           RA1 = 1;       //Slave 1 Deselect
-           SSPIF = 0;
+void computeLyapunov(float e2, float e3) {
+    float v, omega;
+    v = v_ref * cos(e3);
+    omega = k2 * v_ref * e2 + omega_ref + k3 * sin(e3);
 
-       }
-       
-       if (s1 == 1)
-       {
-           RD0 = 1;
-           RA2 = 0;       //Slave 2 Select
-           __delay_ms(1);
+    v_r = (int) (2 * v + omega * wheel_distance) / 2;
+    v_l = (int) 2 * v - v_r;
+}
 
-           spiWrite(1);
-           s2 = spiRead();
-           sprintf (out, "%d\n", s2);
-           UART_Write_Text ("s2 = ");
-           UART_Write_Text (out);
-           __delay_ms(90);
-           UART_Write_Text ("\n\r");
-           
-           __delay_ms(1);
-           RA2 = 1;       //Slave 2 Deselect 
-           SSPIF = 0;
-           
-       }
-       
-       if (s2 == 1)
-       {
-           RD0 = 0;
-           RD1 = 1;
-           __delay_ms (1000);
-           RD1 = 0;
-       }
+void main() {
+    nRBPU = 0;                     //Enable PORTB internal pull up resistor
+    TRISA = 0;
+    //TRISB = 1;                   //PORTB as input
+    TRISD = 0; //PORTD as output
+    PORTD = 0;
+    RA1 = 1;
+    RA2 = 1;
+    UART_Init(9600);
 
-   }
+    spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+
+    while (1) {
+        int e2 = 0;
+        int e3 = 0;
+        char out [10];
+        __delay_ms(300);
+
+        //Receive e2 from Slave 1
+        RA1 = 0;                    //Slave 1 Select
+        __delay_ms(1);
+
+        spiWrite(1);
+        __delay_ms(300);
+        e2 = spiRead();
+
+        sprintf(out, "e2 = %d\n\r", e2);
+        __delay_ms(1);
+        UART_Write_Text(out);
+
+        __delay_ms(1);
+        RA1 = 1;                    //Slave 1 Deselect
+
+        //Receive e3 from Slave 2
+        RD0 = 1;
+        RA2 = 0;                    //Slave 2 Select
+        __delay_ms(1);
+
+        spiWrite(1);
+        __delay_ms(300);
+        e3 = spiRead();
+        sprintf(out, "e3 = %d\n\r", e3);
+        __delay_ms(1);
+        UART_Write_Text(out);
+
+        //Compute Lyapunov and send v_left, v_right to Slave 2
+        computeLyapunov(e2, e3);
+        spiWrite(v_l);
+        __delay_ms(10);
+        spiWrite(v_r);
+
+        __delay_ms(1);
+        RA2 = 1;                    //Slave 2 Deselect 
+
+        RD0 = 0;
+        RD1 = 1;
+        __delay_ms(500);
+        RD1 = 0;
+    }
 }

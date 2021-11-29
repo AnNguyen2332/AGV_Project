@@ -1734,7 +1734,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "newmain.c" 2
+# 18 "newmain.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
 
 
@@ -1832,7 +1833,126 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
+# 19 "newmain.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
+
+
+
+
+
+
+typedef unsigned short wchar_t;
+
+
+
+
+
+
+
+typedef struct {
+ int rem;
+ int quot;
+} div_t;
+typedef struct {
+ unsigned rem;
+ unsigned quot;
+} udiv_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef struct {
+ unsigned long quot;
+ unsigned long rem;
+} uldiv_t;
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 3
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+
+
+
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+
+
+
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+# 104 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 3
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
 # 20 "newmain.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
+# 14 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
+# 36 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
+
+
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
+# 21 "newmain.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 1 3
 
 
@@ -1866,7 +1986,8 @@ extern double ldexp(double, int);
 extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
-# 21 "newmain.c" 2
+# 22 "newmain.c" 2
+
 
 
 
@@ -1905,7 +2026,8 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 25 "newmain.c" 2
+# 26 "newmain.c" 2
+
 # 1 "./uart.h" 1
 char UART_Init(const long int baudrate)
 {
@@ -1965,7 +2087,8 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 26 "newmain.c" 2
+# 27 "newmain.c" 2
+
 # 1 "./pwm.h" 1
 
 long freq;
@@ -2048,24 +2171,9 @@ PWM2_Stop()
   CCP2CONbits.CCP2M3 = 0;
   CCP2CONbits.CCP2M2 = 0;
 }
-# 27 "newmain.c" 2
+# 28 "newmain.c" 2
 
-int v_l, v_r;
-float k1 = 0.01;
-float k2 = 0.0005;
-float k3 = 0.01;
-float v_ref = 1800;
-float omega_ref = 3.6;
-int wheel_distance = 170;
 
-void computeLyapunov(float e2, float e3){
-    float v, omega;
-    v = v_ref*cos(e3);
-    omega = k2*v_ref*e2 + omega_ref + k3*sin(e3);
-
-    v_r = (int)(2*v + omega*wheel_distance) / 2;
-    v_l = (int) 2*v - v_r;
-}
 void main()
 {
     TRISD = 0;
@@ -2092,20 +2200,30 @@ void main()
         PWM2_Start();
         PWM1_Start();
 
-        if(spiDataReady())
+        if(SSPIF == 1)
         {
-            char out [10];
-            int num = spiRead ();
-            sprintf(out, "%d\n", num);
-            if (spiRead())
+            char uart_logs [20];
+            int v_l, v_r, out = 0;
+            out = spiRead ();
+            if (out == 1)
             {
                 RD0 = 1;
+                _delay((unsigned long)((300)*(8000000/4000.0)));
                 spiWrite (1);
-                UART_Write_Text("Data = ");
-                UART_Write_Text (out);
-                _delay((unsigned long)((90)*(8000000/4000.0)));
-                UART_Write_Text("\n\r");
-                _delay((unsigned long)((1000)*(8000000/4000.0)));
+                SSPBUF = 0;
+                _delay((unsigned long)((5)*(8000000/4000.0)));
+                v_l = spiRead ();
+                SSPBUF = 0;
+                _delay((unsigned long)((10)*(8000000/4000.0)));
+                v_r = spiRead ();
+
+                sprintf(uart_logs, "v_left = %d\n\r", v_l);
+                _delay((unsigned long)((1)*(8000000/4000.0)));
+                UART_Write_Text(uart_logs);
+                sprintf(uart_logs, "v_right = %d\n\r", v_r);
+                _delay((unsigned long)((1)*(8000000/4000.0)));
+                UART_Write_Text(uart_logs);
+                _delay((unsigned long)((100)*(8000000/4000.0)));
             }
             RD0 = 0;
             SSPIF = 0;

@@ -1734,7 +1734,8 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 19 "newmain.c" 2
+# 18 "newmain.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdio.h" 1 3
 
 
@@ -1832,7 +1833,8 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 #pragma printf_check(sprintf) const
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
-# 20 "newmain.c" 2
+# 19 "newmain.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\stdlib.h" 1 3
 
 
@@ -1916,7 +1918,8 @@ extern char * ltoa(char * buf, long val, int base);
 extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
-# 21 "newmain.c" 2
+# 20 "newmain.c" 2
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
 # 14 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 3
 extern void * memcpy(void *, const void *, size_t);
@@ -1948,7 +1951,8 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 22 "newmain.c" 2
+# 21 "newmain.c" 2
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\math.h" 1 3
 
@@ -1983,7 +1987,8 @@ extern double ldexp(double, int);
 extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
-# 24 "newmain.c" 2
+# 23 "newmain.c" 2
+
 # 1 "./spi.h" 1
 # 15 "./spi.h"
 typedef enum
@@ -2019,7 +2024,8 @@ void spiInit(Spi_Type, Spi_Data_Sample, Spi_Clock_Idle, Spi_Transmit_Edge);
 void spiWrite(char);
 unsigned spiDataReady();
 char spiRead();
-# 25 "newmain.c" 2
+# 24 "newmain.c" 2
+
 
 
 # 1 "./uart.h" 1
@@ -2081,7 +2087,8 @@ void UART_Write_Text(char *text)
   for(i=0;text[i]!='\0';i++)
    UART_Write(text[i]);
 }
-# 28 "newmain.c" 2
+# 27 "newmain.c" 2
+
 
 void ADC_Init()
 {
@@ -2101,8 +2108,8 @@ unsigned int ADC_Read(unsigned char channel)
 
 float Quadra_Al ()
 {
-    float x[7] = {40, 42, 41, 38, 631, 891, 243};
-    float max, max1, max2;
+    unsigned char x[7] = {40, 42, 41, 38, 631, 891, 243};
+    unsigned char max, max1, max2;
     max = 0;
     float a, b, d, out;
     int j, xmax;
@@ -2113,9 +2120,6 @@ float Quadra_Al ()
         if (x[j] > max) {
             max = x[j];
             xmax = j;
-            sprintf(uart_logs, "%d\n\r", max);
-            UART_Write_Text(uart_logs);
-            _delay((unsigned long)((90)*(8000000/4000.0)));
         }
     }
 
@@ -2153,15 +2157,22 @@ void main()
    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
    while(1)
    {
-       if(spiDataReady())
+       if(SSPIF == 1)
        {
-           float data;
-           if (spiRead ())
+           char uart_logs [20];
+           int data = 0;
+           int out = 0;
+           out = spiRead ();
+           if (out == 1)
            {
                RD0 = 1;
                data = Quadra_Al();
+               _delay((unsigned long)((300)*(8000000/4000.0)));
+               sprintf(uart_logs, "Slave 1 = %d\n\r", data);
                spiWrite(data);
-               _delay((unsigned long)((1000)*(8000000/4000.0)));
+               _delay((unsigned long)((1)*(8000000/4000.0)));
+               UART_Write_Text(uart_logs);
+               _delay((unsigned long)((100)*(8000000/4000.0)));
            }
            RD0 = 0;
            SSPIF = 0;

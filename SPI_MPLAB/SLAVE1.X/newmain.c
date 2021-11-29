@@ -1,6 +1,6 @@
 /*
  * File:   newmain.c
- * Author: Nguyen Truong An
+ * Author: Nguyen Truong An & Dang Linh Anh
  *
  * Created on November 20, 2021, 7:47 PM
  */
@@ -50,25 +50,22 @@ float Quadra_Al ()
     float a, b, d, out;
     int j, xmax;
     char uart_logs[50];
-//    for (j = 0; j < 7; j++)
-//    {
-//        if (j < 4) {
-//            x [j] = ADC_Read (j);
-//        }
-//
-//        if (j >= 4) {
-//            x [j] = ADC_Read (j + 1);
-//        }
-//    }
+    /*for (j = 0; j < 5; j++)
+    {
+        if (j < 4) {
+            x [j] = ADC_Read (j);
+       }
+
+        if (j >= 4) {
+           x [j] = ADC_Read (j + 1);
+       }
+    }*/
 
     for (j = 0; j < 7; j++)
     {
         if (x[j] > max) {
             max = x[j];
             xmax = j;
-            sprintf(uart_logs, "%d\n\r", max);
-            UART_Write_Text(uart_logs);
-            __delay_ms(90);
         }
     }
     
@@ -106,15 +103,22 @@ void main()
    spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
    while(1)
    {
-       if(spiDataReady())
+       if(SSPIF == 1)
        {   
-           float data;
-           if (spiRead ())
+           char uart_logs [20];
+           int data = 0;
+           int out = 0;
+           out = spiRead ();
+           if (out == 1)
            {
                RD0 = 1;
                data = Quadra_Al();
+               __delay_ms (300);
+               sprintf(uart_logs, "Slave 1 = %d\n\r", data);
                spiWrite(data);
-               __delay_ms(1000);
+               __delay_ms (1);
+               UART_Write_Text(uart_logs);
+               __delay_ms (100);
            }
            RD0 = 0;
            SSPIF = 0;

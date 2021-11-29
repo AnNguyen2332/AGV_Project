@@ -1,6 +1,6 @@
 /*
  * File:   newmain.c
- * Author: Nguyen Truong An
+ * Author: Nguyen Truong An & Dang Linh Anh
  *
  * Created on November 20, 2021, 9:09 PM
  */
@@ -17,6 +17,8 @@
 
 #include <xc.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <math.h>
 #include <pic16f877a.h>
 #define _XTAL_FREQ 8000000
@@ -25,22 +27,6 @@
 #include "uart.h"
 #include "pwm.h"
 
-int v_l, v_r;
-float k1 = 0.01;
-float k2 = 0.0005;
-float k3 = 0.01;
-float v_ref = 1800;
-float omega_ref = 3.6;
-int wheel_distance = 170;
-
-void computeLyapunov(float e2, float e3){
-    float v, omega;
-    v = v_ref*cos(e3);
-    omega = k2*v_ref*e2 + omega_ref + k3*sin(e3);
-    
-    v_r = (int)(2*v + omega*wheel_distance) / 2;
-    v_l = (int) 2*v - v_r;
-}
 void main()
 {
     TRISD = 0;                 //PORTD as output
@@ -67,21 +53,31 @@ void main()
         PWM2_Start();
         PWM1_Start();
   
-        if(spiDataReady())
+        if(SSPIF == 1)
         {
-            char out [10];
-            int num = spiRead ();
-            sprintf(out, "%d\n", num);
-            if (spiRead())
+            char uart_logs [20];
+            int v_l, v_r, out = 0;
+            out = spiRead ();
+            if (out == 1)
             {
                 RD0 = 1;
+                __delay_ms (300);
                 spiWrite (1);
-                UART_Write_Text("Data = ");
-                UART_Write_Text (out);
-                __delay_ms(90);
-                UART_Write_Text("\n\r");
-                __delay_ms (1000);
-            }
+                SSPBUF = 0;
+                __delay_ms (5);
+                v_l = spiRead ();
+                SSPBUF = 0;
+                __delay_ms (10);
+                v_r = spiRead ();
+                
+                sprintf(uart_logs, "v_left = %d\n\r", v_l);
+                __delay_ms (1);
+                UART_Write_Text(uart_logs);
+                sprintf(uart_logs, "v_right = %d\n\r", v_r);
+                __delay_ms (1);
+                UART_Write_Text(uart_logs);
+                __delay_ms (100);
+            } 
             RD0 = 0;
             SSPIF = 0;
         }

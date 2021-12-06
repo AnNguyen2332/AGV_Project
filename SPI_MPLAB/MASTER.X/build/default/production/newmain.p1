@@ -35,14 +35,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1059
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1059: extern volatile unsigned char TXREG __attribute__((address(0x019)));
 [v _TXREG `Vuc ~T0 @X0 0 e@25 ]
-"37 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\math.h
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\math.h: 37: extern double cos(double) ;
-[v _cos `(d ~T0 @X0 0 ef1`d ]
-"36
-[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\math.h: 36: extern double sin(double) ;
-[v _sin `(d ~T0 @X0 0 ef1`d ]
 [p mainexit ]
-"3079 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+"3079
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 3079: extern volatile __bit nRBPU __attribute__((address(0x40F)));
 [v _nRBPU `Vb ~T0 @X0 0 e@1039 ]
 "1325
@@ -60,8 +54,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2662
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2662: extern volatile __bit RA2 __attribute__((address(0x2A)));
 [v _RA2 `Vb ~T0 @X0 0 e@42 ]
-"52 newmain.c
-[; ;newmain.c: 52:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"68 newmain.c
+[; ;newmain.c: 68:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1107 32 33 34 35 36 37 .. ]
 [n E1107 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1115 0 128 .. ]
@@ -518,219 +512,207 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 118 ]
 }
 "25 newmain.c
-[; ;newmain.c: 25: int v_l, v_r;
-[v _v_l `i ~T0 @X0 1 e ]
-[v _v_r `i ~T0 @X0 1 e ]
+[; ;newmain.c: 25: int e = 0;
+[v _e `i ~T0 @X0 1 e ]
+[i _e
+-> 0 `i
+]
 "26
-[; ;newmain.c: 26: float k1 = 0.01;
-[v _k1 `f ~T0 @X0 1 e ]
-[i _k1
--> .0.01 `f
+[; ;newmain.c: 26: int pre_e = 0;
+[v _pre_e `i ~T0 @X0 1 e ]
+[i _pre_e
+-> 0 `i
 ]
 "27
-[; ;newmain.c: 27: float k2 = 0.0005;
-[v _k2 `f ~T0 @X0 1 e ]
-[i _k2
--> .0.0005 `f
+[; ;newmain.c: 27: int P = 0;
+[v _P `i ~T0 @X0 1 e ]
+[i _P
+-> 0 `i
 ]
 "28
-[; ;newmain.c: 28: float k3 = 0.01;
-[v _k3 `f ~T0 @X0 1 e ]
-[i _k3
--> .0.01 `f
+[; ;newmain.c: 28: int I = 0;
+[v _I `i ~T0 @X0 1 e ]
+[i _I
+-> 0 `i
 ]
 "29
-[; ;newmain.c: 29: float v_ref = 1800;
-[v _v_ref `f ~T0 @X0 1 e ]
-[i _v_ref
--> -> 1800 `i `f
+[; ;newmain.c: 29: int D = 0;
+[v _D `i ~T0 @X0 1 e ]
+[i _D
+-> 0 `i
 ]
 "30
-[; ;newmain.c: 30: float omega_ref = 3.6;
-[v _omega_ref `f ~T0 @X0 1 e ]
-[i _omega_ref
--> .3.6 `f
+[; ;newmain.c: 30: int PID_Val = 0;
+[v _PID_Val `i ~T0 @X0 1 e ]
+[i _PID_Val
+-> 0 `i
 ]
 "31
-[; ;newmain.c: 31: int wheel_distance = 170;
-[v _wheel_distance `i ~T0 @X0 1 e ]
-[i _wheel_distance
--> 170 `i
+[; ;newmain.c: 31: float Kp = 0.8;
+[v _Kp `f ~T0 @X0 1 e ]
+[i _Kp
+-> .0.8 `f
+]
+"32
+[; ;newmain.c: 32: float Ki = 0.6;
+[v _Ki `f ~T0 @X0 1 e ]
+[i _Ki
+-> .0.6 `f
 ]
 "33
-[; ;newmain.c: 33: void computeLyapunov(float e2, float e3) {
-[v _computeLyapunov `(v ~T0 @X0 1 ef2`f`f ]
+[; ;newmain.c: 33: float Kd = 0;
+[v _Kd `f ~T0 @X0 1 e ]
+[i _Kd
+-> -> 0 `i `f
+]
+"52
+[; ;newmain.c: 52: void PID() {
+[v _PID `(v ~T0 @X0 1 ef ]
 {
-[e :U _computeLyapunov ]
-[v _e2 `f ~T0 @X0 1 r1 ]
-[v _e3 `f ~T0 @X0 1 r2 ]
+[e :U _PID ]
 [f ]
-"34
-[; ;newmain.c: 34:     float v, omega;
-[v _v `f ~T0 @X0 1 a ]
-[v _omega `f ~T0 @X0 1 a ]
-"35
-[; ;newmain.c: 35:     v = v_ref * cos(e3);
-[e = _v -> * -> _v_ref `d ( _cos (1 -> _e3 `d `f ]
-"36
-[; ;newmain.c: 36:     omega = k2 * v_ref * e2 + omega_ref + k3 * sin(e3);
-[e = _omega -> + -> + * * _k2 _v_ref _e2 _omega_ref `d * -> _k3 `d ( _sin (1 -> _e3 `d `f ]
-"38
-[; ;newmain.c: 38:     v_r = (int) (2 * v + omega * wheel_distance) / 2;
-[e = _v_r / -> + * -> -> 2 `i `f _v * _omega -> _wheel_distance `f `i -> 2 `i ]
-"39
-[; ;newmain.c: 39:     v_l = (int) 2 * v - v_r;
-[e = _v_l -> - * -> -> 2 `i `f _v -> _v_r `f `i ]
-"40
-[; ;newmain.c: 40: }
+"53
+[; ;newmain.c: 53:     P = e;
+[e = _P _e ]
+"54
+[; ;newmain.c: 54:     I = I + e;
+[e = _I + _I _e ]
+"55
+[; ;newmain.c: 55:     D = e - pre_e;
+[e = _D - _e _pre_e ]
+"56
+[; ;newmain.c: 56:     PID_Val = Kp * P + Ki * I + Kd*D;
+[e = _PID_Val -> + + * _Kp -> _P `f * _Ki -> _I `f * _Kd -> _D `f `i ]
+"57
+[; ;newmain.c: 57: }
 [e :UE 123 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"42
-[; ;newmain.c: 42: void main() {
+"59
+[; ;newmain.c: 59: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"43
-[; ;newmain.c: 43:     nRBPU = 0;
+"60
+[; ;newmain.c: 60:     nRBPU = 0;
 [e = _nRBPU -> -> 0 `i `b ]
-"44
-[; ;newmain.c: 44:     TRISA = 0;
+"61
+[; ;newmain.c: 61:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"46
-[; ;newmain.c: 46:     TRISD = 0;
+"62
+[; ;newmain.c: 62:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"47
-[; ;newmain.c: 47:     PORTD = 0;
+"63
+[; ;newmain.c: 63:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"48
-[; ;newmain.c: 48:     RA1 = 1;
+"64
+[; ;newmain.c: 64:     RA1 = 1;
 [e = _RA1 -> -> 1 `i `b ]
-"49
-[; ;newmain.c: 49:     RA2 = 1;
+"65
+[; ;newmain.c: 65:     RA2 = 1;
 [e = _RA2 -> -> 1 `i `b ]
-"50
-[; ;newmain.c: 50:     UART_Init(9600);
+"66
+[; ;newmain.c: 66:     UART_Init(9600);
 [e ( _UART_Init (1 -> -> 9600 `i `l ]
-"52
-[; ;newmain.c: 52:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"68
+[; ;newmain.c: 68:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e ( _spiInit (4 , , , . `E1107 0 . `E1115 0 . `E1119 1 . `E1123 0 ]
-"54
-[; ;newmain.c: 54:     while (1) {
+"70
+[; ;newmain.c: 70:     while (1) {
 [e :U 126 ]
 {
-"55
-[; ;newmain.c: 55:         int e2 = 0;
-[v _e2 `i ~T0 @X0 1 a ]
-[e = _e2 -> 0 `i ]
-"56
-[; ;newmain.c: 56:         int e3 = 0;
-[v _e3 `i ~T0 @X0 1 a ]
-[e = _e3 -> 0 `i ]
-"57
-[; ;newmain.c: 57:         char out [10];
-[v _out `uc ~T0 @X0 -> 10 `i a ]
-"58
-[; ;newmain.c: 58:         _delay((unsigned long)((300)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"61
-[; ;newmain.c: 61:         RA1 = 0;
+"71
+[; ;newmain.c: 71:         char uart_logs [20];
+[v _uart_logs `uc ~T0 @X0 -> 20 `i a ]
+"74
+[; ;newmain.c: 74:         RA1 = 0;
 [e = _RA1 -> -> 0 `i `b ]
-"62
-[; ;newmain.c: 62:         _delay((unsigned long)((1)*(8000000/4000.0)));
+"75
+[; ;newmain.c: 75:         _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"64
-[; ;newmain.c: 64:         spiWrite(1);
-[e ( _spiWrite (1 -> -> 1 `i `uc ]
-"65
-[; ;newmain.c: 65:         _delay((unsigned long)((300)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"66
-[; ;newmain.c: 66:         e2 = spiRead();
-[e = _e2 -> ( _spiRead ..  `i ]
-"68
-[; ;newmain.c: 68:         sprintf(out, "e2 = %d\n\r", e2);
-[e ( _sprintf (1 , (. , &U _out :s 1C _e2 ]
-"69
-[; ;newmain.c: 69:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"70
-[; ;newmain.c: 70:         UART_Write_Text(out);
-[e ( _UART_Write_Text (1 &U _out ]
-"72
-[; ;newmain.c: 72:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"73
-[; ;newmain.c: 73:         RA1 = 1;
-[e = _RA1 -> -> 1 `i `b ]
-"76
-[; ;newmain.c: 76:         RD0 = 1;
-[e = _RD0 -> -> 1 `i `b ]
 "77
-[; ;newmain.c: 77:         RA2 = 0;
-[e = _RA2 -> -> 0 `i `b ]
-"78
-[; ;newmain.c: 78:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"80
-[; ;newmain.c: 80:         spiWrite(1);
+[; ;newmain.c: 77:         spiWrite(1);
 [e ( _spiWrite (1 -> -> 1 `i `uc ]
+"78
+[; ;newmain.c: 78:         _delay((unsigned long)((150)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"79
+[; ;newmain.c: 79:         e = spiRead();
+[e = _e -> ( _spiRead ..  `i ]
 "81
-[; ;newmain.c: 81:         _delay((unsigned long)((300)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 81:         sprintf(uart_logs, "Error = %d\n\r", e);
+[e ( _sprintf (1 , (. , &U _uart_logs :s 1C _e ]
 "82
-[; ;newmain.c: 82:         e3 = spiRead();
-[e = _e3 -> ( _spiRead ..  `i ]
+[; ;newmain.c: 82:         _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "83
-[; ;newmain.c: 83:         sprintf(out, "e3 = %d\n\r", e3);
-[e ( _sprintf (1 , (. , &U _out :s 2C _e3 ]
-"84
-[; ;newmain.c: 84:         _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 83:         UART_Write_Text(uart_logs);
+[e ( _UART_Write_Text (1 &U _uart_logs ]
 "85
-[; ;newmain.c: 85:         UART_Write_Text(out);
-[e ( _UART_Write_Text (1 &U _out ]
-"88
-[; ;newmain.c: 88:         computeLyapunov(e2, e3);
-[e ( _computeLyapunov (2 , -> _e2 `f -> _e3 `f ]
-"89
-[; ;newmain.c: 89:         spiWrite(v_l);
-[e ( _spiWrite (1 -> _v_l `uc ]
-"90
-[; ;newmain.c: 90:         _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"91
-[; ;newmain.c: 91:         spiWrite(v_r);
-[e ( _spiWrite (1 -> _v_r `uc ]
-"93
-[; ;newmain.c: 93:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[; ;newmain.c: 85:         _delay((unsigned long)((1)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"86
+[; ;newmain.c: 86:         RA1 = 1;
+[e = _RA1 -> -> 1 `i `b ]
+"89
+[; ;newmain.c: 89:         RD0 = 1;
+[e = _RD0 -> -> 1 `i `b ]
+"90
+[; ;newmain.c: 90:         RA2 = 0;
+[e = _RA2 -> -> 0 `i `b ]
+"91
+[; ;newmain.c: 91:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"93
+[; ;newmain.c: 93:         PID();
+[e ( _PID ..  ]
 "94
-[; ;newmain.c: 94:         RA2 = 1;
-[e = _RA2 -> -> 1 `i `b ]
-"96
-[; ;newmain.c: 96:         RD0 = 0;
-[e = _RD0 -> -> 0 `i `b ]
+[; ;newmain.c: 94:         spiWrite(PID_Val);
+[e ( _spiWrite (1 -> _PID_Val `uc ]
+"95
+[; ;newmain.c: 95:         pre_e = e;
+[e = _pre_e _e ]
 "97
-[; ;newmain.c: 97:         RD1 = 1;
-[e = _RD1 -> -> 1 `i `b ]
+[; ;newmain.c: 97:         sprintf(uart_logs, "PID_Val = %d\n\r", PID_Val);
+[e ( _sprintf (1 , (. , &U _uart_logs :s 2C _PID_Val ]
 "98
-[; ;newmain.c: 98:         _delay((unsigned long)((500)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;newmain.c: 98:         _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "99
-[; ;newmain.c: 99:         RD1 = 0;
+[; ;newmain.c: 99:         UART_Write_Text(uart_logs);
+[e ( _UART_Write_Text (1 &U _uart_logs ]
+"101
+[; ;newmain.c: 101:         _delay((unsigned long)((1)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"102
+[; ;newmain.c: 102:         RA2 = 1;
+[e = _RA2 -> -> 1 `i `b ]
+"125
+[; ;newmain.c: 125:         RD0 = 0;
+[e = _RD0 -> -> 0 `i `b ]
+"126
+[; ;newmain.c: 126:         RD1 = 1;
+[e = _RD1 -> -> 1 `i `b ]
+"127
+[; ;newmain.c: 127:         _delay((unsigned long)((500)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"128
+[; ;newmain.c: 128:         RD1 = 0;
 [e = _RD1 -> -> 0 `i `b ]
-"100
-[; ;newmain.c: 100:     }
+"129
+[; ;newmain.c: 129:         e = 0;
+[e = _e -> 0 `i ]
+"130
+[; ;newmain.c: 130:     }
 }
 [e :U 125 ]
 [e $U 126  ]
 [e :U 127 ]
-"101
-[; ;newmain.c: 101: }
+"131
+[; ;newmain.c: 131: }
 [e :UE 124 ]
 }
 [p f _sprintf 8388736 ]
-[a 2C 101 51 32 61 32 37 100 10 13 0 ]
-[a 1C 101 50 32 61 32 37 100 10 13 0 ]
+[a 1C 69 114 114 111 114 32 61 32 37 100 10 13 0 ]
+[a 2C 80 73 68 95 86 97 108 32 61 32 37 100 10 13 0 ]

@@ -17,11 +17,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <math.h>
+#include <string.h>
 #include <xc.h>
 #include <pic16f877a.h>
-#define _XTAL_FREQ 20000000
+#define _XTAL_FREQ 8000000
 #include "uart.h"
 #include "pwm.h"
 
@@ -32,9 +32,7 @@ char PID_Val = 0;
 float Kp = 0.8;
 float Ki = 0.6;
 float Kd = 0;
-
-int v_ref = 1250;
-
+int v_ref = 100;
 void ADC_Init() {
     ADCON0 = 0b1000001;
     ADCON1 = 0b11000000;
@@ -68,6 +66,16 @@ void AVG_Index() {
     UART_Write_Text(uart_logs);
     __delay_ms(50);
 }
+
+/*void Lyapunov(float e2, float e3) {
+    float v, omega;
+    e3 = 0;
+    v = v_ref * cos(e3);
+    omega = k2 * v_ref * e2 + omega_ref + k3 * sin(e3);
+
+    v_r = (int) (2 * v + omega * wheel_distance) / 2;
+    v_l = (int) 2 * v - v_r;
+}*/
 
 void PID() {
     char uart_logs[50];

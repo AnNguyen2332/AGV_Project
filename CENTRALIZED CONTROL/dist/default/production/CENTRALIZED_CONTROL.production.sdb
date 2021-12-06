@@ -53,15 +53,15 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"38 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
+"36 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
-"43
+"41
 [v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
-"52
+"50
 [v _AVG_Index AVG_Index `(v  1 e 1 0 ]
-"72
+"80
 [v _PID PID `(v  1 e 1 0 ]
-"83
+"91
 [v _main main `(v  1 e 1 0 ]
 "2 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL/pwm.h
 [v _freq freq `l  1 e 4 0 ]
@@ -74,14 +74,14 @@
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-"357 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+"358 C:\Program Files\Microchip\xc8\v2.32\pic\include\proc\pic16f877a.h
 [u S162 . 1 `S153 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES162  1 e 1 @8 ]
 [s S63 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
-"758
+"759
 [s S67 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
@@ -92,13 +92,13 @@
 ]
 [u S75 . 1 `S63 1 . 1 0 `S67 1 . 1 0 ]
 [v _T2CONbits T2CONbits `VES75  1 e 1 @18 ]
-"892
+"893
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
 [s S41 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 CCP1Y 1 0 :1:4 
 `uc 1 CCP1X 1 0 :1:5 
 ]
-"924
+"925
 [s S45 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
@@ -106,17 +106,17 @@
 ]
 [u S50 . 1 `S41 1 . 1 0 `S45 1 . 1 0 ]
 [v _CCP1CONbits CCP1CONbits `VES50  1 e 1 @23 ]
-"1059
+"1060
 [v _TXREG TXREG `VEuc  1 e 1 @25 ]
-"1066
+"1067
 [v _RCREG RCREG `VEuc  1 e 1 @26 ]
-"1080
+"1081
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @27 ]
 [s S112 . 1 `uc 1 CCP2M 1 0 :4:0 
 `uc 1 CCP2Y 1 0 :1:4 
 `uc 1 CCP2X 1 0 :1:5 
 ]
-"1112
+"1113
 [s S116 . 1 `uc 1 CCP2M0 1 0 :1:0 
 `uc 1 CCP2M1 1 0 :1:1 
 `uc 1 CCP2M2 1 0 :1:2 
@@ -124,11 +124,11 @@
 ]
 [u S121 . 1 `S112 1 . 1 0 `S116 1 . 1 0 ]
 [v _CCP2CONbits CCP2CONbits `VES121  1 e 1 @29 ]
-"1152
+"1153
 [v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
-"1159
+"1160
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
-"1325
+"1326
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 [s S91 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
@@ -139,46 +139,46 @@
 `uc 1 TRISC6 1 0 :1:6 
 `uc 1 TRISC7 1 0 :1:7 
 ]
-"1454
+"1455
 [u S100 . 1 `S91 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES100  1 e 1 @135 ]
-"1499
+"1500
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-"1816
+"1817
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
-"2080
+"2081
 [v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
-"2222
+"2223
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
-"2229
+"2230
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
-"2416
+"2417
 [v _BRGH BRGH `VEb  1 e 0 @1218 ]
-"2452
+"2453
 [v _CCP1X CCP1X `VEb  1 e 0 @189 ]
-"2455
+"2456
 [v _CCP1Y CCP1Y `VEb  1 e 0 @188 ]
-"2476
+"2477
 [v _CCP2X CCP2X `VEb  1 e 0 @237 ]
-"2479
+"2480
 [v _CCP2Y CCP2Y `VEb  1 e 0 @236 ]
-"2515
+"2516
 [v _CREN CREN `VEb  1 e 0 @196 ]
-"2578
+"2579
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @250 ]
-"2743
+"2744
 [v _RCIF RCIF `VEb  1 e 0 @101 ]
-"2812
+"2813
 [v _SPEN SPEN `VEb  1 e 0 @199 ]
-"2842
+"2843
 [v _SYNC SYNC `VEb  1 e 0 @1220 ]
-"2977
+"2978
 [v _TRISC6 TRISC6 `VEb  1 e 0 @1086 ]
-"2980
+"2981
 [v _TRISC7 TRISC7 `VEb  1 e 0 @1087 ]
-"3016
+"3017
 [v _TRMT TRMT `VEb  1 e 0 @1217 ]
-"3031
+"3032
 [v _TXEN TXEN `VEb  1 e 0 @1221 ]
 "358 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
 [v _dpowers dpowers `DC[5]ui  1 s 10 dpowers ]
@@ -191,10 +191,10 @@
 [v _D D `uc  1 e 1 0 ]
 "30
 [v _PID_Val PID_Val `uc  1 e 1 0 ]
-"83
+"91
 [v _main main `(v  1 e 1 0 ]
 {
-"107
+"115
 } 0
 "1 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL/uart.h
 [v _UART_Init UART_Init `(uc  1 e 1 0 ]
@@ -277,12 +277,12 @@
 [v ___aldiv@dividend dividend `l  1 p 4 4 ]
 "41
 } 0
-"72 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
+"80 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
 [v _PID PID `(v  1 e 1 0 ]
 {
-"73
-[v PID@uart_logs uart_logs `[50]uc  1 a 50 0 ]
 "81
+[v PID@uart_logs uart_logs `[50]uc  1 a 50 0 ]
+"89
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
@@ -364,18 +364,18 @@
 [v ___fladd@a a `d  1 p 4 4 ]
 "237
 } 0
-"52 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
+"50 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
 [v _AVG_Index AVG_Index `(v  1 e 1 0 ]
 {
-"54
+"52
 [v AVG_Index@uart_logs uart_logs `[50]uc  1 a 50 0 ]
-"53
+"51
 [v AVG_Index@x4 x4 `uc  1 a 1 54 ]
 [v AVG_Index@x3 x3 `uc  1 a 1 53 ]
 [v AVG_Index@x1 x1 `uc  1 a 1 52 ]
 [v AVG_Index@x0 x0 `uc  1 a 1 51 ]
 [v AVG_Index@x2 x2 `uc  1 a 1 50 ]
-"70
+"68
 } 0
 "505 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\doprnt.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
@@ -457,16 +457,16 @@
 [v UART_Write@data data `uc  1 a 1 0 ]
 "51
 } 0
-"43 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
+"41 C:\Users\Nguyen Truong An\AGV_Project\CENTRALIZED CONTROL\main.c
 [v _ADC_Read ADC_Read `(ui  1 e 2 0 ]
 {
 [v ADC_Read@channel channel `uc  1 a 1 wreg ]
 [v ADC_Read@channel channel `uc  1 a 1 wreg ]
 [v ADC_Read@channel channel `uc  1 a 1 4 ]
-"50
+"48
 } 0
-"38
+"36
 [v _ADC_Init ADC_Init `(v  1 e 1 0 ]
 {
-"41
+"39
 } 0

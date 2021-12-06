@@ -137,8 +137,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2932
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2932: extern volatile __bit TRISA5 __attribute__((address(0x42D)));
 [v _TRISA5 `Vb ~T0 @X0 0 e@1069 ]
-"42 newmain.c
-[; ;newmain.c: 42:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"41 newmain.c
+[; ;newmain.c: 41:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1175 32 33 34 35 36 37 .. ]
 [n E1175 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1183 0 128 .. ]
@@ -167,18 +167,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2749 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2749: extern volatile __bit RD0 __attribute__((address(0x40)));
 [v _RD0 `Vb ~T0 @X0 0 e@64 ]
+"194 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 [v F842 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF842 ~T0 @X0 0 e ]
 [p i __delay ]
-"45 ./spi.h
-[; ;./spi.h: 45: void spiWrite(char);
-[v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"808 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 808: extern volatile unsigned char SSPBUF __attribute__((address(0x013)));
-[v _SSPBUF `Vuc ~T0 @X0 0 e@19 ]
-"194 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "9 newmain.c
 [p x FOSC  =  XT    ]
 "10
@@ -826,178 +820,123 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "30 newmain.c
-[; ;newmain.c: 30: void main()
+[; ;newmain.c: 30: void main() {
 [v _main `(v ~T0 @X0 1 ef ]
-"31
-[; ;newmain.c: 31: {
 {
 [e :U _main ]
 [f ]
-"32
-[; ;newmain.c: 32:     TRISD = 0;
+"31
+[; ;newmain.c: 31:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"33
-[; ;newmain.c: 33:     PORTD = 0;
+"32
+[; ;newmain.c: 32:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"35
-[; ;newmain.c: 35:     GIE = 1;
+"34
+[; ;newmain.c: 34:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"36
-[; ;newmain.c: 36:     PEIE = 1;
+"35
+[; ;newmain.c: 35:     PEIE = 1;
 [e = _PEIE -> -> 1 `i `b ]
+"36
+[; ;newmain.c: 36:     SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
 "37
-[; ;newmain.c: 37:     SSPIF = 0;
-[e = _SSPIF -> -> 0 `i `b ]
-"38
-[; ;newmain.c: 38:     SSPIE = 1;
+[; ;newmain.c: 37:     SSPIE = 1;
 [e = _SSPIE -> -> 1 `i `b ]
-"39
-[; ;newmain.c: 39:     ADCON1 = 0x07;
+"38
+[; ;newmain.c: 38:     ADCON1 = 0x07;
 [e = _ADCON1 -> -> 7 `i `uc ]
-"40
-[; ;newmain.c: 40:     TRISA5 = 1;
+"39
+[; ;newmain.c: 39:     TRISA5 = 1;
 [e = _TRISA5 -> -> 1 `i `b ]
-"41
-[; ;newmain.c: 41:     UART_Init(9600);
+"40
+[; ;newmain.c: 40:     UART_Init(9600);
 [e ( _UART_Init (1 -> -> 9600 `i `l ]
-"42
-[; ;newmain.c: 42:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"41
+[; ;newmain.c: 41:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [e ( _spiInit (4 , , , . `E1175 4 . `E1183 0 . `E1187 1 . `E1191 0 ]
-"43
-[; ;newmain.c: 43:     PWM2_Init_Fre(1000);
+"42
+[; ;newmain.c: 42:     PWM2_Init_Fre(1000);
 [e ( _PWM2_Init_Fre (1 -> -> 1000 `i `l ]
-"44
-[; ;newmain.c: 44:     PWM1_Init_Fre(1000);
+"43
+[; ;newmain.c: 43:     PWM1_Init_Fre(1000);
 [e ( _PWM1_Init_Fre (1 -> -> 1000 `i `l ]
-"45
-[; ;newmain.c: 45:     PORTDbits.RD1 = 0;
+"44
+[; ;newmain.c: 44:     PORTDbits.RD1 = 0;
 [e = . . _PORTDbits 0 1 -> -> 0 `i `uc ]
-"46
-[; ;newmain.c: 46:     PORTDbits.RD2 = 1;
+"45
+[; ;newmain.c: 45:     PORTDbits.RD2 = 1;
 [e = . . _PORTDbits 0 2 -> -> 1 `i `uc ]
-"47
-[; ;newmain.c: 47:     PORTDbits.RD3 = 0;
+"46
+[; ;newmain.c: 46:     PORTDbits.RD3 = 0;
 [e = . . _PORTDbits 0 3 -> -> 0 `i `uc ]
-"48
-[; ;newmain.c: 48:     PORTDbits.RD4 = 1;
+"47
+[; ;newmain.c: 47:     PORTDbits.RD4 = 1;
 [e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
-"49
-[; ;newmain.c: 49:     while(1)
+"48
+[; ;newmain.c: 48:     while (1) {
 [e :U 134 ]
-"50
-[; ;newmain.c: 50:     {
 {
-"51
-[; ;newmain.c: 51:         PWM2_Duty(255);
+"49
+[; ;newmain.c: 49:         PWM2_Duty(255);
 [e ( _PWM2_Duty (1 -> -> 255 `i `ui ]
-"52
-[; ;newmain.c: 52:         PWM1_Duty(50);
+"50
+[; ;newmain.c: 50:         PWM1_Duty(50);
 [e ( _PWM1_Duty (1 -> -> 50 `i `ui ]
-"53
-[; ;newmain.c: 53:         PWM2_Start();
+"51
+[; ;newmain.c: 51:         PWM2_Start();
 [e ( _PWM2_Start ..  ]
-"54
-[; ;newmain.c: 54:         PWM1_Start();
+"52
+[; ;newmain.c: 52:         PWM1_Start();
 [e ( _PWM1_Start ..  ]
-"56
-[; ;newmain.c: 56:         if(SSPIF == 1)
+"54
+[; ;newmain.c: 54:         if (SSPIF == 1) {
 [e $ ! == -> _SSPIF `i -> 1 `i 136  ]
-"57
-[; ;newmain.c: 57:         {
 {
-"58
-[; ;newmain.c: 58:             char uart_logs [20];
+"55
+[; ;newmain.c: 55:             char uart_logs [20];
 [v _uart_logs `uc ~T0 @X0 -> 20 `i a ]
+"58
+[; ;newmain.c: 58:             int PID_Val = 0;
+[v _PID_Val `i ~T0 @X0 1 a ]
+[e = _PID_Val -> 0 `i ]
 "59
-[; ;newmain.c: 59:             int v_l, v_r, out = 0;
-[v _v_l `i ~T0 @X0 1 a ]
-[v _v_r `i ~T0 @X0 1 a ]
-[v _out `i ~T0 @X0 1 a ]
-[e = _out -> 0 `i ]
+[; ;newmain.c: 59:             PID_Val = spiRead();
+[e = _PID_Val -> ( _spiRead ..  `i ]
 "60
-[; ;newmain.c: 60:             out = spiRead ();
-[e = _out -> ( _spiRead ..  `i ]
-"61
-[; ;newmain.c: 61:             if (out == 1)
-[e $ ! == _out -> 1 `i 137  ]
-"62
-[; ;newmain.c: 62:             {
-{
-"63
-[; ;newmain.c: 63:                 RD0 = 1;
+[; ;newmain.c: 60:             RD0 = 1;
 [e = _RD0 -> -> 1 `i `b ]
+"62
+[; ;newmain.c: 62:             sprintf(uart_logs, "PID_Val = %d\n\r", PID_Val);
+[e ( _sprintf (1 , (. , &U _uart_logs :s 1C _PID_Val ]
+"63
+[; ;newmain.c: 63:             _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "64
-[; ;newmain.c: 64:                 _delay((unsigned long)((300)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"65
-[; ;newmain.c: 65:                 spiWrite (1);
-[e ( _spiWrite (1 -> -> 1 `i `uc ]
-"66
-[; ;newmain.c: 66:                 SSPBUF = 0;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"67
-[; ;newmain.c: 67:                 _delay((unsigned long)((5)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"68
-[; ;newmain.c: 68:                 v_l = spiRead ();
-[e = _v_l -> ( _spiRead ..  `i ]
-"69
-[; ;newmain.c: 69:                 SSPBUF = 0;
-[e = _SSPBUF -> -> 0 `i `uc ]
-"70
-[; ;newmain.c: 70:                 _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"71
-[; ;newmain.c: 71:                 v_r = spiRead ();
-[e = _v_r -> ( _spiRead ..  `i ]
-"73
-[; ;newmain.c: 73:                 sprintf(uart_logs, "v_left = %d\n\r", v_l);
-[e ( _sprintf (1 , (. , &U _uart_logs :s 1C _v_l ]
-"74
-[; ;newmain.c: 74:                 _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"75
-[; ;newmain.c: 75:                 UART_Write_Text(uart_logs);
+[; ;newmain.c: 64:             UART_Write_Text(uart_logs);
 [e ( _UART_Write_Text (1 &U _uart_logs ]
-"76
-[; ;newmain.c: 76:                 sprintf(uart_logs, "v_right = %d\n\r", v_r);
-[e ( _sprintf (1 , (. , &U _uart_logs :s 2C _v_r ]
-"77
-[; ;newmain.c: 77:                 _delay((unsigned long)((1)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"78
-[; ;newmain.c: 78:                 UART_Write_Text(uart_logs);
-[e ( _UART_Write_Text (1 &U _uart_logs ]
-"79
-[; ;newmain.c: 79:                 _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"80
-[; ;newmain.c: 80:             }
-}
-[e :U 137 ]
-"81
-[; ;newmain.c: 81:             RD0 = 0;
+"85
+[; ;newmain.c: 85:             RD0 = 0;
 [e = _RD0 -> -> 0 `i `b ]
-"82
-[; ;newmain.c: 82:             SSPIF = 0;
+"86
+[; ;newmain.c: 86:             SSPIF = 0;
 [e = _SSPIF -> -> 0 `i `b ]
-"83
-[; ;newmain.c: 83:         }
+"87
+[; ;newmain.c: 87:         }
 }
 [e :U 136 ]
-"84
-[; ;newmain.c: 84:         _delay((unsigned long)((5)*(8000000/4000.0)));
+"88
+[; ;newmain.c: 88:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"85
-[; ;newmain.c: 85:     }
+"89
+[; ;newmain.c: 89:     }
 }
 [e :U 133 ]
 [e $U 134  ]
 [e :U 135 ]
-"86
-[; ;newmain.c: 86: }
+"90
+[; ;newmain.c: 90: }
 [e :UE 132 ]
 }
 [p f _sprintf 8388736 ]
-[a 2C 118 95 114 105 103 104 116 32 61 32 37 100 10 13 0 ]
-[a 1C 118 95 108 101 102 116 32 61 32 37 100 10 13 0 ]
+[a 1C 80 73 68 95 86 97 108 32 61 32 37 100 10 13 0 ]

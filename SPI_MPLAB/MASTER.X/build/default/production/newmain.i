@@ -2063,27 +2063,26 @@ char spiRead();
 # 23 "newmain.c" 2
 
 
-int v_l, v_r;
-float k1 = 0.01;
-float k2 = 0.0005;
-float k3 = 0.01;
-float v_ref = 1800;
-float omega_ref = 3.6;
-int wheel_distance = 170;
-
-void computeLyapunov(float e2, float e3) {
-    float v, omega;
-    v = v_ref * cos(e3);
-    omega = k2 * v_ref * e2 + omega_ref + k3 * sin(e3);
-
-    v_r = (int) (2 * v + omega * wheel_distance) / 2;
-    v_l = (int) 2 * v - v_r;
+int e = 0;
+int pre_e = 0;
+int P = 0;
+int I = 0;
+int D = 0;
+int PID_Val = 0;
+float Kp = 0.8;
+float Ki = 0.6;
+float Kd = 0;
+# 52 "newmain.c"
+void PID() {
+    P = e;
+    I = I + e;
+    D = e - pre_e;
+    PID_Val = Kp * P + Ki * I + Kd*D;
 }
 
 void main() {
     nRBPU = 0;
     TRISA = 0;
-
     TRISD = 0;
     PORTD = 0;
     RA1 = 1;
@@ -2093,22 +2092,19 @@ void main() {
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 
     while (1) {
-        int e2 = 0;
-        int e3 = 0;
-        char out [10];
-        _delay((unsigned long)((300)*(8000000/4000.0)));
+        char uart_logs [20];
 
 
         RA1 = 0;
         _delay((unsigned long)((1)*(8000000/4000.0)));
 
         spiWrite(1);
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        e2 = spiRead();
+        _delay((unsigned long)((150)*(8000000/4000.0)));
+        e = spiRead();
 
-        sprintf(out, "e2 = %d\n\r", e2);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-        UART_Write_Text(out);
+        sprintf(uart_logs, "Error = %d\n\r", e);
+        _delay((unsigned long)((50)*(8000000/4000.0)));
+        UART_Write_Text(uart_logs);
 
         _delay((unsigned long)((1)*(8000000/4000.0)));
         RA1 = 1;
@@ -2118,25 +2114,21 @@ void main() {
         RA2 = 0;
         _delay((unsigned long)((1)*(8000000/4000.0)));
 
-        spiWrite(1);
-        _delay((unsigned long)((300)*(8000000/4000.0)));
-        e3 = spiRead();
-        sprintf(out, "e3 = %d\n\r", e3);
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-        UART_Write_Text(out);
+        PID();
+        spiWrite(PID_Val);
+        pre_e = e;
 
-
-        computeLyapunov(e2, e3);
-        spiWrite(v_l);
-        _delay((unsigned long)((10)*(8000000/4000.0)));
-        spiWrite(v_r);
+        sprintf(uart_logs, "PID_Val = %d\n\r", PID_Val);
+        _delay((unsigned long)((50)*(8000000/4000.0)));
+        UART_Write_Text(uart_logs);
 
         _delay((unsigned long)((1)*(8000000/4000.0)));
         RA2 = 1;
-
+# 125 "newmain.c"
         RD0 = 0;
         RD1 = 1;
         _delay((unsigned long)((500)*(8000000/4000.0)));
         RD1 = 0;
+        e = 0;
     }
 }

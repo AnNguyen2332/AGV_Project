@@ -1,0 +1,166 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 strtok.save
+022-025 _Randseed
+026-029 e_env
+02A-02D prev_e
+02E-02F v_ref
+030     p
+031     i
+032     D
+033     PID_Val
+034-037 Kp
+038-03B Ki
+03C-03F Kd
+040     @TRIS_C
+041-044 atan2.y
+041-042 MAIN.e
+043     AVG_Index.init
+043     PID.e
+043     MAIN.@SCRATCH1
+044-045 AVG_Index.x0
+044     @delay_ms1.P1
+044-047 @SFTOI.P2
+044     PID.@SCRATCH1
+044     MAIN.@SCRATCH2
+045-048 atan2.x
+045     PID.@SCRATCH2
+046-047 AVG_Index.x1
+046     PID.@SCRATCH3
+047     PID.@SCRATCH4
+048-049 @ITOF.P1
+048-049 AVG_Index.x2
+048-04B @ADDFF.P1
+048-04B @MULFF.P2
+049-04C atan2.z
+04A-04B AVG_Index.x3
+04C-04F @ADDFF.P1
+04C-04D AVG_Index.x4
+04C-04F @MULFF.P1
+04D.0   atan2.sign
+04E     atan2.quad
+04E-04F AVG_Index.x5
+050-051 AVG_Index.x6
+050     @MULFF.@SCRATCH1
+050     @ADDFF.@SCRATCH1
+051     @MULFF.@SCRATCH2
+051     @ADDFF.@SCRATCH2
+052-053 AVG_Index.e
+052     @MULFF.@SCRATCH3
+052     @ADDFF.@SCRATCH3
+053     @MULFF.@SCRATCH4
+053     @ADDFF.@SCRATCH4
+054     @PSTRINGCN7_9600_62_63.P1
+054-055 @PRINTF_LU_9600_62_63.P2
+054     @MULFF.@SCRATCH5
+054     @ADDFF.@SCRATCH5
+054     AVG_Index.@SCRATCH1
+055     @ADDFF.@SCRATCH6
+055     AVG_Index.@SCRATCH2
+055     @PSTRINGCN7_9600_62_63.@SCRATCH1
+056-057 Calib.x
+056-057 @MUL1616.P1
+056     @ADDFF.@SCRATCH7
+056     AVG_Index.@SCRATCH3
+056     @PSTRINGCN7_9600_62_63.@SCRATCH2
+056     @PRINTF_LU_9600_62_63.@SCRATCH1
+057     @ADDFF.@SCRATCH8
+057     AVG_Index.@SCRATCH4
+057     @PSTRINGCN7_9600_62_63.@SCRATCH3
+057     @PRINTF_LU_9600_62_63.@SCRATCH2
+058-059 @MUL1616.P1
+058-059 @DIV1616.P2
+058     @PSTRINGCN7_9600_62_63.@SCRATCH4
+058     @PRINTF_LU_9600_62_63.@SCRATCH3
+059     @PRINTF_LU_9600_62_63.@SCRATCH4
+05A-05B @DIV1616.P1
+05A     @MUL1616.@SCRATCH1
+05A     @PRINTF_LU_9600_62_63.@SCRATCH5
+05B     @PRINTF_LU_9600_62_63.@SCRATCH6
+05C     @DIV1616.@SCRATCH1
+05C     @PRINTF_LU_9600_62_63.@SCRATCH7
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const1130.call
+00000B  @const1135.call
+000010  @const1137.call
+000015  @const1139.call
+00001A  @const1141.call
+00001F  @const1143.call
+000024  @const1145.call
+000029  @const1147.call
+00002E  @const1149.call
+000037  @delay_ms1
+00004B  Calib
+00006E  @MUL1616
+000083  @PSTRINGCN7_9600_62_63
+0000DC  @PRINTF_LU_9600_62_63
+000135  AVG_Index
+0002B2  @DIV1616
+0003A0  @ITOF
+0003BD  @ADDFF
+0004FE  @SFTOI
+00051D  @MULFF
+000592  PID
+000644  @cinit1
+000644  MAIN
+000676  @cinit2
+0135  StrtoulGO
+0135  StrtolGO
+
+Project Directory:
+    C:\Users\Nguyen Truong An\AGV_Project\C_CONTROL_CCS\
+
+Project Files:
+    main.c                                                  [06-Dec-21 16:57  CRC=35399F46]
+    ..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h  [21-Jan-21 11:32  CRC=DB498A92]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\math.h     [05-May-20 12:57  CRC=02232397]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stdlib.h   [30-Jun-20 13:21  CRC=452E14BB]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h   [30-Jan-19 11:26  CRC=897CEC6C]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\string.h   [06-Apr-20 07:43  CRC=B1605627]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h    [03-Jan-08 14:55  CRC=2D1F019F]
+    ..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h    [31-Jul-07 14:24  CRC=4E4534F4]
+
+Source signature=5C5B1044
+Program memory checksum=0000
+Hex file CRC=999E
+
+Units:
+    C:\Users\Nguyen Truong An\AGV_Project\C_CONTROL_CCS\main (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:   CCS5
+
+Output Files:
+    XREF file:   main.xsym
+    Errors:      main.err
+    Ext Symbols: main.esym
+    INHX8:       main.hex
+    Symbols:     main.sym
+    List:        main.lst
+    Debug/COFF:  main.cof
+    Project:     main.ccspjt
+    Call Tree:   main.tre
+    Statistics:  main.STA

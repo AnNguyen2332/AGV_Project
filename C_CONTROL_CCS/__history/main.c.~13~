@@ -1,0 +1,120 @@
+
+#include <16F877.h>
+#device ADC=10
+#use delay(clock=20000000)
+#use rs232 (baud = 9600, parity = N, xmit = PIN_C6, rcv = PIN_C7, bits = 8)
+#include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+float e = 0, prev_e = 0;
+char P = 0, I = 0, D = 0;
+float Kp = 0.8;
+float Ki = 0.6;
+float Kd = 0;
+int v_l = 0, v_r = 0;
+int prev_vl = 0, prev_vr = 0;
+float k2 = 0.0005;
+float k3 = 0.01;
+float v_ref = 1800;
+float omega_ref = 3.6;
+int wheel_distance = 163;
+char en_l = 0, en_r = 0;
+
+void AVG_Index() 
+{
+   UNSIGNED char x0, x1, x2, x3, x4;
+   
+   set_adc_channel (0);
+   delay_us (10);
+   x0 = read_adc ();
+   
+   set_adc_channel (1);
+   delay_us (10);
+   x1 = read_adc ();
+   
+   set_adc_channel (2);
+   delay_us (10);
+   x2 = read_adc ();
+   
+   set_adc_channel (3);
+   delay_us (10);
+   x3 = read_adc ();
+   
+   set_adc_channel (4);
+   delay_us (10);
+   x4 = read_adc ();
+   
+   e = 17 * (( - 2) * x0 + ( - 1) * x1 + 0 * x2 + 1 * x3 + 2 * x4) / (x0 + x1 + x2 + x3 + x4);
+   printf ("CB1 = %c\t", x0);
+   printf ("CB2 = %c\t", x1);
+   printf ("CB3 = %c\t", x2);
+   printf ("CB4 = %c\t", x3);
+   printf ("CB5 = %c\t", x4);
+   
+   printf ("Khoang cach = %f\t", e);
+   printf ("\t\t\t\t\t\t");
+}
+
+void Lyapunov(FLOAT e2) 
+{
+   FLOAT v, omega;
+   v = v_ref * cos (0);
+   omega = k2 * v_ref * e2 + omega_ref + k3 * sin (0) ;
+   v_r = (INT) (2 * v + omega * wheel_distance) / 2;
+   v_l = (INT) 2 * v - v_r;
+}
+
+float PID (INT v, int prev_v) 
+{
+   FLOAT PID_Val = 0;
+   P = v;
+   I = I + v;
+   D = v - prev_v;
+   PID_Val = Kp * P + Ki * I + Kd*D;
+   RETURN PID_Val;
+}
+
+void main()
+{
+   setup_adc_ports (ALL_ANALOG);
+   setup_adc (ADC_CLOCK_INTERNAL);
+
+   WHILE (TRUE)
+   {
+      UNSIGNED char x0, x1, x2, x3, x4;
+   
+      set_adc_channel (0);
+      delay_us (10);
+      x0 = read_adc ();
+      
+      set_adc_channel (1);
+      delay_us (10);
+      x1 = read_adc ();
+      
+      set_adc_channel (2);
+      delay_us (10);
+      x2 = read_adc ();
+      
+      set_adc_channel (3);
+      delay_us (10);
+      x3 = read_adc ();
+      
+      set_adc_channel (4);
+      delay_us (10);
+      x4 = read_adc ();
+      
+      e = 17 * (( - 2) * x0 + ( - 1) * x1 + 0 * x2 + 1 * x3 + 2 * x4) / (x0 + x1 + x2 + x3 + x4);
+      printf ("CB1 = %c\t", x0);
+      printf ("CB2 = %c\t", x1);
+      printf ("CB3 = %c\t", x2);
+      printf ("CB4 = %c\t", x3);
+      printf ("CB5 = %c\t", x4);
+      
+      printf ("Khoang cach = %f\t", e);
+      printf ("\t\t\t\t\t\t");
+      delay_ms (1000);
+   }
+}
+

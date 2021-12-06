@@ -1,0 +1,106 @@
+[PROJECT]
+Target=main.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.101
+Compiler=PCM
+CCSVersion=5.101
+[Target Data]
+FileList=main.c
+[Directories]
+Include=
+[C:\Users\Nguyen Truong An\AGV_Project\C_CONTROL_CCS\main]
+Type=4
+[mru-list]
+1=main.c
+
+[fileformats]
+forcecoff=0
+
+[ProjectLog]
+Days=3
+D1=03-12-2021
+D1_L=10
+D1_L1=[49204]Project Opened.
+D1_L2=[49249]Started Editing.
+D1_L3=[50565]Stopped Editing.
+D1_L4=[50648]Started Editing.
+D1_L5=[51176]Stopped Editing.
+TotalEdit=118
+TotalDebug=0
+D1_E=47
+D1_D=0
+D1_L6=[51177]Project Closed.
+D1_L7=[51606]Project Opened.
+D1_L8=[51612]Started Editing.
+D1_L9=[52849]Stopped Editing.
+D1_L10=[52849]Project Closed.
+D2=04-12-2021
+D2_L=20
+D2_L1=[51333]Project Opened.
+D2_L2=[51495]Started Editing.
+D2_L3=[52678]Stopped Editing.
+D2_E=53
+D2_D=0
+D2_L4=[52678]Project Closed.
+D2_L5=[54640]Project Opened.
+D2_L6=[54649]Started Editing.
+D2_L7=[55330]Stopped Editing.
+D2_L8=[56413]Started Editing.
+D2_L9=[57331]Stopped Editing.
+D2_L10=[57331]Project Closed.
+D2_L11=[57759]Project Opened.
+D2_L12=[57788]Started Editing.
+D2_L13=[58257]Stopped Editing.
+D2_L14=[58888]Started Editing.
+D2_L15=[59328]Stopped Editing.
+D2_L16=[59815]Started Editing.
+D2_L17=[60111]Stopped Editing.
+D2_L18=[60111]Project Closed.
+D2_L19=[60874]Project Opened.
+D2_L20=[60944]Project Closed.
+D3=06-12-2021
+D3_L=27
+D3_L1=[34469]Project Opened.
+D3_L2=[34609]Started Editing.
+D3_L3=[35082]Stopped Editing.
+D3_L4=[35567]Started Editing.
+D3_L5=[35916]Stopped Editing.
+D3_L6=[36527]Started Editing.
+D3_L7=[36884]Stopped Editing.
+D3_L8=[37309]Started Editing.
+D3_L9=[37609]Stopped Editing.
+D3_L10=[38440]Started Editing.
+D3_L11=[39150]Stopped Editing.
+D3_L12=[42652]Started Editing.
+D3_L13=[42988]Stopped Editing.
+D3_L14=[48004]Started Editing.
+D3_L15=[48326]Stopped Editing.
+D3_L16=[49500]Started Editing.
+D3_L17=[49898]Stopped Editing.
+D3_E=18
+D3_D=0
+D3_L18=[56486]Project Closed.
+D3_L19=[60527]Project Opened.
+D3_L20=[60549]Started Editing.
+D3_L21=[60636]Stopped Editing.
+D3_L22=[60636]Project Closed.
+D3_L23=[61011]Project Opened.
+D3_L24=[61026]Started Editing.
+D3_L25=[61327]Stopped Editing.
+D3_L26=[62274]Project Closed.
+D3_L27=[67727]Project Opened.
+
+[Opened Files]
+1=main.c
+t1=1
+Count=1
+2=main.h
+t2=1
+[main.c]
+Type=4
+
+[defines]
+buildcount=49
+[Units]
+Count=1
+1=main (main)

@@ -27,38 +27,42 @@
 #include "uart.h"
 #include "pwm.h"
 
-void main()
-{
-    TRISD = 0;                 //PORTD as output
-    PORTD = 0;              //All LEDs OFF
+void main() {
+    TRISD = 0; //PORTD as output
+    PORTD = 0; //All LEDs OFF
 
     GIE = 1;
     PEIE = 1;
     SSPIF = 0;
     SSPIE = 1;
     ADCON1 = 0x07;
-    TRISA5 = 1; 
+    TRISA5 = 1;
     UART_Init(9600);
     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
-    PWM2_Init_Fre(1000);// tan so
-    PWM1_Init_Fre(1000);// tan so
+    PWM2_Init_Fre(1000); // tan so
+    PWM1_Init_Fre(1000); // tan so
     PORTDbits.RD1 = 0; //0
     PORTDbits.RD2 = 1;
     PORTDbits.RD3 = 0; //0
     PORTDbits.RD4 = 1;
-    while(1)
-    {
+    while (1) {
         PWM2_Duty(255);
         PWM1_Duty(50);
         PWM2_Start();
         PWM1_Start();
-  
-        if(SSPIF == 1)
-        {
+
+        if (SSPIF == 1) {
             char uart_logs [20];
-            int v_l, v_r, out = 0;
-            out = spiRead ();
-            if (out == 1)
+            //int v_l, v_r;
+            
+            int PID_Val = 0;
+            PID_Val = spiRead();
+            RD0 = 1;
+
+            sprintf(uart_logs, "PID_Val = %d\n\r", PID_Val);
+            __delay_ms(50);
+            UART_Write_Text(uart_logs);
+            /*if (out == 1)
             {
                 RD0 = 1;
                 __delay_ms (300);
@@ -77,10 +81,10 @@ void main()
                 __delay_ms (1);
                 UART_Write_Text(uart_logs);
                 __delay_ms (100);
-            } 
+            }*/
             RD0 = 0;
             SSPIF = 0;
         }
         __delay_ms(5);
-    }    
+    }
 }

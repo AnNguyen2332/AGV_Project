@@ -2174,8 +2174,7 @@ PWM2_Stop()
 # 28 "newmain.c" 2
 
 
-void main()
-{
+void main() {
     TRISD = 0;
     PORTD = 0;
 
@@ -2193,38 +2192,24 @@ void main()
     PORTDbits.RD2 = 1;
     PORTDbits.RD3 = 0;
     PORTDbits.RD4 = 1;
-    while(1)
-    {
+    while (1) {
         PWM2_Duty(255);
         PWM1_Duty(50);
         PWM2_Start();
         PWM1_Start();
 
-        if(SSPIF == 1)
-        {
+        if (SSPIF == 1) {
             char uart_logs [20];
-            int v_l, v_r, out = 0;
-            out = spiRead ();
-            if (out == 1)
-            {
-                RD0 = 1;
-                _delay((unsigned long)((300)*(8000000/4000.0)));
-                spiWrite (1);
-                SSPBUF = 0;
-                _delay((unsigned long)((5)*(8000000/4000.0)));
-                v_l = spiRead ();
-                SSPBUF = 0;
-                _delay((unsigned long)((10)*(8000000/4000.0)));
-                v_r = spiRead ();
 
-                sprintf(uart_logs, "v_left = %d\n\r", v_l);
-                _delay((unsigned long)((1)*(8000000/4000.0)));
-                UART_Write_Text(uart_logs);
-                sprintf(uart_logs, "v_right = %d\n\r", v_r);
-                _delay((unsigned long)((1)*(8000000/4000.0)));
-                UART_Write_Text(uart_logs);
-                _delay((unsigned long)((100)*(8000000/4000.0)));
-            }
+
+            int PID_Val = 0;
+            PID_Val = spiRead();
+            RD0 = 1;
+
+            sprintf(uart_logs, "PID_Val = %d\n\r", PID_Val);
+            _delay((unsigned long)((50)*(8000000/4000.0)));
+            UART_Write_Text(uart_logs);
+# 85 "newmain.c"
             RD0 = 0;
             SSPIF = 0;
         }
